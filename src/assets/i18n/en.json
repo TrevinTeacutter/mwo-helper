@@ -1,12 +1,32 @@
 {
-  "PAGES": {
-      "HOME": {
-          "TITLE": "App works !",
-          "GO_TO_DETAIL": "Go to Detail"
+    "PAGES": {
+        "HOME": {
+            "TITLE": "App works !",
+            "GO_TO_DETAIL": "Go to Detail",
+            "GO_TO_TEAM": "Go to Teams",
+            "GO_TO_PLAYER": "Go to Players",
+            "GO_TO_SERIES": "Go to Series'",
+            "GO_TO_MATCH": "Go to Matches",
+            "GO_TO_SETTINGS": "Go to Settings"
+        },
+        "DETAIL": {
+          "TITLE": "Detail page !",
+          "BACK_TO_HOME": "Back to Home"
+        },
+      "TEAM": {
+        "TITLE": "Team page !"
       },
-      "DETAIL": {
-        "TITLE": "Detail page !",
-        "BACK_TO_HOME": "Back to Home"
+      "PLAYER": {
+        "TITLE": "Player page !"
+      },
+      "SERIES": {
+        "TITLE": "Series page !"
+      },
+      "MATCH": {
+        "TITLE": "Match page !"
+      },
+      "SETTINGS": {
+        "TITLE": "Settings page !"
+      }
     }
-  }
 }

@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { ElectronService } from './core/services';
-import { TranslateService } from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import { APP_CONFIG } from '../environments/environment';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, TranslateModule]
 })
 export class AppComponent {
   constructor(

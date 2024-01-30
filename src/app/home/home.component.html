@@ -1,7 +1,39 @@
+<router-outlet></router-outlet>
 <div class="container">
   <h1 class="title">
     {{ 'PAGES.HOME.TITLE' | translate }}
   </h1>
 
-  <a routerLink="/detail">{{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}</a>
+  <nav>
+    <a class="detail" routerLink="/detail"
+       routerLinkActive="activebutton"
+       ariaCurrentWhenActive="page">
+      {{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}
+    </a>
+    <a class="team" routerLink="/team"
+       routerLinkActive="activebutton"
+       ariaCurrentWhenActive="page">
+      {{ 'PAGES.HOME.GO_TO_TEAM' | translate }}
+    </a>
+    <a class="player" routerLink="/player"
+       routerLinkActive="activebutton"
+       ariaCurrentWhenActive="page">
+      {{ 'PAGES.HOME.GO_TO_PLAYER' | translate }}
+    </a>
+    <a class="series" routerLink="/series"
+       routerLinkActive="activebutton"
+       ariaCurrentWhenActive="page">
+      {{ 'PAGES.HOME.GO_TO_SERIES' | translate }}
+    </a>
+    <a class="match" routerLink="/match"
+       routerLinkActive="activebutton"
+       ariaCurrentWhenActive="page">
+      {{ 'PAGES.HOME.GO_TO_MATCH' | translate }}
+    </a>
+    <a class="settings" routerLink="/settings"
+       routerLinkActive="activebutton"
+       ariaCurrentWhenActive="page">
+      {{ 'PAGES.HOME.GO_TO_SETTINGS' | translate }}
+    </a>
+  </nav>
 </div>
