@@ -2,4 +2,14 @@
   <h1 class="title">
     {{ 'PAGES.MATCH.TITLE' | translate }}
   </h1>
+
+  <form [formGroup]="matchSubmit" (ngSubmit)="onSubmit()">
+    <label for="apiKey">API Key: </label>
+    <input id="apiKey" type="text" formControlName="apiKey">
+
+    <label for="matchID">Match ID: </label>
+    <input id="matchID" type="text" formControlName="matchID">
+
+    <button type="submit" [disabled]="!matchSubmit.valid">Submit</button>
+  </form>
 </div>
