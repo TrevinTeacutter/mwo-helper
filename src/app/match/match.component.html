@@ -4,12 +4,134 @@
   </h1>
 
   <form [formGroup]="matchSubmit" (ngSubmit)="onSubmit()">
-    <label for="apiKey">API Key: </label>
+    <label for="apiKey">
+      {{ 'PAGES.MATCH.APIKEY' | translate }}
+    </label>
     <input id="apiKey" type="text" formControlName="apiKey">
 
-    <label for="matchID">Match ID: </label>
+    <label for="matchID">
+      {{ 'PAGES.MATCH.MATCHID' | translate }}
+    </label>
     <input id="matchID" type="text" formControlName="matchID">
 
     <button type="submit" [disabled]="!matchSubmit.valid">Submit</button>
   </form>
+
+  <h2 class="title">
+    {{ 'PAGES.MATCH.TEAM1' | translate }}
+  </h2>
+
+  <table mat-table [dataSource]="team1" class="mat-elevation-z8">
+    <ng-container matColumnDef="pilot">
+      <th mat-header-cell *matHeaderCellDef> Pilot </th>
+      <td mat-cell *matCellDef="let element"> {{element.pilot}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lance">
+      <th mat-header-cell *matHeaderCellDef> Lance </th>
+      <td mat-cell *matCellDef="let element"> {{element.lance}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mech">
+      <th mat-header-cell *matHeaderCellDef> Mech </th>
+      <td mat-cell *matCellDef="let element"> {{element.mech}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="kills">
+      <th mat-header-cell *matHeaderCellDef> Kills </th>
+      <td mat-cell *matCellDef="let element"> {{element.kills}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="assists">
+      <th mat-header-cell *matHeaderCellDef> Assists </th>
+      <td mat-cell *matCellDef="let element"> {{element.assists}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="damage">
+      <th mat-header-cell *matHeaderCellDef> Damage </th>
+      <td mat-cell *matCellDef="let element"> {{element.damage}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="teamDamage">
+      <th mat-header-cell *matHeaderCellDef> Team Damage </th>
+      <td mat-cell *matCellDef="let element"> {{element.teamDamage}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="health">
+      <th mat-header-cell *matHeaderCellDef> Health </th>
+      <td mat-cell *matCellDef="let element"> {{element.health}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="matchScore">
+      <th mat-header-cell *matHeaderCellDef> Match Score </th>
+      <td mat-cell *matCellDef="let element"> {{element.matchScore}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <h2 class="title">
+    {{ 'PAGES.MATCH.TEAM2' | translate }}
+  </h2>
+
+  <table mat-table [dataSource]="team2" class="mat-elevation-z8">
+    <ng-container matColumnDef="pilot">
+      <th mat-header-cell *matHeaderCellDef> Pilot </th>
+      <td mat-cell *matCellDef="let element"> {{element.pilot}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lance">
+      <th mat-header-cell *matHeaderCellDef> Lance </th>
+      <td mat-cell *matCellDef="let element"> {{element.lance}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mech">
+      <th mat-header-cell *matHeaderCellDef> Mech </th>
+      <td mat-cell *matCellDef="let element"> {{element.mech}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="kills">
+      <th mat-header-cell *matHeaderCellDef> Kills </th>
+      <td mat-cell *matCellDef="let element"> {{element.kills}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="assists">
+      <th mat-header-cell *matHeaderCellDef> Assists </th>
+      <td mat-cell *matCellDef="let element"> {{element.assists}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="damage">
+      <th mat-header-cell *matHeaderCellDef> Damage </th>
+      <td mat-cell *matCellDef="let element"> {{element.damage}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="teamDamage">
+      <th mat-header-cell *matHeaderCellDef> Team Damage </th>
+      <td mat-cell *matCellDef="let element"> {{element.teamDamage}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="health">
+      <th mat-header-cell *matHeaderCellDef> Health </th>
+      <td mat-cell *matCellDef="let element"> {{element.health}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="matchScore">
+      <th mat-header-cell *matHeaderCellDef> Match Score </th>
+      <td mat-cell *matCellDef="let element"> {{element.matchScore}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>

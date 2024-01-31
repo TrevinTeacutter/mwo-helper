@@ -23,7 +23,11 @@
         "TITLE": "Series page !"
       },
       "MATCH": {
-        "TITLE": "Match page !"
+        "TITLE": "Match Details",
+        "APIKEY": "API Key",
+        "MATCHID": "Match ID",
+        "TEAM1": "Team 1",
+        "TEAM2": "Team 2"
       },
       "SETTINGS": {
         "TITLE": "Settings page !"
