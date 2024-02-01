@@ -3,7 +3,6 @@ import {ElectronService} from './core/services';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {APP_CONFIG} from '../environments/environment';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +10,6 @@ import {HttpClientModule} from "@angular/common/http";
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
-    HttpClientModule,
     RouterOutlet,
     RouterLink,
     RouterLinkActive,

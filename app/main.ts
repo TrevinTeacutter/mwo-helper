@@ -1,6 +1,48 @@
-import {app, BrowserWindow, screen} from 'electron';
+import {app, BrowserWindow, ipcMain, screen} from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
+import fetch from "node-fetch";
+
+export interface Response {
+  MatchDetails: MatchDetails,
+  UserDetails: UserDetails[],
+}
+
+export interface MatchDetails {
+  Map: string;
+  ViewMode: string;
+  TimeOfDay: string;
+  GameMode: string;
+  Region: string;
+  MatchTimeMinutes: string;
+  UseStockLoadout: boolean;
+  NoMechQuirks: boolean;
+  NoMechEfficiencies: boolean;
+  WinningTeam: string;
+  Team1Score: number;
+  Team2Score: number;
+  MatchDuration: string;
+  CompleteTime: string;
+}
+
+export interface UserDetails {
+  Username: string;
+  IsSpectator: boolean;
+  Team: string;
+  Lance: string;
+  MechItemID: number;
+  MechName: string;
+  SkillTier: number;
+  HealthPercentage: number;
+  Kills: number;
+  KillsMostDamage: number;
+  Assists: number;
+  ComponentsDestroyed: number;
+  MatchScore: number;
+  Damage: number;
+  TeamDamage: number;
+  UnitTag: string;
+}
 
 let win: BrowserWindow | null = null;
 const args = process.argv.slice(1),
@@ -77,7 +119,18 @@ try {
     }
   });
 
+  app.whenReady().then(() => {
+    ipcMain.handle("matchDetails", async (event, apiKey: string, matchID: string) => {
+      console.debug(`apiKey(${apiKey}) matchID(${matchID})`)
+
+      const response = await fetch(`https://mwomercs.com/api/v1/matches/${matchID}?api_token=${apiKey}`);
+      const results: Response = JSON.parse(await response.text())
+
+      return results;
+    })
+  })
 } catch (e) {
   // Catch Error
   // throw e;
 }
+
