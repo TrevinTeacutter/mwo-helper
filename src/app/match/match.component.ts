@@ -65,7 +65,7 @@ export interface PilotDetails {
   standalone: true,
   imports: [TranslateModule, ReactiveFormsModule, MatTableModule],
 })
-export class MatchComponent implements OnInit {
+export class MatchComponent {
 
   displayedColumns: string[] = ['pilot', 'lance', 'mech', 'kills', 'assists', 'damage', 'teamDamage', 'status', 'health', 'matchScore'];
   team1: PilotDetails[] = [];
@@ -79,59 +79,64 @@ export class MatchComponent implements OnInit {
   constructor(private electronService: ElectronService) {
   }
 
-  ngOnInit(): void {
-    console.log('DetailComponent INIT');
-  }
-
-  async onSubmit() {
-    this.team1 = [];
-    this.team2 = [];
-
-    const response = this.electronService.ipcRenderer.invoke(
+  onSubmit() {
+    this.electronService.ipcRenderer.invoke(
       "matchDetails",
       <string>this.matchSubmit.value.apiKey,
       <string>this.matchSubmit.value.matchID,
-      );
-    const results: Response = await response;
+    ).then((value: string) => {
+      const team1: PilotDetails[] = [];
+      const team2: PilotDetails[] = [];
 
-    console.debug(results);
+      const results: Response = JSON.parse(value);
 
-    results.UserDetails.sort((a, b) => {
-      if (a.Lance < b.Lance) {
-        return -1;
-      }
+      results.UserDetails.sort((a, b) => {
+        if (a.Lance < b.Lance) {
+          return -1;
+        }
 
-      if (a.Lance > b.Lance) {
-        return 1;
-      }
+        if (a.Lance > b.Lance) {
+          return 1;
+        }
 
-      return 0;
-    }).forEach(element => {
-      if (element.IsSpectator) {
-        return
-      }
+        return 0;
+      }).forEach(element => {
+        if (element.IsSpectator) {
+          return
+        }
 
-      const pilotDetails: PilotDetails = {
-        pilot: element.Username,
-        lance: element.Lance,
-        mech: element.MechName,
-        kills: element.Kills,
-        assists: element.Assists,
-        damage: element.Damage,
-        teamDamage: element.TeamDamage,
-        status: element.HealthPercentage > 0 ? 'Alive' : 'Dead',
-        health: element.HealthPercentage,
-        matchScore: element.MatchScore,
-      }
+        const pilotDetails: PilotDetails = {
+          pilot: element.Username,
+          lance: element.Lance,
+          mech: element.MechName,
+          kills: element.Kills,
+          assists: element.Assists,
+          damage: element.Damage,
+          teamDamage: element.TeamDamage,
+          status: element.HealthPercentage > 0 ? 'Alive' : 'Dead',
+          health: element.HealthPercentage,
+          matchScore: element.MatchScore,
+        }
 
-      switch (element.Team) {
-        case "1":
-          this.team1.push(pilotDetails)
-          break;
-        default:
-          this.team2.push(pilotDetails)
-          break;
-      }
-    })
+        switch (element.Team) {
+          case '1':
+            team1.push(pilotDetails)
+            break;
+          case '2':
+            team2.push(pilotDetails)
+            break;
+          default:
+            return;
+        }
+      })
+
+      this.team1 = team1;
+      this.team2 = team2;
+    }).catch(reason =>
+      console.error(reason)
+    );
+
+    console.log(this.team1)
+    console.log(this.team2)
   }
 }

@@ -9,16 +9,16 @@ import {SettingsComponent} from "./settings/settings.component";
 import {PageNotFoundComponent} from "./shared/components";
 
 export const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'detail', component: DetailComponent},
-  {path: 'team', component: TeamComponent},
-  {path: 'player', component: PlayerComponent},
-  {path: 'series', component: SeriesComponent},
+  // {path: 'home', component: HomeComponent},
+  // {path: 'detail', component: DetailComponent},
+  // {path: 'team', component: TeamComponent},
+  // {path: 'player', component: PlayerComponent},
+  // {path: 'series', component: SeriesComponent},
+  // {path: 'settings', component: SettingsComponent},
   {path: 'match', component: MatchComponent},
-  {path: 'settings', component: SettingsComponent},
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/match',
     pathMatch: 'full'
   },
   {
