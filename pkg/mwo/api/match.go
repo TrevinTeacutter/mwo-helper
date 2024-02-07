@@ -7,7 +7,7 @@ import (
 	"github.com/go-resty/resty/v2"
 )
 
-func Match(ctx context.Context, client *resty.Client, matchID, apiKey string) (MatchResponse, error) {
+func Match(ctx context.Context, client *resty.Client, apiKey, matchID string) (MatchResponse, error) {
 	var results MatchResponse
 
 	response, err := client.R().
@@ -21,7 +21,7 @@ func Match(ctx context.Context, client *resty.Client, matchID, apiKey string) (M
 	}
 
 	if response.IsError() {
-		return results, fmt.Errorf("%v", response.Error())
+		return results, fmt.Errorf("%v", string(response.Body()))
 	}
 
 	return results, nil

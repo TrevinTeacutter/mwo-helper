@@ -16,18 +16,16 @@ import (
 )
 
 type Input struct {
-	selector *widget.Clickable
-	apiKey   *widget.Editor
-	matchID  *widget.Editor
-	submit   *widget.Clickable
-	client   *resty.Client
+	apiKey  *widget.Editor
+	matchID *widget.Editor
+	submit  *widget.Clickable
+	client  *resty.Client
 
-	current api.MatchResponse
+	matches chan<- api.MatchResponse
 }
 
-func NewInput() *Input {
+func NewInput(matches chan<- api.MatchResponse) *Input {
 	return &Input{
-		selector: new(widget.Clickable),
 		apiKey: &widget.Editor{
 			Alignment:  text.Start,
 			SingleLine: true,
@@ -39,8 +37,9 @@ func NewInput() *Input {
 			SingleLine: true,
 			Filter:     "0123456789",
 		},
-		submit: new(widget.Clickable),
-		client: resty.New(),
+		submit:  new(widget.Clickable),
+		client:  resty.New(),
+		matches: matches,
 	}
 }
 
@@ -49,17 +48,6 @@ func (i *Input) Layout(gtx layout.Context, theme *material.Theme) layout.Dimensi
 		Alignment: layout.Middle,
 		Axis:      layout.Horizontal,
 	}.Layout(gtx,
-		layout.Flexed(0.5, func(gtx layout.Context) layout.Dimensions {
-			return layout.UniformInset(2).Layout(gtx, func(gtx layout.Context) layout.Dimensions {
-				if i.selector.Clicked(gtx) {
-					// launch model for selecting match
-
-					for i.selector.Clicked(gtx) {
-					}
-				}
-				return material.Button(theme, i.selector, "Select").Layout(gtx)
-			})
-		}),
 		layout.Flexed(1.0, func(gtx layout.Context) layout.Dimensions {
 			return layout.UniformInset(2).Layout(gtx, func(gtx layout.Context) layout.Dimensions {
 				return material.Editor(theme, i.apiKey, "API Key").Layout(gtx)
@@ -86,20 +74,18 @@ func (i *Input) Layout(gtx layout.Context, theme *material.Theme) layout.Dimensi
 	)
 }
 
-func (i *Input) Match() api.MatchResponse {
-	return i.current
-}
-
 func (i *Input) updateDetails() error {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 
 	defer cancel()
 
-	var err error
-
-	i.current, err = api.Match(ctx, i.client, i.apiKey.Text(), i.matchID.Text())
+	results, err := api.Match(ctx, i.client, i.apiKey.Text(), i.matchID.Text())
 	if err != nil {
 		return err
+	}
+
+	select {
+	case i.matches <- results:
 	}
 
 	return nil

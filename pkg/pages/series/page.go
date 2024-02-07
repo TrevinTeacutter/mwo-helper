@@ -2,7 +2,6 @@ package series
 
 import (
 	"gioui.org/layout"
-	"gioui.org/widget"
 	"gioui.org/widget/material"
 	"gioui.org/x/component"
 
@@ -13,14 +12,23 @@ import (
 // Page holds the state for a page demonstrating the features of
 // the AppBar component.
 type Page struct {
-	list  widget.List
 	input *Input
+	tabs  *TabComponent
+
+	series  chan SeriesDetails
+	matches chan MatchDetails
 }
 
 // New constructs a Page with the provided router.
 func New() *Page {
+	series := make(chan SeriesDetails, 1)
+	matches := make(chan MatchDetails, 1)
+
 	return &Page{
-		input: NewInput(),
+		input:   NewInput(series, matches),
+		tabs:    NewTabComponent(series, matches),
+		series:  series,
+		matches: matches,
 	}
 }
 
@@ -42,15 +50,15 @@ func (p *Page) NavItem() component.NavItem {
 }
 
 func (p *Page) Layout(gtx layout.Context, theme *material.Theme) layout.Dimensions {
-	p.list.Axis = layout.Vertical
-	return material.List(theme, &p.list).Layout(gtx, 1, func(gtx layout.Context, _ int) layout.Dimensions {
-		return layout.Flex{
-			Alignment: layout.Middle,
-			Axis:      layout.Vertical,
-		}.Layout(gtx,
-			layout.Rigid(func(gtx layout.Context) layout.Dimensions {
-				return p.input.Layout(gtx, theme)
-			}),
-		)
-	})
+	return layout.Flex{
+		Alignment: layout.Middle,
+		Axis:      layout.Vertical,
+	}.Layout(gtx,
+		layout.Rigid(func(gtx layout.Context) layout.Dimensions {
+			return p.input.Layout(gtx, theme)
+		}),
+		layout.Flexed(1, func(gtx layout.Context) layout.Dimensions {
+			return p.tabs.Layout(gtx, theme)
+		}),
+	)
 }
