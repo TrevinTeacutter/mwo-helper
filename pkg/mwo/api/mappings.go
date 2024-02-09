@@ -1,6 +1,6 @@
-package series
+package api
 
-func variantToChassis(variant string) string {
+func VariantToChassis(variant string) string {
 	switch variant {
 	case "adr-prime", "adr-primec", "adr-primei", "adr-primeg", "adr-a", "adr-ap", "adr-d", "adr-b", "adr-cinder", "adr-w", "adr-wl":
 		return "Adder"
@@ -51,7 +51,7 @@ func variantToChassis(variant string) string {
 	}
 }
 
-func variantDedupe(variant string) string {
+func VariantDedupe(variant string) string {
 	switch variant {
 	case "adr-primec", "adr-primeg", "adr-primei":
 		return "adr-prime"

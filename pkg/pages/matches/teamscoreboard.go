@@ -71,7 +71,7 @@ func (s *TeamScoreboard) ScoreColumn(theme *material.Theme, score int, playerCou
 			func(gtx layout.Context, col int) layout.Dimensions {
 				headingLabel.Text = "Score"
 
-				return s.StyleCell(gtx, headingLabel)
+				return s.StyleCell(gtx, headingLabel.Layout)
 			},
 			func(gtx layout.Context, row, col int) layout.Dimensions {
 				switch col {
@@ -85,7 +85,7 @@ func (s *TeamScoreboard) ScoreColumn(theme *material.Theme, score int, playerCou
 					}
 				}
 
-				return s.StyleCell(gtx, dataLabel)
+				return s.StyleCell(gtx, dataLabel.Layout)
 			},
 		)
 	})
@@ -119,7 +119,7 @@ func (s *TeamScoreboard) Table(theme *material.Theme, users []api.UserDetails) l
 			func(gtx layout.Context, col int) layout.Dimensions {
 				headingLabel.Text = headingText[col]
 
-				return s.StyleCell(gtx, headingLabel)
+				return s.StyleCell(gtx, headingLabel.Layout)
 			},
 			func(gtx layout.Context, row, col int) layout.Dimensions {
 				player := users[row]
@@ -147,17 +147,18 @@ func (s *TeamScoreboard) Table(theme *material.Theme, users []api.UserDetails) l
 				case 10:
 					dataLabel.Text = strconv.Itoa(player.TeamDamage)
 				}
+				material.ProgressBar(theme, float32(player.HealthPercentage)/100).Layout(gtx)
 
-				return s.StyleCell(gtx, dataLabel)
+				return s.StyleCell(gtx, dataLabel.Layout)
 			},
 		)
 	})
 }
 
-func (s *TeamScoreboard) StyleCell(gtx layout.Context, l material.LabelStyle) layout.Dimensions {
+func (s *TeamScoreboard) StyleCell(gtx layout.Context, widget layout.Widget) layout.Dimensions {
 	return s.cellBorder.Layout(gtx, func(gtx layout.Context) layout.Dimensions {
 		return s.cellInset.Layout(gtx, func(gtx layout.Context) layout.Dimensions {
-			return l.Layout(gtx)
+			return widget(gtx)
 		})
 	})
 }

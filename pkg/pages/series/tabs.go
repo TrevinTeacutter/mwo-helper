@@ -1,7 +1,6 @@
 package series
 
 import (
-	"fmt"
 	"image"
 	"strconv"
 
@@ -67,8 +66,6 @@ func (t *TabComponent) Layout(gtx layout.Context, theme *material.Theme) layout.
 					tab := t.tabs[index]
 
 					if tab.button.Clicked(gtx) {
-						fmt.Println("clicked tab ", index)
-
 						t.selected = index
 					}
 
@@ -127,6 +124,7 @@ func (t *TabComponent) Reset(series SeriesDetails) {
 
 func (t *TabComponent) AddMatch(match MatchDetails) {
 	if len(t.current.Matches) <= 0 {
+		t.tabs = append(t.tabs, TabWrapper{title: "Pilot Summary", widget: NewPilotSummary(&t.current), button: new(widget.Clickable)})
 		t.tabs = append(t.tabs, TabWrapper{title: "Mech Summary", widget: NewMechSummary(&t.current), button: new(widget.Clickable)})
 	}
 
@@ -136,7 +134,7 @@ func (t *TabComponent) AddMatch(match MatchDetails) {
 	temp <- match.Details
 	close(temp)
 
-	index := len(t.tabs) - 1
+	index := len(t.tabs) - 2
 
 	t.tabs = append(t.tabs[:index+1], t.tabs[index:]...)
 	t.tabs[index] = TabWrapper{title: "Match " + strconv.Itoa(len(t.current.Matches)), widget: matchPage.NewScoreboard(temp), button: new(widget.Clickable)}

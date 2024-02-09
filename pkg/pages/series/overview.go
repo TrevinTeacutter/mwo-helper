@@ -16,8 +16,6 @@ import (
 var headingText = []string{"Team", "Wins", "Losses", "Kills", "Deaths", "Match Score", "Damage", "Result"}
 
 type Overview struct {
-	TeamA      *TeamOverview
-	TeamB      *TeamOverview
 	cellBorder widget.Border
 	cellInset  layout.Inset
 	grid       component.GridState
@@ -26,8 +24,6 @@ type Overview struct {
 
 func NewOverview(series *SeriesDetails) *Overview {
 	return &Overview{
-		TeamA: NewTeamOverview(),
-		TeamB: NewTeamOverview(),
 		cellBorder: widget.Border{
 			Color: color.NRGBA{A: 255},
 			Width: unit.Dp(1),
@@ -163,21 +159,4 @@ func (o *Overview) StyleCell(gtx layout.Context, l material.LabelStyle) layout.D
 			return l.Layout(gtx)
 		})
 	})
-}
-
-type TeamOverview struct{}
-
-func NewTeamOverview() *TeamOverview {
-	return &TeamOverview{}
-}
-
-func (t *TeamOverview) Layout(gtx layout.Context, theme *material.Theme, team string) layout.Dimensions {
-	return layout.Flex{
-		Alignment: layout.Middle,
-		Axis:      layout.Vertical,
-	}.Layout(gtx,
-		layout.Flexed(1, func(gtx layout.Context) layout.Dimensions {
-			return material.Label(theme, unit.Sp(15), team).Layout(gtx)
-		}),
-	)
 }

@@ -32,7 +32,7 @@ func (p *Page) Overflow() []component.OverflowAction {
 
 func (p *Page) NavItem() component.NavItem {
 	return component.NavItem{
-		Name: "ISC Helper",
+		Name: "WC Helper",
 		Icon: icon.OtherIcon,
 	}
 }

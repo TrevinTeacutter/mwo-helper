@@ -14,6 +14,7 @@ import (
 	"github.com/go-resty/resty/v2"
 
 	"github.com/trevinteacutter/mwo-helper/pkg/mwo/api"
+	"github.com/trevinteacutter/mwo-helper/pkg/settings"
 )
 
 type SeriesDetails struct {
@@ -136,13 +137,10 @@ func (i *Input) modifyRow(theme *material.Theme) layout.FlexChild {
 				layout.Rigid(material.Label(theme, unit.Sp(15), "Team 1").Layout),
 				layout.Rigid(material.RadioButton(theme, i.team1, i.teamA.Text(), i.teamA.Text()).Layout),
 				layout.Rigid(material.RadioButton(theme, i.team1, i.teamB.Text(), i.teamB.Text()).Layout),
-				layout.Flexed(1.0, func(gtx layout.Context) layout.Dimensions {
-					return layout.UniformInset(2).Layout(gtx, material.Editor(theme, i.apiKey, "API Key").Layout)
-				}),
-				layout.Flexed(1.0, func(gtx layout.Context) layout.Dimensions {
+				layout.Rigid(func(gtx layout.Context) layout.Dimensions {
 					return layout.UniformInset(2).Layout(gtx, material.Editor(theme, i.matchID, "Match ID").Layout)
 				}),
-				layout.Flexed(0.5, func(gtx layout.Context) layout.Dimensions {
+				layout.Rigid(func(gtx layout.Context) layout.Dimensions {
 					return layout.UniformInset(2).Layout(gtx, func(gtx layout.Context) layout.Dimensions {
 						if i.add.Clicked(gtx) {
 							results, err := i.updateDetails()
@@ -186,5 +184,5 @@ func (i *Input) updateDetails() (api.MatchResponse, error) {
 
 	defer cancel()
 
-	return api.Match(ctx, i.client, i.apiKey.Text(), i.matchID.Text())
+	return api.Match(ctx, i.client, settings.Get().APIKey, i.matchID.Text())
 }

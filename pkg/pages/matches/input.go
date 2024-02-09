@@ -13,6 +13,7 @@ import (
 	"github.com/go-resty/resty/v2"
 
 	"github.com/trevinteacutter/mwo-helper/pkg/mwo/api"
+	"github.com/trevinteacutter/mwo-helper/pkg/settings"
 )
 
 type Input struct {
@@ -48,17 +49,12 @@ func (i *Input) Layout(gtx layout.Context, theme *material.Theme) layout.Dimensi
 		Alignment: layout.Middle,
 		Axis:      layout.Horizontal,
 	}.Layout(gtx,
-		layout.Flexed(1.0, func(gtx layout.Context) layout.Dimensions {
-			return layout.UniformInset(2).Layout(gtx, func(gtx layout.Context) layout.Dimensions {
-				return material.Editor(theme, i.apiKey, "API Key").Layout(gtx)
-			})
-		}),
-		layout.Flexed(1.0, func(gtx layout.Context) layout.Dimensions {
+		layout.Rigid(func(gtx layout.Context) layout.Dimensions {
 			return layout.UniformInset(2).Layout(gtx, func(gtx layout.Context) layout.Dimensions {
 				return material.Editor(theme, i.matchID, "Match ID").Layout(gtx)
 			})
 		}),
-		layout.Flexed(0.5, func(gtx layout.Context) layout.Dimensions {
+		layout.Rigid(func(gtx layout.Context) layout.Dimensions {
 			return layout.UniformInset(2).Layout(gtx, func(gtx layout.Context) layout.Dimensions {
 				if i.submit.Clicked(gtx) {
 					if err := i.updateDetails(); err != nil {
@@ -79,7 +75,7 @@ func (i *Input) updateDetails() error {
 
 	defer cancel()
 
-	results, err := api.Match(ctx, i.client, i.apiKey.Text(), i.matchID.Text())
+	results, err := api.Match(ctx, i.client, settings.Get().APIKey, i.matchID.Text())
 	if err != nil {
 		return err
 	}
