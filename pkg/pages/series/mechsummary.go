@@ -109,7 +109,7 @@ func (t *TeamMechSummary) ChassisTable(theme *material.Theme, team string, serie
 
 		for _, player := range match.Details.UserDetails {
 			if match.Mapping[team] == player.Team {
-				chassiss[api.VariantToChassis(player.MechName)]++
+				chassiss[api.VariantFromCode(player.MechItemID).Chassis]++
 			}
 		}
 	}

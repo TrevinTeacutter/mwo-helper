@@ -147,7 +147,6 @@ func (s *TeamScoreboard) Table(theme *material.Theme, users []api.UserDetails) l
 				case 10:
 					dataLabel.Text = strconv.Itoa(player.TeamDamage)
 				}
-				material.ProgressBar(theme, float32(player.HealthPercentage)/100).Layout(gtx)
 
 				return s.StyleCell(gtx, dataLabel.Layout)
 			},
