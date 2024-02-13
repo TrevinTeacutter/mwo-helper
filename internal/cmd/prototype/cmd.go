@@ -9,7 +9,7 @@ import (
 	"gioui.org/text"
 	"gioui.org/widget/material"
 
-	"github.com/trevinteacutter/mwo-helper/pkg/helper"
+	"github.com/trevinteacutter/mwo-helper/pkg/prototype"
 )
 
 func Loop(window *app.Window) error {
@@ -22,7 +22,7 @@ func Loop(window *app.Window) error {
 
 	var ops op.Ops
 
-	ui := helper.New()
+	ui := prototype.New()
 
 	for {
 		switch event := window.NextEvent().(type) {

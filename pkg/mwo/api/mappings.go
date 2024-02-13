@@ -2,7 +2,7 @@ package api
 
 type Variant struct {
 	ID          int
-	Faction     string
+	TechBase    string
 	Chassis     string
 	Name        string
 	Alias       string
@@ -11,14 +11,593 @@ type Variant struct {
 	Tags        []string
 }
 
+type Chassis struct {
+	Name        string
+	Tonnage     int
+	WeightClass string
+	TechBase    string
+}
+
 func VariantFromCode(code int) Variant {
 	return variants[code]
+}
+
+func ChassisFromCode(code int) Chassis {
+	return chassis[variants[code].Chassis]
+}
+
+var chassis = map[string]Chassis{
+	"adder": {
+		Name:     "adder",
+		Tonnage:  35,
+		TechBase: "Clan",
+	},
+	"annihilator": {
+		Name:     "annihilator",
+		Tonnage:  100,
+		TechBase: "InnerSphere",
+	},
+	"archer": {
+		Name:     "archer",
+		Tonnage:  70,
+		TechBase: "InnerSphere",
+	},
+	"arcticcheetah": {
+		Name:     "arcticcheetah",
+		Tonnage:  30,
+		TechBase: "Clan",
+	},
+	"arcticwolf": {
+		Name:     "arcticwolf",
+		Tonnage:  40,
+		TechBase: "Clan",
+	},
+	"assassin": {
+		Name:     "assassin",
+		Tonnage:  40,
+		TechBase: "InnerSphere",
+	},
+	"atlas": {
+		Name:     "atlas",
+		Tonnage:  100,
+		TechBase: "InnerSphere",
+	},
+	"awesome": {
+		Name:     "awesome",
+		Tonnage:  80,
+		TechBase: "InnerSphere",
+	},
+	"banshee": {
+		Name:     "banshee",
+		Tonnage:  95,
+		TechBase: "InnerSphere",
+	},
+	"battlemaster": {
+		Name:     "battlemaster",
+		Tonnage:  85,
+		TechBase: "InnerSphere",
+	},
+	"blackjack": {
+		Name:     "blackjack",
+		Tonnage:  45,
+		TechBase: "InnerSphere",
+	},
+	"blackknight": {
+		Name:     "blackknight",
+		Tonnage:  75,
+		TechBase: "InnerSphere",
+	},
+	"blacklanner": {
+		Name:     "blacklanner",
+		Tonnage:  55,
+		TechBase: "Clan",
+	},
+	"bloodasp": {
+		Name:     "bloodasp",
+		Tonnage:  90,
+		TechBase: "Clan",
+	},
+	"bushwacker": {
+		Name:     "bushwacker",
+		Tonnage:  55,
+		TechBase: "InnerSphere",
+	},
+	"cataphract": {
+		Name:     "cataphract",
+		Tonnage:  70,
+		TechBase: "InnerSphere",
+	},
+	"catapult": {
+		Name:     "catapult",
+		Tonnage:  65,
+		TechBase: "InnerSphere",
+	},
+	"centurion": {
+		Name:     "centurion",
+		Tonnage:  50,
+		TechBase: "InnerSphere",
+	},
+	"champion": {
+		Name:     "champion",
+		Tonnage:  60,
+		TechBase: "InnerSphere",
+	},
+	"charger": {
+		Name:     "charger",
+		Tonnage:  80,
+		TechBase: "InnerSphere",
+	},
+	"cicada": {
+		Name:     "cicada",
+		Tonnage:  40,
+		TechBase: "InnerSphere",
+	},
+	"clanannihilator": {
+		Name:     "clanannihilator",
+		Tonnage:  100,
+		TechBase: "Clan",
+	},
+	"clanwolfhound": {
+		Name:     "clanwolfhound",
+		Tonnage:  35,
+		TechBase: "Clan",
+	},
+	"commando": {
+		Name:     "commando",
+		Tonnage:  25,
+		TechBase: "InnerSphere",
+	},
+	"corsair": {
+		Name:     "corsair",
+		Tonnage:  95,
+		TechBase: "InnerSphere",
+	},
+	"cougar": {
+		Name:     "cougar",
+		Tonnage:  35,
+		TechBase: "Clan",
+	},
+	"crab": {
+		Name:     "crab",
+		Tonnage:  50,
+		TechBase: "InnerSphere",
+	},
+	"crusader": {
+		Name:     "crusader",
+		Tonnage:  65,
+		TechBase: "InnerSphere",
+	},
+	"cyclops": {
+		Name:     "cyclops",
+		Tonnage:  90,
+		TechBase: "InnerSphere",
+	},
+	"dervish": {
+		Name:     "dervish",
+		Tonnage:  55,
+		TechBase: "InnerSphere",
+	},
+	"direwolf": {
+		Name:     "direwolf",
+		Tonnage:  100,
+		TechBase: "Clan",
+	},
+	"dragon": {
+		Name:     "dragon",
+		Tonnage:  60,
+		TechBase: "InnerSphere",
+	},
+	"ebonjaguar": {
+		Name:     "ebonjaguar",
+		Tonnage:  65,
+		TechBase: "Clan",
+	},
+	"enforcer": {
+		Name:     "enforcer",
+		Tonnage:  50,
+		TechBase: "InnerSphere",
+	},
+	"executioner": {
+		Name:     "executioner",
+		Tonnage:  95,
+		TechBase: "Clan",
+	},
+	"fafnir": {
+		Name:     "fafnir",
+		Tonnage:  100,
+		TechBase: "InnerSphere",
+	},
+	"firestarter": {
+		Name:     "firestarter",
+		Tonnage:  35,
+		TechBase: "InnerSphere",
+	},
+	"flea": {
+		Name:     "flea",
+		Tonnage:  20,
+		TechBase: "InnerSphere",
+	},
+	"gargoyle": {
+		Name:     "gargoyle",
+		Tonnage:  80,
+		TechBase: "Clan",
+	},
+	"grasshopper": {
+		Name:     "grasshopper",
+		Tonnage:  70,
+		TechBase: "InnerSphere",
+	},
+	"griffin": {
+		Name:     "griffin",
+		Tonnage:  25,
+		TechBase: "InnerSphere",
+	},
+	"hatamotochi": {
+		Name:     "hatamotochi",
+		Tonnage:  80,
+		TechBase: "InnerSphere",
+	},
+	"hatchetman": {
+		Name:     "hatchetman",
+		Tonnage:  45,
+		TechBase: "InnerSphere",
+	},
+	"hellbringer": {
+		Name:     "hellbringer",
+		Tonnage:  65,
+		TechBase: "Clan",
+	},
+	"hellfire": {
+		Name:     "hellfire",
+		Tonnage:  60,
+		TechBase: "Clan",
+	},
+	"hellspawn": {
+		Name:     "hellspawn",
+		Tonnage:  45,
+		TechBase: "InnerSphere",
+	},
+	"highlander": {
+		Name:     "highlander",
+		Tonnage:  90,
+		TechBase: "InnerSphere",
+	},
+	"highlanderiic": {
+		Name:     "highlanderiic",
+		Tonnage:  90,
+		TechBase: "Clan",
+	},
+	"hunchback": {
+		Name:     "hunchback",
+		Tonnage:  50,
+		TechBase: "InnerSphere",
+	},
+	"hunchbackiic": {
+		Name:     "hunchbackiic",
+		Tonnage:  50,
+		TechBase: "Clan",
+	},
+	"huntsman": {
+		Name:     "huntsman",
+		Tonnage:  50,
+		TechBase: "Clan",
+	},
+	"iceferret": {
+		Name:     "iceferret",
+		Tonnage:  45,
+		TechBase: "Clan",
+	},
+	"incubus": {
+		Name:     "incubus",
+		Tonnage:  30,
+		TechBase: "Clan",
+	},
+	"jagermech": {
+		Name:     "jagermech",
+		Tonnage:  65,
+		TechBase: "InnerSphere",
+	},
+	"javelin": {
+		Name:     "javelin",
+		Tonnage:  30,
+		TechBase: "InnerSphere",
+	},
+	"jenner": {
+		Name:     "jenner",
+		Tonnage:  35,
+		TechBase: "InnerSphere",
+	},
+	"jenneriic": {
+		Name:     "jenneriic",
+		Tonnage:  35,
+		TechBase: "Clan",
+	},
+	"kingcrab": {
+		Name:     "kingcrab",
+		Tonnage:  100,
+		TechBase: "InnerSphere",
+	},
+	"kintaro": {
+		Name:     "kintaro",
+		Tonnage:  55,
+		TechBase: "InnerSphere",
+	},
+	"kitfox": {
+		Name:     "kitfox",
+		Tonnage:  30,
+		TechBase: "Clan",
+	},
+	"kodiak": {
+		Name:     "kodiak",
+		Tonnage:  100,
+		TechBase: "Clan",
+	},
+	"linebacker": {
+		Name:     "linebacker",
+		Tonnage:  65,
+		TechBase: "Clan",
+	},
+	"locust": {
+		Name:     "locust",
+		Tonnage:  20,
+		TechBase: "InnerSphere",
+	},
+	"longbow": {
+		Name:     "longbow",
+		Tonnage:  85,
+		TechBase: "InnerSphere",
+	},
+	"madcatmkii": {
+		Name:     "madcatmkii",
+		Tonnage:  90,
+		TechBase: "Clan",
+	},
+	"maddog": {
+		Name:     "maddog",
+		Tonnage:  60,
+		TechBase: "Clan",
+	},
+	"marauder": {
+		Name:     "marauder",
+		Tonnage:  75,
+		TechBase: "InnerSphere",
+	},
+	"marauderii": {
+		Name:     "marauderii",
+		Tonnage:  100,
+		TechBase: "InnerSphere",
+	},
+	"marauderiic": {
+		Name:     "marauderiic",
+		Tonnage:  85,
+		TechBase: "Clan",
+	},
+	"mauler": {
+		Name:     "mauler",
+		Tonnage:  90,
+		TechBase: "InnerSphere",
+	},
+	"mistlynx": {
+		Name:     "mistlynx",
+		Tonnage:  25,
+		TechBase: "Clan",
+	},
+	"nightgyr": {
+		Name:     "nightgyr",
+		Tonnage:  75,
+		TechBase: "Clan",
+	},
+	"nightstar": {
+		Name:     "nightstar",
+		Tonnage:  95,
+		TechBase: "InnerSphere",
+	},
+	"nova": {
+		Name:     "nova",
+		Tonnage:  50,
+		TechBase: "Clan",
+	},
+	"novacat": {
+		Name:     "novacat",
+		Tonnage:  70,
+		TechBase: "Clan",
+	},
+	"orion": {
+		Name:     "orion",
+		Tonnage:  75,
+		TechBase: "InnerSphere",
+	},
+	"orioniic": {
+		Name:     "orioniic",
+		Tonnage:  75,
+		TechBase: "Clan",
+	},
+	"osiris": {
+		Name:     "osiris",
+		Tonnage:  30,
+		TechBase: "InnerSphere",
+	},
+	"panther": {
+		Name:     "panther",
+		Tonnage:  35,
+		TechBase: "InnerSphere",
+	},
+	"phoenixhawk": {
+		Name:     "phoenixhawk",
+		Tonnage:  45,
+		TechBase: "InnerSphere",
+	},
+	"piranha": {
+		Name:     "piranha",
+		Tonnage:  20,
+		TechBase: "Clan",
+	},
+	"quickdraw": {
+		Name:     "quickdraw",
+		Tonnage:  60,
+		TechBase: "InnerSphere",
+	},
+	"raven": {
+		Name:     "raven",
+		Tonnage:  35,
+		TechBase: "InnerSphere",
+	},
+	"rifleman": {
+		Name:     "rifleman",
+		Tonnage:  60,
+		TechBase: "InnerSphere",
+	},
+	"riflemaniic": {
+		Name:     "riflemaniic",
+		Tonnage:  65,
+		TechBase: "Clan",
+	},
+	"roughneck": {
+		Name:     "roughneck",
+		Tonnage:  65,
+		TechBase: "InnerSphere",
+	},
+	"shadowcat": {
+		Name:     "shadowcat",
+		Tonnage:  45,
+		TechBase: "Clan",
+	},
+	"shadowhawk": {
+		Name:     "shadowhawk",
+		Tonnage:  55,
+		TechBase: "InnerSphere",
+	},
+	"spider": {
+		Name:     "spider",
+		Tonnage:  30,
+		TechBase: "InnerSphere",
+	},
+	"stalker": {
+		Name:     "stalker",
+		Tonnage:  85,
+		TechBase: "InnerSphere",
+	},
+	"stonerhino": {
+		Name:     "stonerhino",
+		Tonnage:  100,
+		TechBase: "Clan",
+	},
+	"stormcrow": {
+		Name:     "stormcrow",
+		Tonnage:  55,
+		TechBase: "Clan",
+	},
+	"summoner": {
+		Name:     "summoner",
+		Tonnage:  70,
+		TechBase: "Clan",
+	},
+	"sunspider": {
+		Name:     "sunspider",
+		Tonnage:  70,
+		TechBase: "Clan",
+	},
+	"supernova": {
+		Name:     "supernova",
+		Tonnage:  90,
+		TechBase: "Clan",
+	},
+	"thanatos": {
+		Name:     "thanatos",
+		Tonnage:  75,
+		TechBase: "InnerSphere",
+	},
+	"thunderbolt": {
+		Name:     "thunderbolt",
+		Tonnage:  65,
+		TechBase: "InnerSphere",
+	},
+	"timberwolf": {
+		Name:     "timberwolf",
+		Tonnage:  75,
+		TechBase: "Clan",
+	},
+	"trebuchet": {
+		Name:     "trebuchet",
+		Tonnage:  50,
+		TechBase: "InnerSphere",
+	},
+	"urbanmech": {
+		Name:     "urbanmech",
+		Tonnage:  30,
+		TechBase: "InnerSphere",
+	},
+	"urbanmechiic": {
+		Name:     "urbanmechiic",
+		Tonnage:  30,
+		TechBase: "Clan",
+	},
+	"uziel": {
+		Name:     "uziel",
+		Tonnage:  50,
+		TechBase: "InnerSphere",
+	},
+	"vaporeagle": {
+		Name:     "vaporeagle",
+		Tonnage:  55,
+		TechBase: "Clan",
+	},
+	"victor": {
+		Name:     "victor",
+		Tonnage:  80,
+		TechBase: "InnerSphere",
+	},
+	"vindicator": {
+		Name:     "vindicator",
+		Tonnage:  45,
+		TechBase: "InnerSphere",
+	},
+	"viper": {
+		Name:     "viper",
+		Tonnage:  40,
+		TechBase: "Clan",
+	},
+	"vulcan": {
+		Name:     "vulcan",
+		Tonnage:  40,
+		TechBase: "InnerSphere",
+	},
+	"warhammer": {
+		Name:     "warhammer",
+		Tonnage:  70,
+		TechBase: "InnerSphere",
+	},
+	"warhammeriic": {
+		Name:     "warhammeriic",
+		Tonnage:  80,
+		TechBase: "Clan",
+	},
+	"warhawk": {
+		Name:     "warhawk",
+		Tonnage:  85,
+		TechBase: "Clan",
+	},
+	"wolfhound": {
+		Name:     "wolfhound",
+		Tonnage:  35,
+		TechBase: "InnerSphere",
+	},
+	"wolverine": {
+		Name:     "wolverine",
+		Tonnage:  55,
+		TechBase: "InnerSphere",
+	},
+	"zeus": {
+		Name:     "zeus",
+		Tonnage:  80,
+		TechBase: "InnerSphere",
+	},
 }
 
 var variants = map[int]Variant{
 	1: {
 		ID:          1,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4g",
 		Alias:       "",
@@ -28,7 +607,7 @@ var variants = map[int]Variant{
 	},
 	2: {
 		ID:          2,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4p",
 		Alias:       "",
@@ -38,7 +617,7 @@ var variants = map[int]Variant{
 	},
 	3: {
 		ID:          3,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-d",
 		Alias:       "",
@@ -48,7 +627,7 @@ var variants = map[int]Variant{
 	},
 	4: {
 		ID:          4,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-f",
 		Alias:       "",
@@ -58,7 +637,7 @@ var variants = map[int]Variant{
 	},
 	5: {
 		ID:          5,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "commando",
 		Name:        "com-2d",
 		Alias:       "",
@@ -68,7 +647,7 @@ var variants = map[int]Variant{
 	},
 	6: {
 		ID:          6,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "commando",
 		Name:        "com-3a",
 		Alias:       "",
@@ -78,7 +657,7 @@ var variants = map[int]Variant{
 	},
 	7: {
 		ID:          7,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-a",
 		Alias:       "",
@@ -88,7 +667,7 @@ var variants = map[int]Variant{
 	},
 	8: {
 		ID:          8,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-ah",
 		Alias:       "",
@@ -98,7 +677,7 @@ var variants = map[int]Variant{
 	},
 	9: {
 		ID:          9,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4h",
 		Alias:       "",
@@ -109,7 +688,7 @@ var variants = map[int]Variant{
 
 	10: {
 		ID:          10,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-1n",
 		Alias:       "",
@@ -120,7 +699,7 @@ var variants = map[int]Variant{
 
 	11: {
 		ID:          11,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-1c",
 		Alias:       "",
@@ -131,7 +710,7 @@ var variants = map[int]Variant{
 
 	12: {
 		ID:          12,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-c1",
 		Alias:       "",
@@ -142,7 +721,7 @@ var variants = map[int]Variant{
 
 	13: {
 		ID:          13,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-a1",
 		Alias:       "",
@@ -153,7 +732,7 @@ var variants = map[int]Variant{
 
 	14: {
 		ID:          14,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "awesome",
 		Name:        "aws-8q",
 		Alias:       "",
@@ -164,7 +743,7 @@ var variants = map[int]Variant{
 
 	15: {
 		ID:          15,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "awesome",
 		Name:        "aws-8r",
 		Alias:       "",
@@ -175,7 +754,7 @@ var variants = map[int]Variant{
 
 	16: {
 		ID:          16,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-d",
 		Alias:       "",
@@ -186,7 +765,7 @@ var variants = map[int]Variant{
 
 	17: {
 		ID:          17,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-d-dc",
 		Alias:       "",
@@ -197,7 +776,7 @@ var variants = map[int]Variant{
 
 	18: {
 		ID:          18,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-rs",
 		Alias:       "",
@@ -208,7 +787,7 @@ var variants = map[int]Variant{
 
 	19: {
 		ID:          19,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-k2",
 		Alias:       "",
@@ -219,7 +798,7 @@ var variants = map[int]Variant{
 
 	20: {
 		ID:          20,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-k",
 		Alias:       "",
@@ -230,7 +809,7 @@ var variants = map[int]Variant{
 
 	21: {
 		ID:          21,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4j",
 		Alias:       "",
@@ -241,7 +820,7 @@ var variants = map[int]Variant{
 
 	22: {
 		ID:          22,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4sp",
 		Alias:       "",
@@ -252,7 +831,7 @@ var variants = map[int]Variant{
 
 	23: {
 		ID:          23,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-5n",
 		Alias:       "",
@@ -263,7 +842,7 @@ var variants = map[int]Variant{
 
 	24: {
 		ID:          24,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-c4",
 		Alias:       "",
@@ -274,7 +853,7 @@ var variants = map[int]Variant{
 
 	25: {
 		ID:          25,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-k",
 		Alias:       "",
@@ -285,7 +864,7 @@ var variants = map[int]Variant{
 
 	26: {
 		ID:          26,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "commando",
 		Name:        "com-1b",
 		Alias:       "",
@@ -296,7 +875,7 @@ var variants = map[int]Variant{
 
 	27: {
 		ID:          27,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "commando",
 		Name:        "com-1d",
 		Alias:       "",
@@ -307,7 +886,7 @@ var variants = map[int]Variant{
 
 	28: {
 		ID:          28,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-al",
 		Alias:       "",
@@ -318,7 +897,7 @@ var variants = map[int]Variant{
 
 	29: {
 		ID:          29,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-d",
 		Alias:       "",
@@ -329,7 +908,7 @@ var variants = map[int]Variant{
 
 	30: {
 		ID:          30,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "awesome",
 		Name:        "aws-8t",
 		Alias:       "",
@@ -340,7 +919,7 @@ var variants = map[int]Variant{
 
 	31: {
 		ID:          31,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "awesome",
 		Name:        "aws-8v",
 		Alias:       "",
@@ -351,7 +930,7 @@ var variants = map[int]Variant{
 
 	32: {
 		ID:          32,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "awesome",
 		Name:        "aws-9m",
 		Alias:       "",
@@ -362,7 +941,7 @@ var variants = map[int]Variant{
 
 	33: {
 		ID:          33,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "raven",
 		Name:        "rvn-3l",
 		Alias:       "",
@@ -373,7 +952,7 @@ var variants = map[int]Variant{
 
 	34: {
 		ID:          34,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "raven",
 		Name:        "rvn-2x",
 		Alias:       "",
@@ -384,7 +963,7 @@ var variants = map[int]Variant{
 
 	35: {
 		ID:          35,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "raven",
 		Name:        "rvn-4x",
 		Alias:       "",
@@ -395,7 +974,7 @@ var variants = map[int]Variant{
 
 	36: {
 		ID:          36,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-3m",
 		Alias:       "",
@@ -406,7 +985,7 @@ var variants = map[int]Variant{
 
 	37: {
 		ID:          37,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-2a",
 		Alias:       "",
@@ -417,7 +996,7 @@ var variants = map[int]Variant{
 
 	38: {
 		ID:          38,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-2b",
 		Alias:       "",
@@ -428,7 +1007,7 @@ var variants = map[int]Variant{
 
 	39: {
 		ID:          39,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-3c",
 		Alias:       "",
@@ -439,7 +1018,7 @@ var variants = map[int]Variant{
 
 	40: {
 		ID:          40,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-3d",
 		Alias:       "",
@@ -450,7 +1029,7 @@ var variants = map[int]Variant{
 
 	41: {
 		ID:          41,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-1x",
 		Alias:       "",
@@ -461,7 +1040,7 @@ var variants = map[int]Variant{
 
 	42: {
 		ID:          42,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-2x",
 		Alias:       "",
@@ -472,7 +1051,7 @@ var variants = map[int]Variant{
 
 	43: {
 		ID:          43,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-3l",
 		Alias:       "",
@@ -483,7 +1062,7 @@ var variants = map[int]Variant{
 
 	44: {
 		ID:          44,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-4x",
 		Alias:       "",
@@ -494,7 +1073,7 @@ var variants = map[int]Variant{
 
 	45: {
 		ID:          45,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-ylw",
 		Alias:       "",
@@ -505,7 +1084,7 @@ var variants = map[int]Variant{
 
 	46: {
 		ID:          46,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-5m",
 		Alias:       "",
@@ -516,7 +1095,7 @@ var variants = map[int]Variant{
 
 	47: {
 		ID:          47,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-3f",
 		Alias:       "",
@@ -527,7 +1106,7 @@ var variants = map[int]Variant{
 
 	48: {
 		ID:          48,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-3h",
 		Alias:       "",
@@ -538,7 +1117,7 @@ var variants = map[int]Variant{
 
 	49: {
 		ID:          49,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-4n",
 		Alias:       "",
@@ -549,7 +1128,7 @@ var variants = map[int]Variant{
 
 	50: {
 		ID:          50,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-5s",
 		Alias:       "",
@@ -560,7 +1139,7 @@ var variants = map[int]Variant{
 
 	51: {
 		ID:          51,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "spider",
 		Name:        "sdr-5v",
 		Alias:       "",
@@ -571,7 +1150,7 @@ var variants = map[int]Variant{
 
 	52: {
 		ID:          52,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "spider",
 		Name:        "sdr-5d",
 		Alias:       "",
@@ -582,7 +1161,7 @@ var variants = map[int]Variant{
 
 	53: {
 		ID:          53,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "spider",
 		Name:        "sdr-5k",
 		Alias:       "",
@@ -593,7 +1172,7 @@ var variants = map[int]Variant{
 
 	54: {
 		ID:          54,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-im",
 		Alias:       "",
@@ -604,7 +1183,7 @@ var variants = map[int]Variant{
 
 	55: {
 		ID:          55,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-fang",
 		Alias:       "",
@@ -615,7 +1194,7 @@ var variants = map[int]Variant{
 
 	56: {
 		ID:          56,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-flame",
 		Alias:       "",
@@ -626,7 +1205,7 @@ var variants = map[int]Variant{
 
 	57: {
 		ID:          57,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "commando",
 		Name:        "com-tdk",
 		Alias:       "",
@@ -637,7 +1216,7 @@ var variants = map[int]Variant{
 
 	58: {
 		ID:          58,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "awesome",
 		Name:        "aws-pb",
 		Alias:       "",
@@ -648,7 +1227,7 @@ var variants = map[int]Variant{
 
 	59: {
 		ID:          59,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "trebuchet",
 		Name:        "tbt-7m",
 		Alias:       "",
@@ -659,7 +1238,7 @@ var variants = map[int]Variant{
 
 	60: {
 		ID:          60,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "trebuchet",
 		Name:        "tbt-3c",
 		Alias:       "",
@@ -670,7 +1249,7 @@ var variants = map[int]Variant{
 
 	61: {
 		ID:          61,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "trebuchet",
 		Name:        "tbt-5j",
 		Alias:       "",
@@ -681,7 +1260,7 @@ var variants = map[int]Variant{
 
 	62: {
 		ID:          62,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "trebuchet",
 		Name:        "tbt-5n",
 		Alias:       "",
@@ -692,7 +1271,7 @@ var variants = map[int]Variant{
 
 	63: {
 		ID:          63,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "trebuchet",
 		Name:        "tbt-7k",
 		Alias:       "",
@@ -703,7 +1282,7 @@ var variants = map[int]Variant{
 
 	64: {
 		ID:          64,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-x5",
 		Alias:       "",
@@ -714,7 +1293,7 @@ var variants = map[int]Variant{
 
 	65: {
 		ID:          65,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jagermech",
 		Name:        "jm6-dd",
 		Alias:       "",
@@ -725,7 +1304,7 @@ var variants = map[int]Variant{
 
 	66: {
 		ID:          66,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jagermech",
 		Name:        "jm6-a",
 		Alias:       "",
@@ -736,7 +1315,7 @@ var variants = map[int]Variant{
 
 	67: {
 		ID:          67,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jagermech",
 		Name:        "jm6-s",
 		Alias:       "",
@@ -747,7 +1326,7 @@ var variants = map[int]Variant{
 
 	69: {
 		ID:          69,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "highlander",
 		Name:        "hgn-hm",
 		Alias:       "",
@@ -758,7 +1337,7 @@ var variants = map[int]Variant{
 
 	70: {
 		ID:          70,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "highlander",
 		Name:        "hgn-732",
 		Alias:       "",
@@ -769,7 +1348,7 @@ var variants = map[int]Variant{
 
 	71: {
 		ID:          71,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "highlander",
 		Name:        "hgn-733",
 		Alias:       "",
@@ -780,7 +1359,7 @@ var variants = map[int]Variant{
 
 	72: {
 		ID:          72,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "highlander",
 		Name:        "hgn-733c",
 		Alias:       "",
@@ -791,7 +1370,7 @@ var variants = map[int]Variant{
 
 	73: {
 		ID:          73,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "highlander",
 		Name:        "hgn-733p",
 		Alias:       "",
@@ -802,7 +1381,7 @@ var variants = map[int]Variant{
 
 	74: {
 		ID:          74,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-5nc",
 		Alias:       "drg-5n",
@@ -813,7 +1392,7 @@ var variants = map[int]Variant{
 
 	75: {
 		ID:          75,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-m",
 		Alias:       "",
@@ -824,7 +1403,7 @@ var variants = map[int]Variant{
 
 	76: {
 		ID:          76,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-fc",
 		Alias:       "jr7-f",
@@ -835,7 +1414,7 @@ var variants = map[int]Variant{
 
 	77: {
 		ID:          77,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-1",
 		Alias:       "",
@@ -846,7 +1425,7 @@ var variants = map[int]Variant{
 
 	78: {
 		ID:          78,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-1dc",
 		Alias:       "",
@@ -857,7 +1436,7 @@ var variants = map[int]Variant{
 
 	79: {
 		ID:          79,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-1x",
 		Alias:       "",
@@ -868,7 +1447,7 @@ var variants = map[int]Variant{
 
 	80: {
 		ID:          80,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-3",
 		Alias:       "",
@@ -879,7 +1458,7 @@ var variants = map[int]Variant{
 
 	81: {
 		ID:          81,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jagermech",
 		Name:        "jm6-fb",
 		Alias:       "",
@@ -890,7 +1469,7 @@ var variants = map[int]Variant{
 
 	82: {
 		ID:          82,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "quickdraw",
 		Name:        "qkd-4g",
 		Alias:       "",
@@ -901,7 +1480,7 @@ var variants = map[int]Variant{
 
 	83: {
 		ID:          83,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "quickdraw",
 		Name:        "qkd-4h",
 		Alias:       "",
@@ -912,7 +1491,7 @@ var variants = map[int]Variant{
 
 	84: {
 		ID:          84,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "quickdraw",
 		Name:        "qkd-5k",
 		Alias:       "",
@@ -923,7 +1502,7 @@ var variants = map[int]Variant{
 
 	85: {
 		ID:          85,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4pc",
 		Alias:       "hbk-4p",
@@ -934,7 +1513,7 @@ var variants = map[int]Variant{
 
 	86: {
 		ID:          86,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-ds",
 		Alias:       "jr7-d",
@@ -945,7 +1524,7 @@ var variants = map[int]Variant{
 
 	87: {
 		ID:          87,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-ds",
 		Alias:       "",
@@ -956,7 +1535,7 @@ var variants = map[int]Variant{
 
 	88: {
 		ID:          88,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-9k",
 		Alias:       "",
@@ -967,7 +1546,7 @@ var variants = map[int]Variant{
 
 	89: {
 		ID:          89,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-9b",
 		Alias:       "",
@@ -978,7 +1557,7 @@ var variants = map[int]Variant{
 
 	90: {
 		ID:          90,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-9s",
 		Alias:       "",
@@ -989,7 +1568,7 @@ var variants = map[int]Variant{
 
 	91: {
 		ID:          91,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-a1c",
 		Alias:       "cplt-a1",
@@ -1000,7 +1579,7 @@ var variants = map[int]Variant{
 
 	92: {
 		ID:          92,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-rsc",
 		Alias:       "as7-rs",
@@ -1011,7 +1590,7 @@ var variants = map[int]Variant{
 
 	93: {
 		ID:          93,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kintaro",
 		Name:        "kto-gb",
 		Alias:       "",
@@ -1022,7 +1601,7 @@ var variants = map[int]Variant{
 
 	94: {
 		ID:          94,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kintaro",
 		Name:        "kto-20",
 		Alias:       "",
@@ -1033,7 +1612,7 @@ var variants = map[int]Variant{
 
 	95: {
 		ID:          95,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kintaro",
 		Name:        "kto-18",
 		Alias:       "",
@@ -1044,7 +1623,7 @@ var variants = map[int]Variant{
 
 	96: {
 		ID:          96,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kintaro",
 		Name:        "kto-19",
 		Alias:       "",
@@ -1055,7 +1634,7 @@ var variants = map[int]Variant{
 
 	97: {
 		ID:          97,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "orion",
 		Name:        "on1-p",
 		Alias:       "",
@@ -1066,7 +1645,7 @@ var variants = map[int]Variant{
 
 	98: {
 		ID:          98,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "orion",
 		Name:        "on1-m",
 		Alias:       "",
@@ -1077,7 +1656,7 @@ var variants = map[int]Variant{
 
 	99: {
 		ID:          99,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "orion",
 		Name:        "on1-k",
 		Alias:       "",
@@ -1088,7 +1667,7 @@ var variants = map[int]Variant{
 
 	100: {
 		ID:          100,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "orion",
 		Name:        "on1-v",
 		Alias:       "",
@@ -1099,7 +1678,7 @@ var variants = map[int]Variant{
 
 	101: {
 		ID:          101,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "orion",
 		Name:        "on1-va",
 		Alias:       "",
@@ -1110,7 +1689,7 @@ var variants = map[int]Variant{
 
 	102: {
 		ID:          102,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-ac",
 		Alias:       "cn9-a",
@@ -1121,7 +1700,7 @@ var variants = map[int]Variant{
 
 	103: {
 		ID:          103,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-bh",
 		Alias:       "",
@@ -1132,7 +1711,7 @@ var variants = map[int]Variant{
 
 	104: {
 		ID:          104,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "spider",
 		Name:        "sdr-5kc",
 		Alias:       "sdr-5k",
@@ -1143,7 +1722,7 @@ var variants = map[int]Variant{
 
 	105: {
 		ID:          105,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-1vp",
 		Alias:       "lct-1v",
@@ -1154,7 +1733,7 @@ var variants = map[int]Variant{
 
 	106: {
 		ID:          106,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-1v",
 		Alias:       "",
@@ -1165,7 +1744,7 @@ var variants = map[int]Variant{
 
 	107: {
 		ID:          107,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-3m",
 		Alias:       "",
@@ -1176,7 +1755,7 @@ var variants = map[int]Variant{
 
 	108: {
 		ID:          108,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-3s",
 		Alias:       "",
@@ -1187,7 +1766,7 @@ var variants = map[int]Variant{
 
 	109: {
 		ID:          109,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-2hp",
 		Alias:       "shd-2h",
@@ -1198,7 +1777,7 @@ var variants = map[int]Variant{
 
 	110: {
 		ID:          110,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-2h",
 		Alias:       "",
@@ -1209,7 +1788,7 @@ var variants = map[int]Variant{
 
 	111: {
 		ID:          111,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-2d2",
 		Alias:       "",
@@ -1220,7 +1799,7 @@ var variants = map[int]Variant{
 
 	112: {
 		ID:          112,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-5m",
 		Alias:       "",
@@ -1231,7 +1810,7 @@ var variants = map[int]Variant{
 
 	113: {
 		ID:          113,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-5sp",
 		Alias:       "tdr-5s",
@@ -1242,7 +1821,7 @@ var variants = map[int]Variant{
 
 	114: {
 		ID:          114,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-5s",
 		Alias:       "",
@@ -1253,7 +1832,7 @@ var variants = map[int]Variant{
 
 	115: {
 		ID:          115,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-5ss",
 		Alias:       "",
@@ -1264,7 +1843,7 @@ var variants = map[int]Variant{
 
 	116: {
 		ID:          116,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-9se",
 		Alias:       "",
@@ -1275,7 +1854,7 @@ var variants = map[int]Variant{
 
 	117: {
 		ID:          117,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-1gp",
 		Alias:       "blr-1g",
@@ -1286,7 +1865,7 @@ var variants = map[int]Variant{
 
 	118: {
 		ID:          118,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-1g",
 		Alias:       "",
@@ -1297,7 +1876,7 @@ var variants = map[int]Variant{
 
 	119: {
 		ID:          119,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-1d",
 		Alias:       "",
@@ -1308,7 +1887,7 @@ var variants = map[int]Variant{
 
 	120: {
 		ID:          120,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-1s",
 		Alias:       "",
@@ -1319,7 +1898,7 @@ var variants = map[int]Variant{
 
 	121: {
 		ID:          121,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-j",
 		Alias:       "",
@@ -1330,7 +1909,7 @@ var variants = map[int]Variant{
 
 	122: {
 		ID:          122,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-1c",
 		Alias:       "bj-1",
@@ -1341,7 +1920,7 @@ var variants = map[int]Variant{
 
 	123: {
 		ID:          123,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-o",
 		Alias:       "",
@@ -1352,7 +1931,7 @@ var variants = map[int]Variant{
 
 	124: {
 		ID:          124,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "highlander",
 		Name:        "hgn-733cc",
 		Alias:       "hgn-733c",
@@ -1363,7 +1942,7 @@ var variants = map[int]Variant{
 
 	125: {
 		ID:          125,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-1np",
 		Alias:       "grf-1n",
@@ -1374,7 +1953,7 @@ var variants = map[int]Variant{
 
 	126: {
 		ID:          126,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-1n",
 		Alias:       "",
@@ -1385,7 +1964,7 @@ var variants = map[int]Variant{
 
 	127: {
 		ID:          127,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-1s",
 		Alias:       "",
@@ -1396,7 +1975,7 @@ var variants = map[int]Variant{
 
 	128: {
 		ID:          128,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-3m",
 		Alias:       "",
@@ -1407,7 +1986,7 @@ var variants = map[int]Variant{
 
 	129: {
 		ID:          129,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-6rp",
 		Alias:       "wvr-6r",
@@ -1418,7 +1997,7 @@ var variants = map[int]Variant{
 
 	130: {
 		ID:          130,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-6r",
 		Alias:       "",
@@ -1429,7 +2008,7 @@ var variants = map[int]Variant{
 
 	131: {
 		ID:          131,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-6k",
 		Alias:       "",
@@ -1440,7 +2019,7 @@ var variants = map[int]Variant{
 
 	132: {
 		ID:          132,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-7k",
 		Alias:       "",
@@ -1451,7 +2030,7 @@ var variants = map[int]Variant{
 
 	133: {
 		ID:          133,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-gi",
 		Alias:       "",
@@ -1462,7 +2041,7 @@ var variants = map[int]Variant{
 
 	134: {
 		ID:          134,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-2ac",
 		Alias:       "cda-2a",
@@ -1473,7 +2052,7 @@ var variants = map[int]Variant{
 
 	135: {
 		ID:          135,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-gi2",
 		Alias:       "hbk-gi",
@@ -1484,7 +2063,7 @@ var variants = map[int]Variant{
 
 	136: {
 		ID:          136,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-3fc",
 		Alias:       "stk-3f",
@@ -1495,7 +2074,7 @@ var variants = map[int]Variant{
 
 	137: {
 		ID:          137,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-e",
 		Alias:       "",
@@ -1506,7 +2085,7 @@ var variants = map[int]Variant{
 
 	138: {
 		ID:          138,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-s",
 		Alias:       "",
@@ -1517,7 +2096,7 @@ var variants = map[int]Variant{
 
 	139: {
 		ID:          139,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-a",
 		Alias:       "",
@@ -1528,7 +2107,7 @@ var variants = map[int]Variant{
 
 	140: {
 		ID:          140,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-h",
 		Alias:       "",
@@ -1539,7 +2118,7 @@ var variants = map[int]Variant{
 
 	141: {
 		ID:          141,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-k",
 		Alias:       "",
@@ -1550,7 +2129,7 @@ var variants = map[int]Variant{
 
 	142: {
 		ID:          142,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-3dc",
 		Alias:       "ctf-3d",
@@ -1561,7 +2140,7 @@ var variants = map[int]Variant{
 
 	143: {
 		ID:          143,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "banshee",
 		Name:        "bnc-lm",
 		Alias:       "",
@@ -1572,7 +2151,7 @@ var variants = map[int]Variant{
 
 	144: {
 		ID:          144,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "banshee",
 		Name:        "bnc-3e",
 		Alias:       "",
@@ -1583,7 +2162,7 @@ var variants = map[int]Variant{
 
 	145: {
 		ID:          145,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "banshee",
 		Name:        "bnc-3m",
 		Alias:       "",
@@ -1594,7 +2173,7 @@ var variants = map[int]Variant{
 
 	146: {
 		ID:          146,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "banshee",
 		Name:        "bnc-3s",
 		Alias:       "",
@@ -1605,7 +2184,7 @@ var variants = map[int]Variant{
 
 	147: {
 		ID:          147,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-9sc",
 		Alias:       "vtr-9s",
@@ -1616,7 +2195,7 @@ var variants = map[int]Variant{
 
 	148: {
 		ID:          148,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "raven",
 		Name:        "rvn-h",
 		Alias:       "",
@@ -1627,7 +2206,7 @@ var variants = map[int]Variant{
 
 	149: {
 		ID:          149,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-3m",
 		Alias:       "",
@@ -1638,7 +2217,7 @@ var variants = map[int]Variant{
 
 	150: {
 		ID:          150,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-3s",
 		Alias:       "",
@@ -1649,7 +2228,7 @@ var variants = map[int]Variant{
 
 	151: {
 		ID:          151,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-1e",
 		Alias:       "",
@@ -1660,7 +2239,7 @@ var variants = map[int]Variant{
 
 	152: {
 		ID:          152,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-1m",
 		Alias:       "",
@@ -1671,7 +2250,7 @@ var variants = map[int]Variant{
 
 	153: {
 		ID:          153,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-2d",
 		Alias:       "",
@@ -1682,7 +2261,7 @@ var variants = map[int]Variant{
 
 	154: {
 		ID:          154,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-2k",
 		Alias:       "",
@@ -1693,7 +2272,7 @@ var variants = map[int]Variant{
 
 	155: {
 		ID:          155,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-9s",
 		Alias:       "",
@@ -1704,7 +2283,7 @@ var variants = map[int]Variant{
 
 	156: {
 		ID:          156,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "orion",
 		Name:        "on1-kc",
 		Alias:       "on1-k",
@@ -1715,7 +2294,7 @@ var variants = map[int]Variant{
 
 	157: {
 		ID:          157,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "trebuchet",
 		Name:        "tbt-lg",
 		Alias:       "",
@@ -1726,7 +2305,7 @@ var variants = map[int]Variant{
 
 	158: {
 		ID:          158,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "quickdraw",
 		Name:        "qkd-iv4",
 		Alias:       "",
@@ -1737,7 +2316,7 @@ var variants = map[int]Variant{
 
 	159: {
 		ID:          159,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-a",
 		Alias:       "",
@@ -1748,7 +2327,7 @@ var variants = map[int]Variant{
 
 	160: {
 		ID:          160,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-sc",
 		Alias:       "fs9-s",
@@ -1759,7 +2338,7 @@ var variants = map[int]Variant{
 
 	161: {
 		ID:          161,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-2hc",
 		Alias:       "shd-2h",
@@ -1770,7 +2349,7 @@ var variants = map[int]Variant{
 
 	162: {
 		ID:          162,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-primei",
 		Alias:       "tbr-prime",
@@ -1781,7 +2360,7 @@ var variants = map[int]Variant{
 
 	163: {
 		ID:          163,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-prime",
 		Alias:       "",
@@ -1792,7 +2371,7 @@ var variants = map[int]Variant{
 
 	164: {
 		ID:          164,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-c",
 		Alias:       "",
@@ -1803,7 +2382,7 @@ var variants = map[int]Variant{
 
 	165: {
 		ID:          165,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-s",
 		Alias:       "",
@@ -1814,7 +2393,7 @@ var variants = map[int]Variant{
 
 	166: {
 		ID:          166,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-primei",
 		Alias:       "adr-prime",
@@ -1825,7 +2404,7 @@ var variants = map[int]Variant{
 
 	167: {
 		ID:          167,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-prime",
 		Alias:       "",
@@ -1836,7 +2415,7 @@ var variants = map[int]Variant{
 
 	168: {
 		ID:          168,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-a",
 		Alias:       "",
@@ -1847,7 +2426,7 @@ var variants = map[int]Variant{
 
 	169: {
 		ID:          169,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-d",
 		Alias:       "",
@@ -1858,7 +2437,7 @@ var variants = map[int]Variant{
 
 	170: {
 		ID:          170,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-primei",
 		Alias:       "dwf-prime",
@@ -1869,7 +2448,7 @@ var variants = map[int]Variant{
 
 	171: {
 		ID:          171,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-prime",
 		Alias:       "",
@@ -1880,7 +2459,7 @@ var variants = map[int]Variant{
 
 	172: {
 		ID:          172,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-a",
 		Alias:       "",
@@ -1891,7 +2470,7 @@ var variants = map[int]Variant{
 
 	173: {
 		ID:          173,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-b",
 		Alias:       "",
@@ -1902,7 +2481,7 @@ var variants = map[int]Variant{
 
 	174: {
 		ID:          174,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-primei",
 		Alias:       "kfx-prime",
@@ -1913,7 +2492,7 @@ var variants = map[int]Variant{
 
 	175: {
 		ID:          175,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-prime",
 		Alias:       "",
@@ -1924,7 +2503,7 @@ var variants = map[int]Variant{
 
 	176: {
 		ID:          176,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-d",
 		Alias:       "",
@@ -1935,7 +2514,7 @@ var variants = map[int]Variant{
 
 	177: {
 		ID:          177,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-s",
 		Alias:       "",
@@ -1946,7 +2525,7 @@ var variants = map[int]Variant{
 
 	178: {
 		ID:          178,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-primei",
 		Alias:       "nva-prime",
@@ -1957,7 +2536,7 @@ var variants = map[int]Variant{
 
 	179: {
 		ID:          179,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-prime",
 		Alias:       "",
@@ -1968,7 +2547,7 @@ var variants = map[int]Variant{
 
 	180: {
 		ID:          180,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-b",
 		Alias:       "",
@@ -1979,7 +2558,7 @@ var variants = map[int]Variant{
 
 	181: {
 		ID:          181,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-s",
 		Alias:       "",
@@ -1990,7 +2569,7 @@ var variants = map[int]Variant{
 
 	182: {
 		ID:          182,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-primei",
 		Alias:       "scr-prime",
@@ -2001,7 +2580,7 @@ var variants = map[int]Variant{
 
 	183: {
 		ID:          183,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-prime",
 		Alias:       "",
@@ -2012,7 +2591,7 @@ var variants = map[int]Variant{
 
 	184: {
 		ID:          184,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-c",
 		Alias:       "",
@@ -2023,7 +2602,7 @@ var variants = map[int]Variant{
 
 	185: {
 		ID:          185,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-d",
 		Alias:       "",
@@ -2034,7 +2613,7 @@ var variants = map[int]Variant{
 
 	186: {
 		ID:          186,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-primei",
 		Alias:       "smn-prime",
@@ -2045,7 +2624,7 @@ var variants = map[int]Variant{
 
 	187: {
 		ID:          187,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-prime",
 		Alias:       "",
@@ -2056,7 +2635,7 @@ var variants = map[int]Variant{
 
 	188: {
 		ID:          188,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-b",
 		Alias:       "",
@@ -2067,7 +2646,7 @@ var variants = map[int]Variant{
 
 	189: {
 		ID:          189,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-d",
 		Alias:       "",
@@ -2078,7 +2657,7 @@ var variants = map[int]Variant{
 
 	190: {
 		ID:          190,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-primei",
 		Alias:       "whk-prime",
@@ -2089,7 +2668,7 @@ var variants = map[int]Variant{
 
 	191: {
 		ID:          191,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-prime",
 		Alias:       "",
@@ -2100,7 +2679,7 @@ var variants = map[int]Variant{
 
 	192: {
 		ID:          192,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-a",
 		Alias:       "",
@@ -2111,7 +2690,7 @@ var variants = map[int]Variant{
 
 	193: {
 		ID:          193,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-b",
 		Alias:       "",
@@ -2122,7 +2701,7 @@ var variants = map[int]Variant{
 
 	194: {
 		ID:          194,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-primeg",
 		Alias:       "tbr-prime",
@@ -2133,7 +2712,7 @@ var variants = map[int]Variant{
 
 	195: {
 		ID:          195,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-primeg",
 		Alias:       "adr-prime",
@@ -2144,7 +2723,7 @@ var variants = map[int]Variant{
 
 	196: {
 		ID:          196,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-primeg",
 		Alias:       "dwf-prime",
@@ -2155,7 +2734,7 @@ var variants = map[int]Variant{
 
 	197: {
 		ID:          197,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-primeg",
 		Alias:       "kfx-prime",
@@ -2166,7 +2745,7 @@ var variants = map[int]Variant{
 
 	198: {
 		ID:          198,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-primeg",
 		Alias:       "nva-prime",
@@ -2177,7 +2756,7 @@ var variants = map[int]Variant{
 
 	199: {
 		ID:          199,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-primeg",
 		Alias:       "scr-prime",
@@ -2188,7 +2767,7 @@ var variants = map[int]Variant{
 
 	200: {
 		ID:          200,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-primeg",
 		Alias:       "smn-prime",
@@ -2199,7 +2778,7 @@ var variants = map[int]Variant{
 
 	201: {
 		ID:          201,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-primeg",
 		Alias:       "whk-prime",
@@ -2210,7 +2789,7 @@ var variants = map[int]Variant{
 
 	202: {
 		ID:          202,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kintaro",
 		Name:        "kto-18c",
 		Alias:       "kto-18",
@@ -2221,7 +2800,7 @@ var variants = map[int]Variant{
 
 	203: {
 		ID:          203,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "spider",
 		Name:        "sdr-a",
 		Alias:       "",
@@ -2232,7 +2811,7 @@ var variants = map[int]Variant{
 
 	204: {
 		ID:          204,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-1ghe",
 		Alias:       "",
@@ -2243,7 +2822,7 @@ var variants = map[int]Variant{
 
 	205: {
 		ID:          205,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vindicator",
 		Name:        "vnd-1sib",
 		Alias:       "",
@@ -2254,7 +2833,7 @@ var variants = map[int]Variant{
 
 	206: {
 		ID:          206,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vindicator",
 		Name:        "vnd-1r",
 		Alias:       "",
@@ -2265,7 +2844,7 @@ var variants = map[int]Variant{
 
 	207: {
 		ID:          207,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vindicator",
 		Name:        "vnd-1aa",
 		Alias:       "",
@@ -2276,7 +2855,7 @@ var variants = map[int]Variant{
 
 	208: {
 		ID:          208,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vindicator",
 		Name:        "vnd-1x",
 		Alias:       "",
@@ -2287,7 +2866,7 @@ var variants = map[int]Variant{
 
 	209: {
 		ID:          209,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "quickdraw",
 		Name:        "qkd-4gc",
 		Alias:       "qkd-4g",
@@ -2298,7 +2877,7 @@ var variants = map[int]Variant{
 
 	210: {
 		ID:          210,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-1e",
 		Alias:       "",
@@ -2309,7 +2888,7 @@ var variants = map[int]Variant{
 
 	211: {
 		ID:          211,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-primei",
 		Alias:       "mdd-prime",
@@ -2320,7 +2899,7 @@ var variants = map[int]Variant{
 
 	212: {
 		ID:          212,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-prime",
 		Alias:       "",
@@ -2331,7 +2910,7 @@ var variants = map[int]Variant{
 
 	213: {
 		ID:          213,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-a",
 		Alias:       "",
@@ -2342,7 +2921,7 @@ var variants = map[int]Variant{
 
 	214: {
 		ID:          214,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-b",
 		Alias:       "",
@@ -2353,7 +2932,7 @@ var variants = map[int]Variant{
 
 	215: {
 		ID:          215,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "trebuchet",
 		Name:        "tbt-7mc",
 		Alias:       "tbt-7m",
@@ -2364,7 +2943,7 @@ var variants = map[int]Variant{
 
 	216: {
 		ID:          216,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-s",
 		Alias:       "",
@@ -2375,7 +2954,7 @@ var variants = map[int]Variant{
 
 	217: {
 		ID:          217,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-9sec",
 		Alias:       "tdr-9se",
@@ -2386,7 +2965,7 @@ var variants = map[int]Variant{
 
 	218: {
 		ID:          218,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-primei",
 		Alias:       "ifr-prime",
@@ -2397,7 +2976,7 @@ var variants = map[int]Variant{
 
 	219: {
 		ID:          219,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-prime",
 		Alias:       "",
@@ -2408,7 +2987,7 @@ var variants = map[int]Variant{
 
 	220: {
 		ID:          220,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-a",
 		Alias:       "",
@@ -2419,7 +2998,7 @@ var variants = map[int]Variant{
 
 	221: {
 		ID:          221,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-c",
 		Alias:       "",
@@ -2430,7 +3009,7 @@ var variants = map[int]Variant{
 
 	222: {
 		ID:          222,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-pb",
 		Alias:       "",
@@ -2441,7 +3020,7 @@ var variants = map[int]Variant{
 
 	223: {
 		ID:          223,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-gd",
 		Alias:       "",
@@ -2452,7 +3031,7 @@ var variants = map[int]Variant{
 
 	224: {
 		ID:          224,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-primei",
 		Alias:       "mlx-prime",
@@ -2463,7 +3042,7 @@ var variants = map[int]Variant{
 
 	225: {
 		ID:          225,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-prime",
 		Alias:       "",
@@ -2474,7 +3053,7 @@ var variants = map[int]Variant{
 
 	226: {
 		ID:          226,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-b",
 		Alias:       "",
@@ -2485,7 +3064,7 @@ var variants = map[int]Variant{
 
 	227: {
 		ID:          227,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-c",
 		Alias:       "",
@@ -2496,7 +3075,7 @@ var variants = map[int]Variant{
 
 	228: {
 		ID:          228,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "raven",
 		Name:        "rvn-3lc",
 		Alias:       "rvn-3l",
@@ -2507,7 +3086,7 @@ var variants = map[int]Variant{
 
 	229: {
 		ID:          229,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-primei",
 		Alias:       "hbr-prime",
@@ -2518,7 +3097,7 @@ var variants = map[int]Variant{
 
 	230: {
 		ID:          230,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-prime",
 		Alias:       "",
@@ -2529,7 +3108,7 @@ var variants = map[int]Variant{
 
 	231: {
 		ID:          231,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-a",
 		Alias:       "",
@@ -2540,7 +3119,7 @@ var variants = map[int]Variant{
 
 	232: {
 		ID:          232,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-b",
 		Alias:       "",
@@ -2551,7 +3130,7 @@ var variants = map[int]Variant{
 
 	233: {
 		ID:          233,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-primei",
 		Alias:       "gar-prime",
@@ -2562,7 +3141,7 @@ var variants = map[int]Variant{
 
 	234: {
 		ID:          234,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-prime",
 		Alias:       "",
@@ -2573,7 +3152,7 @@ var variants = map[int]Variant{
 
 	235: {
 		ID:          235,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-a",
 		Alias:       "",
@@ -2584,7 +3163,7 @@ var variants = map[int]Variant{
 
 	236: {
 		ID:          236,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-d",
 		Alias:       "",
@@ -2595,7 +3174,7 @@ var variants = map[int]Variant{
 
 	237: {
 		ID:          237,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-000l",
 		Alias:       "kgc-000",
@@ -2606,7 +3185,7 @@ var variants = map[int]Variant{
 
 	238: {
 		ID:          238,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-000",
 		Alias:       "",
@@ -2617,7 +3196,7 @@ var variants = map[int]Variant{
 
 	239: {
 		ID:          239,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-0000",
 		Alias:       "",
@@ -2628,7 +3207,7 @@ var variants = map[int]Variant{
 
 	240: {
 		ID:          240,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-000b",
 		Alias:       "",
@@ -2639,7 +3218,7 @@ var variants = map[int]Variant{
 
 	241: {
 		ID:          241,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-s-std",
 		Alias:       "as7-s",
@@ -2650,7 +3229,7 @@ var variants = map[int]Variant{
 
 	242: {
 		ID:          242,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-ah-std",
 		Alias:       "cn9-ah",
@@ -2661,7 +3240,7 @@ var variants = map[int]Variant{
 
 	243: {
 		ID:          243,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-10kr",
 		Alias:       "pnt-10k",
@@ -2672,7 +3251,7 @@ var variants = map[int]Variant{
 
 	244: {
 		ID:          244,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-10k",
 		Alias:       "",
@@ -2683,7 +3262,7 @@ var variants = map[int]Variant{
 
 	245: {
 		ID:          245,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-8z",
 		Alias:       "",
@@ -2694,7 +3273,7 @@ var variants = map[int]Variant{
 
 	246: {
 		ID:          246,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-9r",
 		Alias:       "",
@@ -2705,7 +3284,7 @@ var variants = map[int]Variant{
 
 	247: {
 		ID:          247,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "enforcer",
 		Name:        "enf-5dr",
 		Alias:       "enf-5d",
@@ -2716,7 +3295,7 @@ var variants = map[int]Variant{
 
 	248: {
 		ID:          248,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "enforcer",
 		Name:        "enf-5d",
 		Alias:       "",
@@ -2727,7 +3306,7 @@ var variants = map[int]Variant{
 
 	249: {
 		ID:          249,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "enforcer",
 		Name:        "enf-4r",
 		Alias:       "",
@@ -2738,7 +3317,7 @@ var variants = map[int]Variant{
 
 	250: {
 		ID:          250,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "enforcer",
 		Name:        "enf-5p",
 		Alias:       "",
@@ -2749,7 +3328,7 @@ var variants = map[int]Variant{
 
 	251: {
 		ID:          251,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "banshee",
 		Name:        "bnc-3mc",
 		Alias:       "bnc-3m",
@@ -2760,7 +3339,7 @@ var variants = map[int]Variant{
 
 	252: {
 		ID:          252,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-5jr",
 		Alias:       "ghr-5j",
@@ -2771,7 +3350,7 @@ var variants = map[int]Variant{
 
 	253: {
 		ID:          253,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-5j",
 		Alias:       "",
@@ -2782,7 +3361,7 @@ var variants = map[int]Variant{
 
 	254: {
 		ID:          254,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-5h",
 		Alias:       "",
@@ -2793,7 +3372,7 @@ var variants = map[int]Variant{
 
 	255: {
 		ID:          255,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-5n",
 		Alias:       "",
@@ -2804,7 +3383,7 @@ var variants = map[int]Variant{
 
 	256: {
 		ID:          256,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-6sr",
 		Alias:       "zeu-6s",
@@ -2815,7 +3394,7 @@ var variants = map[int]Variant{
 
 	257: {
 		ID:          257,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-6s",
 		Alias:       "",
@@ -2826,7 +3405,7 @@ var variants = map[int]Variant{
 
 	258: {
 		ID:          258,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-6t",
 		Alias:       "",
@@ -2837,7 +3416,7 @@ var variants = map[int]Variant{
 
 	259: {
 		ID:          259,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-9s",
 		Alias:       "",
@@ -2848,7 +3427,7 @@ var variants = map[int]Variant{
 
 	260: {
 		ID:          260,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-b",
 		Alias:       "",
@@ -2859,7 +3438,7 @@ var variants = map[int]Variant{
 
 	261: {
 		ID:          261,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-s",
 		Alias:       "",
@@ -2870,7 +3449,7 @@ var variants = map[int]Variant{
 
 	262: {
 		ID:          262,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-c",
 		Alias:       "",
@@ -2881,7 +3460,7 @@ var variants = map[int]Variant{
 
 	263: {
 		ID:          263,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-d",
 		Alias:       "",
@@ -2892,7 +3471,7 @@ var variants = map[int]Variant{
 
 	264: {
 		ID:          264,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-c",
 		Alias:       "",
@@ -2903,7 +3482,7 @@ var variants = map[int]Variant{
 
 	265: {
 		ID:          265,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-c",
 		Alias:       "",
@@ -2914,7 +3493,7 @@ var variants = map[int]Variant{
 
 	266: {
 		ID:          266,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-a",
 		Alias:       "",
@@ -2925,7 +3504,7 @@ var variants = map[int]Variant{
 
 	267: {
 		ID:          267,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-a",
 		Alias:       "",
@@ -2936,7 +3515,7 @@ var variants = map[int]Variant{
 
 	268: {
 		ID:          268,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-a",
 		Alias:       "",
@@ -2947,7 +3526,7 @@ var variants = map[int]Variant{
 
 	269: {
 		ID:          269,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-c",
 		Alias:       "",
@@ -2958,7 +3537,7 @@ var variants = map[int]Variant{
 
 	270: {
 		ID:          270,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-d",
 		Alias:       "",
@@ -2969,7 +3548,7 @@ var variants = map[int]Variant{
 
 	271: {
 		ID:          271,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-c",
 		Alias:       "",
@@ -2980,7 +3559,7 @@ var variants = map[int]Variant{
 
 	272: {
 		ID:          272,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-1sc",
 		Alias:       "grf-1s",
@@ -2991,7 +3570,7 @@ var variants = map[int]Variant{
 
 	273: {
 		ID:          273,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-6kc",
 		Alias:       "wvr-6k",
@@ -3002,7 +3581,7 @@ var variants = map[int]Variant{
 
 	274: {
 		ID:          274,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r63s",
 		Alias:       "um-r63",
@@ -3013,7 +3592,7 @@ var variants = map[int]Variant{
 
 	275: {
 		ID:          275,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r63",
 		Alias:       "",
@@ -3024,7 +3603,7 @@ var variants = map[int]Variant{
 
 	276: {
 		ID:          276,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r60",
 		Alias:       "",
@@ -3035,7 +3614,7 @@ var variants = map[int]Variant{
 
 	277: {
 		ID:          277,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r60l",
 		Alias:       "",
@@ -3046,7 +3625,7 @@ var variants = map[int]Variant{
 
 	278: {
 		ID:          278,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jagermech",
 		Name:        "jm6-ac",
 		Alias:       "jm6-a",
@@ -3057,7 +3636,7 @@ var variants = map[int]Variant{
 
 	279: {
 		ID:          279,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-primei",
 		Alias:       "ebj-prime",
@@ -3068,7 +3647,7 @@ var variants = map[int]Variant{
 
 	280: {
 		ID:          280,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-prime",
 		Alias:       "",
@@ -3079,7 +3658,7 @@ var variants = map[int]Variant{
 
 	281: {
 		ID:          281,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-a",
 		Alias:       "",
@@ -3090,7 +3669,7 @@ var variants = map[int]Variant{
 
 	282: {
 		ID:          282,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-b",
 		Alias:       "",
@@ -3101,7 +3680,7 @@ var variants = map[int]Variant{
 
 	283: {
 		ID:          283,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-c",
 		Alias:       "",
@@ -3112,7 +3691,7 @@ var variants = map[int]Variant{
 
 	284: {
 		ID:          284,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-primei",
 		Alias:       "exe-prime",
@@ -3123,7 +3702,7 @@ var variants = map[int]Variant{
 
 	285: {
 		ID:          285,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-prime",
 		Alias:       "",
@@ -3134,7 +3713,7 @@ var variants = map[int]Variant{
 
 	286: {
 		ID:          286,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-a",
 		Alias:       "",
@@ -3145,7 +3724,7 @@ var variants = map[int]Variant{
 
 	287: {
 		ID:          287,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-b",
 		Alias:       "",
@@ -3156,7 +3735,7 @@ var variants = map[int]Variant{
 
 	288: {
 		ID:          288,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-d",
 		Alias:       "",
@@ -3167,7 +3746,7 @@ var variants = map[int]Variant{
 
 	289: {
 		ID:          289,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-5s-t",
 		Alias:       "",
@@ -3178,7 +3757,7 @@ var variants = map[int]Variant{
 
 	290: {
 		ID:          290,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-primei",
 		Alias:       "ach-prime",
@@ -3189,7 +3768,7 @@ var variants = map[int]Variant{
 
 	291: {
 		ID:          291,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-prime",
 		Alias:       "",
@@ -3200,7 +3779,7 @@ var variants = map[int]Variant{
 
 	292: {
 		ID:          292,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-a",
 		Alias:       "",
@@ -3211,7 +3790,7 @@ var variants = map[int]Variant{
 
 	293: {
 		ID:          293,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-b",
 		Alias:       "",
@@ -3222,7 +3801,7 @@ var variants = map[int]Variant{
 
 	294: {
 		ID:          294,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-c",
 		Alias:       "",
@@ -3233,7 +3812,7 @@ var variants = map[int]Variant{
 
 	295: {
 		ID:          295,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-primei",
 		Alias:       "shc-prime",
@@ -3244,7 +3823,7 @@ var variants = map[int]Variant{
 
 	296: {
 		ID:          296,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-prime",
 		Alias:       "",
@@ -3255,7 +3834,7 @@ var variants = map[int]Variant{
 
 	297: {
 		ID:          297,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-a",
 		Alias:       "",
@@ -3266,7 +3845,7 @@ var variants = map[int]Variant{
 
 	298: {
 		ID:          298,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-b",
 		Alias:       "",
@@ -3277,7 +3856,7 @@ var variants = map[int]Variant{
 
 	299: {
 		ID:          299,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-p",
 		Alias:       "",
@@ -3288,7 +3867,7 @@ var variants = map[int]Variant{
 
 	300: {
 		ID:          300,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-2n",
 		Alias:       "",
@@ -3299,7 +3878,7 @@ var variants = map[int]Variant{
 
 	301: {
 		ID:          301,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "highlander",
 		Name:        "hgn-732b",
 		Alias:       "",
@@ -3310,7 +3889,7 @@ var variants = map[int]Variant{
 
 	302: {
 		ID:          302,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-3v",
 		Alias:       "",
@@ -3321,7 +3900,7 @@ var variants = map[int]Variant{
 
 	303: {
 		ID:          303,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-w",
 		Alias:       "",
@@ -3332,7 +3911,7 @@ var variants = map[int]Variant{
 
 	304: {
 		ID:          304,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-b",
 		Alias:       "",
@@ -3343,7 +3922,7 @@ var variants = map[int]Variant{
 
 	305: {
 		ID:          305,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-b",
 		Alias:       "",
@@ -3354,7 +3933,7 @@ var variants = map[int]Variant{
 
 	306: {
 		ID:          306,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-d",
 		Alias:       "",
@@ -3365,7 +3944,7 @@ var variants = map[int]Variant{
 
 	307: {
 		ID:          307,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-c",
 		Alias:       "",
@@ -3376,7 +3955,7 @@ var variants = map[int]Variant{
 
 	308: {
 		ID:          308,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-b",
 		Alias:       "",
@@ -3387,7 +3966,7 @@ var variants = map[int]Variant{
 
 	309: {
 		ID:          309,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-a",
 		Alias:       "",
@@ -3398,7 +3977,7 @@ var variants = map[int]Variant{
 
 	310: {
 		ID:          310,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-2c",
 		Alias:       "",
@@ -3409,7 +3988,7 @@ var variants = map[int]Variant{
 
 	311: {
 		ID:          311,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-0xp",
 		Alias:       "",
@@ -3420,7 +3999,7 @@ var variants = map[int]Variant{
 
 	312: {
 		ID:          312,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-10p",
 		Alias:       "",
@@ -3431,7 +4010,7 @@ var variants = map[int]Variant{
 
 	313: {
 		ID:          313,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "enforcer",
 		Name:        "enf-4p",
 		Alias:       "",
@@ -3442,7 +4021,7 @@ var variants = map[int]Variant{
 
 	314: {
 		ID:          314,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-5p",
 		Alias:       "",
@@ -3453,7 +4032,7 @@ var variants = map[int]Variant{
 
 	315: {
 		ID:          315,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-5s",
 		Alias:       "",
@@ -3464,7 +4043,7 @@ var variants = map[int]Variant{
 
 	316: {
 		ID:          316,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-q",
 		Alias:       "",
@@ -3475,7 +4054,7 @@ var variants = map[int]Variant{
 
 	317: {
 		ID:          317,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "enforcer",
 		Name:        "enf-4rc",
 		Alias:       "enf-4r",
@@ -3486,7 +4065,7 @@ var variants = map[int]Variant{
 
 	318: {
 		ID:          318,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-cc",
 		Alias:       "tbr-c",
@@ -3497,7 +4076,7 @@ var variants = map[int]Variant{
 
 	319: {
 		ID:          319,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackknight",
 		Name:        "bl-6-kntr",
 		Alias:       "bl-6-knt",
@@ -3508,7 +4087,7 @@ var variants = map[int]Variant{
 
 	320: {
 		ID:          320,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackknight",
 		Name:        "bl-6-knt",
 		Alias:       "",
@@ -3519,7 +4098,7 @@ var variants = map[int]Variant{
 
 	321: {
 		ID:          321,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackknight",
 		Name:        "bl-6b-knt",
 		Alias:       "",
@@ -3530,7 +4109,7 @@ var variants = map[int]Variant{
 
 	322: {
 		ID:          322,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackknight",
 		Name:        "bl-7-knt",
 		Alias:       "",
@@ -3541,7 +4120,7 @@ var variants = map[int]Variant{
 
 	323: {
 		ID:          323,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackknight",
 		Name:        "bl-7-knt-l",
 		Alias:       "",
@@ -3552,7 +4131,7 @@ var variants = map[int]Variant{
 
 	324: {
 		ID:          324,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-1rr",
 		Alias:       "mal-1r",
@@ -3563,7 +4142,7 @@ var variants = map[int]Variant{
 
 	325: {
 		ID:          325,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-1r",
 		Alias:       "",
@@ -3574,7 +4153,7 @@ var variants = map[int]Variant{
 
 	326: {
 		ID:          326,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-mx90",
 		Alias:       "",
@@ -3585,7 +4164,7 @@ var variants = map[int]Variant{
 
 	327: {
 		ID:          327,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-1p",
 		Alias:       "",
@@ -3596,7 +4175,7 @@ var variants = map[int]Variant{
 
 	328: {
 		ID:          328,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-2p",
 		Alias:       "",
@@ -3607,7 +4186,7 @@ var variants = map[int]Variant{
 
 	329: {
 		ID:          329,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-27r",
 		Alias:       "crb-27",
@@ -3618,7 +4197,7 @@ var variants = map[int]Variant{
 
 	330: {
 		ID:          330,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-27",
 		Alias:       "",
@@ -3629,7 +4208,7 @@ var variants = map[int]Variant{
 
 	331: {
 		ID:          331,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-20",
 		Alias:       "",
@@ -3640,7 +4219,7 @@ var variants = map[int]Variant{
 
 	332: {
 		ID:          332,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-27b",
 		Alias:       "",
@@ -3651,7 +4230,7 @@ var variants = map[int]Variant{
 
 	333: {
 		ID:          333,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-27sl",
 		Alias:       "",
@@ -3662,7 +4241,7 @@ var variants = map[int]Variant{
 
 	334: {
 		ID:          334,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolfhound",
 		Name:        "wlf-2r",
 		Alias:       "wlf-2",
@@ -3673,7 +4252,7 @@ var variants = map[int]Variant{
 
 	335: {
 		ID:          335,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolfhound",
 		Name:        "wlf-2",
 		Alias:       "",
@@ -3684,7 +4263,7 @@ var variants = map[int]Variant{
 
 	336: {
 		ID:          336,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolfhound",
 		Name:        "wlf-1",
 		Alias:       "",
@@ -3695,7 +4274,7 @@ var variants = map[int]Variant{
 
 	337: {
 		ID:          337,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolfhound",
 		Name:        "wlf-1a",
 		Alias:       "",
@@ -3706,7 +4285,7 @@ var variants = map[int]Variant{
 
 	338: {
 		ID:          338,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolfhound",
 		Name:        "wlf-1b",
 		Alias:       "",
@@ -3717,7 +4296,7 @@ var variants = map[int]Variant{
 
 	339: {
 		ID:          339,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-3fl",
 		Alias:       "cda-3f",
@@ -3728,7 +4307,7 @@ var variants = map[int]Variant{
 
 	340: {
 		ID:          340,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-7dl",
 		Alias:       "wvr-7d",
@@ -3739,7 +4318,7 @@ var variants = map[int]Variant{
 
 	341: {
 		ID:          341,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-9s2l",
 		Alias:       "zeu-9s2",
@@ -3750,7 +4329,7 @@ var variants = map[int]Variant{
 
 	342: {
 		ID:          342,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-dl",
 		Alias:       "nva-d",
@@ -3761,7 +4340,7 @@ var variants = map[int]Variant{
 
 	343: {
 		ID:          343,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-cl",
 		Alias:       "exe-c",
@@ -3772,7 +4351,7 @@ var variants = map[int]Variant{
 
 	344: {
 		ID:          344,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-3rs",
 		Alias:       "mad-3r",
@@ -3783,7 +4362,7 @@ var variants = map[int]Variant{
 
 	345: {
 		ID:          345,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-3r",
 		Alias:       "",
@@ -3794,7 +4373,7 @@ var variants = map[int]Variant{
 
 	346: {
 		ID:          346,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-5d",
 		Alias:       "",
@@ -3805,7 +4384,7 @@ var variants = map[int]Variant{
 
 	347: {
 		ID:          347,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-5m",
 		Alias:       "",
@@ -3816,7 +4395,7 @@ var variants = map[int]Variant{
 
 	348: {
 		ID:          348,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-bh2",
 		Alias:       "",
@@ -3827,7 +4406,7 @@ var variants = map[int]Variant{
 
 	349: {
 		ID:          349,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-000bc",
 		Alias:       "kgc-000b",
@@ -3838,7 +4417,7 @@ var variants = map[int]Variant{
 
 	350: {
 		ID:          350,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-000bs",
 		Alias:       "kgc-000b",
@@ -3849,7 +4428,7 @@ var variants = map[int]Variant{
 
 	351: {
 		ID:          351,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-primec",
 		Alias:       "ach-prime",
@@ -3860,7 +4439,7 @@ var variants = map[int]Variant{
 
 	352: {
 		ID:          352,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-primes",
 		Alias:       "ach-prime",
@@ -3871,7 +4450,7 @@ var variants = map[int]Variant{
 
 	353: {
 		ID:          353,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-primec",
 		Alias:       "scr-prime",
@@ -3882,7 +4461,7 @@ var variants = map[int]Variant{
 
 	354: {
 		ID:          354,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-primes",
 		Alias:       "scr-prime",
@@ -3893,7 +4472,7 @@ var variants = map[int]Variant{
 
 	355: {
 		ID:          355,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-wc",
 		Alias:       "dwf-w",
@@ -3904,7 +4483,7 @@ var variants = map[int]Variant{
 
 	356: {
 		ID:          356,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-ws",
 		Alias:       "dwf-w",
@@ -3915,7 +4494,7 @@ var variants = map[int]Variant{
 
 	357: {
 		ID:          357,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "raven",
 		Name:        "rvn-3ls",
 		Alias:       "rvn-3l",
@@ -3926,7 +4505,7 @@ var variants = map[int]Variant{
 
 	358: {
 		ID:          358,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4ps",
 		Alias:       "hbk-4p",
@@ -3937,7 +4516,7 @@ var variants = map[int]Variant{
 
 	359: {
 		ID:          359,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-9ses",
 		Alias:       "tdr-9se",
@@ -3948,7 +4527,7 @@ var variants = map[int]Variant{
 
 	360: {
 		ID:          360,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-cs",
 		Alias:       "tbr-c",
@@ -3959,7 +4538,7 @@ var variants = map[int]Variant{
 
 	361: {
 		ID:          361,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "jenneriic",
 		Name:        "jr7-iico",
 		Alias:       "jr7-iic",
@@ -3970,7 +4549,7 @@ var variants = map[int]Variant{
 
 	362: {
 		ID:          362,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "jenneriic",
 		Name:        "jr7-iic",
 		Alias:       "",
@@ -3981,7 +4560,7 @@ var variants = map[int]Variant{
 
 	363: {
 		ID:          363,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "jenneriic",
 		Name:        "jr7-iic-2",
 		Alias:       "",
@@ -3992,7 +4571,7 @@ var variants = map[int]Variant{
 
 	364: {
 		ID:          364,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "jenneriic",
 		Name:        "jr7-iic-3",
 		Alias:       "",
@@ -4003,7 +4582,7 @@ var variants = map[int]Variant{
 
 	365: {
 		ID:          365,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "jenneriic",
 		Name:        "jr7-iic-a",
 		Alias:       "",
@@ -4014,7 +4593,7 @@ var variants = map[int]Variant{
 
 	366: {
 		ID:          366,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iico",
 		Alias:       "hbk-iic",
@@ -4025,7 +4604,7 @@ var variants = map[int]Variant{
 
 	367: {
 		ID:          367,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iic",
 		Alias:       "",
@@ -4036,7 +4615,7 @@ var variants = map[int]Variant{
 
 	368: {
 		ID:          368,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iic-a",
 		Alias:       "",
@@ -4047,7 +4626,7 @@ var variants = map[int]Variant{
 
 	369: {
 		ID:          369,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iic-b",
 		Alias:       "",
@@ -4058,7 +4637,7 @@ var variants = map[int]Variant{
 
 	370: {
 		ID:          370,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iic-c",
 		Alias:       "",
@@ -4069,7 +4648,7 @@ var variants = map[int]Variant{
 
 	371: {
 		ID:          371,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iico",
 		Alias:       "on1-iic",
@@ -4080,7 +4659,7 @@ var variants = map[int]Variant{
 
 	372: {
 		ID:          372,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iic",
 		Alias:       "",
@@ -4091,7 +4670,7 @@ var variants = map[int]Variant{
 
 	373: {
 		ID:          373,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iic-a",
 		Alias:       "",
@@ -4102,7 +4681,7 @@ var variants = map[int]Variant{
 
 	374: {
 		ID:          374,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iic-b",
 		Alias:       "",
@@ -4113,7 +4692,7 @@ var variants = map[int]Variant{
 
 	375: {
 		ID:          375,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iic-c",
 		Alias:       "",
@@ -4124,7 +4703,7 @@ var variants = map[int]Variant{
 
 	376: {
 		ID:          376,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "highlanderiic",
 		Name:        "hgn-iico",
 		Alias:       "hgn-iic",
@@ -4135,7 +4714,7 @@ var variants = map[int]Variant{
 
 	377: {
 		ID:          377,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "highlanderiic",
 		Name:        "hgn-iic",
 		Alias:       "",
@@ -4146,7 +4725,7 @@ var variants = map[int]Variant{
 
 	378: {
 		ID:          378,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "highlanderiic",
 		Name:        "hgn-iic-a",
 		Alias:       "",
@@ -4157,7 +4736,7 @@ var variants = map[int]Variant{
 
 	379: {
 		ID:          379,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "highlanderiic",
 		Name:        "hgn-iic-b",
 		Alias:       "",
@@ -4168,7 +4747,7 @@ var variants = map[int]Variant{
 
 	380: {
 		ID:          380,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "highlanderiic",
 		Name:        "hgn-iic-c",
 		Alias:       "",
@@ -4179,7 +4758,7 @@ var variants = map[int]Variant{
 
 	381: {
 		ID:          381,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-6rs",
 		Alias:       "whm-6r",
@@ -4190,7 +4769,7 @@ var variants = map[int]Variant{
 
 	382: {
 		ID:          382,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-6r",
 		Alias:       "",
@@ -4201,7 +4780,7 @@ var variants = map[int]Variant{
 
 	383: {
 		ID:          383,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-6d",
 		Alias:       "",
@@ -4212,7 +4791,7 @@ var variants = map[int]Variant{
 
 	384: {
 		ID:          384,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-7s",
 		Alias:       "",
@@ -4223,7 +4802,7 @@ var variants = map[int]Variant{
 
 	385: {
 		ID:          385,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-bw",
 		Alias:       "",
@@ -4234,7 +4813,7 @@ var variants = map[int]Variant{
 
 	386: {
 		ID:          386,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-3ns",
 		Alias:       "rfl-3n",
@@ -4245,7 +4824,7 @@ var variants = map[int]Variant{
 
 	387: {
 		ID:          387,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-3n",
 		Alias:       "",
@@ -4256,7 +4835,7 @@ var variants = map[int]Variant{
 
 	388: {
 		ID:          388,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-3c",
 		Alias:       "",
@@ -4267,7 +4846,7 @@ var variants = map[int]Variant{
 
 	389: {
 		ID:          389,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-5d",
 		Alias:       "",
@@ -4278,7 +4857,7 @@ var variants = map[int]Variant{
 
 	390: {
 		ID:          390,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-lk",
 		Alias:       "",
@@ -4289,7 +4868,7 @@ var variants = map[int]Variant{
 
 	391: {
 		ID:          391,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "archer",
 		Name:        "arc-2rs",
 		Alias:       "arc-2r",
@@ -4300,7 +4879,7 @@ var variants = map[int]Variant{
 
 	392: {
 		ID:          392,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "archer",
 		Name:        "arc-2r",
 		Alias:       "",
@@ -4311,7 +4890,7 @@ var variants = map[int]Variant{
 
 	393: {
 		ID:          393,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "archer",
 		Name:        "arc-5s",
 		Alias:       "",
@@ -4322,7 +4901,7 @@ var variants = map[int]Variant{
 
 	394: {
 		ID:          394,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "archer",
 		Name:        "arc-5w",
 		Alias:       "",
@@ -4333,7 +4912,7 @@ var variants = map[int]Variant{
 
 	395: {
 		ID:          395,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "archer",
 		Name:        "arc-t",
 		Alias:       "",
@@ -4344,7 +4923,7 @@ var variants = map[int]Variant{
 
 	396: {
 		ID:          396,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-1ec",
 		Alias:       "lct-1e",
@@ -4355,7 +4934,7 @@ var variants = map[int]Variant{
 
 	397: {
 		ID:          397,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "commando",
 		Name:        "com-1dc",
 		Alias:       "com-1d",
@@ -4366,7 +4945,7 @@ var variants = map[int]Variant{
 
 	398: {
 		ID:          398,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vindicator",
 		Name:        "vnd-1aac",
 		Alias:       "vnd-1aa",
@@ -4377,7 +4956,7 @@ var variants = map[int]Variant{
 
 	399: {
 		ID:          399,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "awesome",
 		Name:        "aws-9mc",
 		Alias:       "aws-9m",
@@ -4388,7 +4967,7 @@ var variants = map[int]Variant{
 
 	400: {
 		ID:          400,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-2cc",
 		Alias:       "blr-2c",
@@ -4399,7 +4978,7 @@ var variants = map[int]Variant{
 
 	401: {
 		ID:          401,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-primec",
 		Alias:       "mlx-prime",
@@ -4410,7 +4989,7 @@ var variants = map[int]Variant{
 
 	402: {
 		ID:          402,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-primec",
 		Alias:       "shc-prime",
@@ -4421,7 +5000,7 @@ var variants = map[int]Variant{
 
 	403: {
 		ID:          403,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-primec",
 		Alias:       "ebj-prime",
@@ -4432,7 +5011,7 @@ var variants = map[int]Variant{
 
 	404: {
 		ID:          404,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-cc",
 		Alias:       "whk-c",
@@ -4443,7 +5022,7 @@ var variants = map[int]Variant{
 
 	405: {
 		ID:          405,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-1s",
 		Alias:       "kdk-1",
@@ -4454,7 +5033,7 @@ var variants = map[int]Variant{
 
 	406: {
 		ID:          406,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-1",
 		Alias:       "",
@@ -4465,7 +5044,7 @@ var variants = map[int]Variant{
 
 	407: {
 		ID:          407,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-2",
 		Alias:       "",
@@ -4476,7 +5055,7 @@ var variants = map[int]Variant{
 
 	408: {
 		ID:          408,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-3",
 		Alias:       "",
@@ -4487,7 +5066,7 @@ var variants = map[int]Variant{
 
 	409: {
 		ID:          409,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-4",
 		Alias:       "",
@@ -4498,7 +5077,7 @@ var variants = map[int]Variant{
 
 	410: {
 		ID:          410,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-5",
 		Alias:       "",
@@ -4509,7 +5088,7 @@ var variants = map[int]Variant{
 
 	411: {
 		ID:          411,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-sb",
 		Alias:       "",
@@ -4520,7 +5099,7 @@ var variants = map[int]Variant{
 
 	412: {
 		ID:          412,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-1s",
 		Alias:       "pxh-1",
@@ -4531,7 +5110,7 @@ var variants = map[int]Variant{
 
 	413: {
 		ID:          413,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-1",
 		Alias:       "",
@@ -4542,7 +5121,7 @@ var variants = map[int]Variant{
 
 	414: {
 		ID:          414,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-1b",
 		Alias:       "",
@@ -4553,7 +5132,7 @@ var variants = map[int]Variant{
 
 	415: {
 		ID:          415,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-1k",
 		Alias:       "",
@@ -4564,7 +5143,7 @@ var variants = map[int]Variant{
 
 	416: {
 		ID:          416,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-2",
 		Alias:       "",
@@ -4575,7 +5154,7 @@ var variants = map[int]Variant{
 
 	417: {
 		ID:          417,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-3s",
 		Alias:       "",
@@ -4586,7 +5165,7 @@ var variants = map[int]Variant{
 
 	418: {
 		ID:          418,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-r",
 		Alias:       "",
@@ -4597,7 +5176,7 @@ var variants = map[int]Variant{
 
 	419: {
 		ID:          419,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-kk",
 		Alias:       "",
@@ -4608,7 +5187,7 @@ var variants = map[int]Variant{
 
 	420: {
 		ID:          420,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-bb",
 		Alias:       "",
@@ -4619,7 +5198,7 @@ var variants = map[int]Variant{
 
 	421: {
 		ID:          421,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-primes",
 		Alias:       "vpr-prime",
@@ -4630,7 +5209,7 @@ var variants = map[int]Variant{
 
 	422: {
 		ID:          422,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-prime",
 		Alias:       "",
@@ -4641,7 +5220,7 @@ var variants = map[int]Variant{
 
 	423: {
 		ID:          423,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-a",
 		Alias:       "",
@@ -4652,7 +5231,7 @@ var variants = map[int]Variant{
 
 	424: {
 		ID:          424,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-b",
 		Alias:       "",
@@ -4663,7 +5242,7 @@ var variants = map[int]Variant{
 
 	425: {
 		ID:          425,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-c",
 		Alias:       "",
@@ -4674,7 +5253,7 @@ var variants = map[int]Variant{
 
 	426: {
 		ID:          426,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-d",
 		Alias:       "",
@@ -4685,7 +5264,7 @@ var variants = map[int]Variant{
 
 	427: {
 		ID:          427,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-m",
 		Alias:       "",
@@ -4696,7 +5275,7 @@ var variants = map[int]Variant{
 
 	428: {
 		ID:          428,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-3f",
 		Alias:       "",
@@ -4707,7 +5286,7 @@ var variants = map[int]Variant{
 
 	429: {
 		ID:          429,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-7d",
 		Alias:       "",
@@ -4718,7 +5297,7 @@ var variants = map[int]Variant{
 
 	430: {
 		ID:          430,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-9s2",
 		Alias:       "",
@@ -4729,7 +5308,7 @@ var variants = map[int]Variant{
 
 	431: {
 		ID:          431,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-d",
 		Alias:       "",
@@ -4740,7 +5319,7 @@ var variants = map[int]Variant{
 
 	432: {
 		ID:          432,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-c",
 		Alias:       "",
@@ -4751,7 +5330,7 @@ var variants = map[int]Variant{
 
 	433: {
 		ID:          433,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-11-as",
 		Alias:       "",
@@ -4762,7 +5341,7 @@ var variants = map[int]Variant{
 
 	434: {
 		ID:          434,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-11-a",
 		Alias:       "",
@@ -4773,7 +5352,7 @@ var variants = map[int]Variant{
 
 	435: {
 		ID:          435,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-10-q",
 		Alias:       "",
@@ -4784,7 +5363,7 @@ var variants = map[int]Variant{
 
 	436: {
 		ID:          436,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-10-z",
 		Alias:       "",
@@ -4795,7 +5374,7 @@ var variants = map[int]Variant{
 
 	437: {
 		ID:          437,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-11-a-dc",
 		Alias:       "",
@@ -4806,7 +5385,7 @@ var variants = map[int]Variant{
 
 	438: {
 		ID:          438,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-11-p",
 		Alias:       "",
@@ -4817,7 +5396,7 @@ var variants = map[int]Variant{
 
 	439: {
 		ID:          439,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-s",
 		Alias:       "",
@@ -4828,7 +5407,7 @@ var variants = map[int]Variant{
 
 	440: {
 		ID:          440,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-ancix",
 		Alias:       "cn9-a",
@@ -4839,7 +5418,7 @@ var variants = map[int]Variant{
 
 	441: {
 		ID:          441,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-primes",
 		Alias:       "ntg-prime",
@@ -4850,7 +5429,7 @@ var variants = map[int]Variant{
 
 	442: {
 		ID:          442,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-prime",
 		Alias:       "",
@@ -4861,7 +5440,7 @@ var variants = map[int]Variant{
 
 	443: {
 		ID:          443,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-a",
 		Alias:       "",
@@ -4872,7 +5451,7 @@ var variants = map[int]Variant{
 
 	444: {
 		ID:          444,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-b",
 		Alias:       "",
@@ -4883,7 +5462,7 @@ var variants = map[int]Variant{
 
 	445: {
 		ID:          445,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-c",
 		Alias:       "",
@@ -4894,7 +5473,7 @@ var variants = map[int]Variant{
 
 	446: {
 		ID:          446,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-d",
 		Alias:       "",
@@ -4905,7 +5484,7 @@ var variants = map[int]Variant{
 
 	447: {
 		ID:          447,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-jk",
 		Alias:       "",
@@ -4916,7 +5495,7 @@ var variants = map[int]Variant{
 
 	448: {
 		ID:          448,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-10kc",
 		Alias:       "pnt-10k",
@@ -4927,7 +5506,7 @@ var variants = map[int]Variant{
 
 	449: {
 		ID:          449,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-27bc",
 		Alias:       "crb-27b",
@@ -4938,7 +5517,7 @@ var variants = map[int]Variant{
 
 	450: {
 		ID:          450,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-5hc",
 		Alias:       "ghr-5h",
@@ -4949,7 +5528,7 @@ var variants = map[int]Variant{
 
 	451: {
 		ID:          451,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-6tc",
 		Alias:       "zeu-6t",
@@ -4960,7 +5539,7 @@ var variants = map[int]Variant{
 
 	452: {
 		ID:          452,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "jenneriic",
 		Name:        "jr7-iicc",
 		Alias:       "jr7-iic",
@@ -4971,7 +5550,7 @@ var variants = map[int]Variant{
 
 	453: {
 		ID:          453,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iicc",
 		Alias:       "hbk-iic",
@@ -4982,7 +5561,7 @@ var variants = map[int]Variant{
 
 	454: {
 		ID:          454,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iic-ac",
 		Alias:       "on1-iic-a",
@@ -4993,7 +5572,7 @@ var variants = map[int]Variant{
 
 	455: {
 		ID:          455,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "highlanderiic",
 		Name:        "hgn-iic-cc",
 		Alias:       "hgn-iic-c",
@@ -5004,7 +5583,7 @@ var variants = map[int]Variant{
 
 	456: {
 		ID:          456,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-primes",
 		Alias:       "hmn-prime",
@@ -5015,7 +5594,7 @@ var variants = map[int]Variant{
 
 	457: {
 		ID:          457,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-prime",
 		Alias:       "",
@@ -5026,7 +5605,7 @@ var variants = map[int]Variant{
 
 	458: {
 		ID:          458,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-a",
 		Alias:       "",
@@ -5037,7 +5616,7 @@ var variants = map[int]Variant{
 
 	459: {
 		ID:          459,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-b",
 		Alias:       "",
@@ -5048,7 +5627,7 @@ var variants = map[int]Variant{
 
 	460: {
 		ID:          460,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-c",
 		Alias:       "",
@@ -5059,7 +5638,7 @@ var variants = map[int]Variant{
 
 	461: {
 		ID:          461,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-p",
 		Alias:       "",
@@ -5070,7 +5649,7 @@ var variants = map[int]Variant{
 
 	462: {
 		ID:          462,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-pa",
 		Alias:       "",
@@ -5081,7 +5660,7 @@ var variants = map[int]Variant{
 
 	463: {
 		ID:          463,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-2l",
 		Alias:       "bj-2",
@@ -5092,7 +5671,7 @@ var variants = map[int]Variant{
 
 	464: {
 		ID:          464,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-3ll",
 		Alias:       "ctf-3l",
@@ -5103,7 +5682,7 @@ var variants = map[int]Variant{
 
 	465: {
 		ID:          465,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-3fbl",
 		Alias:       "stk-3fb",
@@ -5114,7 +5693,7 @@ var variants = map[int]Variant{
 
 	466: {
 		ID:          466,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-fl",
 		Alias:       "hbr-f",
@@ -5125,7 +5704,7 @@ var variants = map[int]Variant{
 
 	467: {
 		ID:          467,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-fl",
 		Alias:       "smn-f",
@@ -5136,7 +5715,7 @@ var variants = map[int]Variant{
 
 	468: {
 		ID:          468,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-ml",
 		Alias:       "smn-m",
@@ -5147,7 +5726,7 @@ var variants = map[int]Variant{
 
 	469: {
 		ID:          469,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-primes",
 		Alias:       "lbk-prime",
@@ -5158,7 +5737,7 @@ var variants = map[int]Variant{
 
 	470: {
 		ID:          470,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-prime",
 		Alias:       "",
@@ -5169,7 +5748,7 @@ var variants = map[int]Variant{
 
 	471: {
 		ID:          471,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-a",
 		Alias:       "",
@@ -5180,7 +5759,7 @@ var variants = map[int]Variant{
 
 	472: {
 		ID:          472,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-b",
 		Alias:       "",
@@ -5191,7 +5770,7 @@ var variants = map[int]Variant{
 
 	473: {
 		ID:          473,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-c",
 		Alias:       "",
@@ -5202,7 +5781,7 @@ var variants = map[int]Variant{
 
 	474: {
 		ID:          474,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-d",
 		Alias:       "",
@@ -5213,7 +5792,7 @@ var variants = map[int]Variant{
 
 	475: {
 		ID:          475,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-rl",
 		Alias:       "",
@@ -5224,7 +5803,7 @@ var variants = map[int]Variant{
 
 	476: {
 		ID:          476,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-pr",
 		Alias:       "",
@@ -5235,7 +5814,7 @@ var variants = map[int]Variant{
 
 	477: {
 		ID:          477,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-cn",
 		Alias:       "",
@@ -5246,7 +5825,7 @@ var variants = map[int]Variant{
 
 	478: {
 		ID:          478,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-bk",
 		Alias:       "",
@@ -5257,7 +5836,7 @@ var variants = map[int]Variant{
 
 	479: {
 		ID:          479,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-lc",
 		Alias:       "",
@@ -5268,7 +5847,7 @@ var variants = map[int]Variant{
 
 	480: {
 		ID:          480,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-pd",
 		Alias:       "",
@@ -5279,7 +5858,7 @@ var variants = map[int]Variant{
 
 	481: {
 		ID:          481,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-war",
 		Alias:       "",
@@ -5290,7 +5869,7 @@ var variants = map[int]Variant{
 
 	482: {
 		ID:          482,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-nq",
 		Alias:       "",
@@ -5301,7 +5880,7 @@ var variants = map[int]Variant{
 
 	483: {
 		ID:          483,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-uv",
 		Alias:       "",
@@ -5312,7 +5891,7 @@ var variants = map[int]Variant{
 
 	484: {
 		ID:          484,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-10ks",
 		Alias:       "pnt-10k",
@@ -5323,7 +5902,7 @@ var variants = map[int]Variant{
 
 	485: {
 		ID:          485,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-primes",
 		Alias:       "mlx-prime",
@@ -5334,7 +5913,7 @@ var variants = map[int]Variant{
 
 	486: {
 		ID:          486,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-27bs",
 		Alias:       "crab",
@@ -5345,7 +5924,7 @@ var variants = map[int]Variant{
 
 	487: {
 		ID:          487,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-primes",
 		Alias:       "shc-prime",
@@ -5356,7 +5935,7 @@ var variants = map[int]Variant{
 
 	488: {
 		ID:          488,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-5hs",
 		Alias:       "ghr-5h",
@@ -5367,7 +5946,7 @@ var variants = map[int]Variant{
 
 	489: {
 		ID:          489,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-primes",
 		Alias:       "ebj-prime",
@@ -5378,7 +5957,7 @@ var variants = map[int]Variant{
 
 	490: {
 		ID:          490,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-6ts",
 		Alias:       "zeu-6t",
@@ -5389,7 +5968,7 @@ var variants = map[int]Variant{
 
 	491: {
 		ID:          491,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-cs",
 		Alias:       "whk-c",
@@ -5400,7 +5979,7 @@ var variants = map[int]Variant{
 
 	492: {
 		ID:          492,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iics",
 		Alias:       "mad-iic",
@@ -5411,7 +5990,7 @@ var variants = map[int]Variant{
 
 	493: {
 		ID:          493,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic",
 		Alias:       "",
@@ -5422,7 +6001,7 @@ var variants = map[int]Variant{
 
 	494: {
 		ID:          494,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-8",
 		Alias:       "",
@@ -5433,7 +6012,7 @@ var variants = map[int]Variant{
 
 	495: {
 		ID:          495,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-a",
 		Alias:       "",
@@ -5444,7 +6023,7 @@ var variants = map[int]Variant{
 
 	496: {
 		ID:          496,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-b",
 		Alias:       "",
@@ -5455,7 +6034,7 @@ var variants = map[int]Variant{
 
 	497: {
 		ID:          497,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-c",
 		Alias:       "",
@@ -5466,7 +6045,7 @@ var variants = map[int]Variant{
 
 	498: {
 		ID:          498,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-d",
 		Alias:       "",
@@ -5477,7 +6056,7 @@ var variants = map[int]Variant{
 
 	499: {
 		ID:          499,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-sc",
 		Alias:       "",
@@ -5488,7 +6067,7 @@ var variants = map[int]Variant{
 
 	500: {
 		ID:          500,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-x1s",
 		Alias:       "bsw-x1",
@@ -5499,7 +6078,7 @@ var variants = map[int]Variant{
 
 	501: {
 		ID:          501,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-x1",
 		Alias:       "",
@@ -5510,7 +6089,7 @@ var variants = map[int]Variant{
 
 	502: {
 		ID:          502,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-x2",
 		Alias:       "",
@@ -5521,7 +6100,7 @@ var variants = map[int]Variant{
 
 	503: {
 		ID:          503,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-s2",
 		Alias:       "",
@@ -5532,7 +6111,7 @@ var variants = map[int]Variant{
 
 	504: {
 		ID:          504,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-p1",
 		Alias:       "",
@@ -5543,7 +6122,7 @@ var variants = map[int]Variant{
 
 	505: {
 		ID:          505,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-p2",
 		Alias:       "",
@@ -5554,7 +6133,7 @@ var variants = map[int]Variant{
 
 	506: {
 		ID:          506,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-hr",
 		Alias:       "",
@@ -5565,7 +6144,7 @@ var variants = map[int]Variant{
 
 	507: {
 		ID:          507,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-1s",
 		Alias:       "snv-1",
@@ -5576,7 +6155,7 @@ var variants = map[int]Variant{
 
 	508: {
 		ID:          508,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-1",
 		Alias:       "",
@@ -5587,7 +6166,7 @@ var variants = map[int]Variant{
 
 	509: {
 		ID:          509,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-3",
 		Alias:       "",
@@ -5598,7 +6177,7 @@ var variants = map[int]Variant{
 
 	510: {
 		ID:          510,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-a",
 		Alias:       "",
@@ -5609,7 +6188,7 @@ var variants = map[int]Variant{
 
 	511: {
 		ID:          511,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-b",
 		Alias:       "",
@@ -5620,7 +6199,7 @@ var variants = map[int]Variant{
 
 	512: {
 		ID:          512,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-c",
 		Alias:       "",
@@ -5631,7 +6210,7 @@ var variants = map[int]Variant{
 
 	513: {
 		ID:          513,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-br",
 		Alias:       "",
@@ -5642,7 +6221,7 @@ var variants = map[int]Variant{
 
 	514: {
 		ID:          514,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-2",
 		Alias:       "",
@@ -5653,7 +6232,7 @@ var variants = map[int]Variant{
 
 	515: {
 		ID:          515,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-3fb",
 		Alias:       "",
@@ -5664,7 +6243,7 @@ var variants = map[int]Variant{
 
 	516: {
 		ID:          516,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-f",
 		Alias:       "",
@@ -5675,7 +6254,7 @@ var variants = map[int]Variant{
 
 	517: {
 		ID:          517,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-f",
 		Alias:       "",
@@ -5686,7 +6265,7 @@ var variants = map[int]Variant{
 
 	518: {
 		ID:          518,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-m",
 		Alias:       "",
@@ -5697,7 +6276,7 @@ var variants = map[int]Variant{
 
 	519: {
 		ID:          519,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-21s",
 		Alias:       "asn-21",
@@ -5708,7 +6287,7 @@ var variants = map[int]Variant{
 
 	520: {
 		ID:          520,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-21",
 		Alias:       "",
@@ -5719,7 +6298,7 @@ var variants = map[int]Variant{
 
 	521: {
 		ID:          521,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-23",
 		Alias:       "",
@@ -5730,7 +6309,7 @@ var variants = map[int]Variant{
 
 	522: {
 		ID:          522,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-101",
 		Alias:       "",
@@ -5741,7 +6320,7 @@ var variants = map[int]Variant{
 
 	523: {
 		ID:          523,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-26",
 		Alias:       "",
@@ -5752,7 +6331,7 @@ var variants = map[int]Variant{
 
 	524: {
 		ID:          524,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-27",
 		Alias:       "",
@@ -5763,7 +6342,7 @@ var variants = map[int]Variant{
 
 	525: {
 		ID:          525,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-dd",
 		Alias:       "",
@@ -5774,7 +6353,7 @@ var variants = map[int]Variant{
 
 	526: {
 		ID:          526,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolfhound",
 		Name:        "wlf-1c",
 		Alias:       "wlf-1",
@@ -5785,7 +6364,7 @@ var variants = map[int]Variant{
 
 	527: {
 		ID:          527,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-2c",
 		Alias:       "pxh-2",
@@ -5796,7 +6375,7 @@ var variants = map[int]Variant{
 
 	528: {
 		ID:          528,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-6dc",
 		Alias:       "whm-6d",
@@ -5807,7 +6386,7 @@ var variants = map[int]Variant{
 
 	529: {
 		ID:          529,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-mx90c",
 		Alias:       "mal-mx90",
@@ -5818,7 +6397,7 @@ var variants = map[int]Variant{
 
 	530: {
 		ID:          530,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-primec",
 		Alias:       "adr-prime",
@@ -5829,7 +6408,7 @@ var variants = map[int]Variant{
 
 	531: {
 		ID:          531,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-sc",
 		Alias:       "nva-s",
@@ -5840,7 +6419,7 @@ var variants = map[int]Variant{
 
 	532: {
 		ID:          532,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-fc",
 		Alias:       "hbr-f",
@@ -5851,7 +6430,7 @@ var variants = map[int]Variant{
 
 	533: {
 		ID:          533,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-3c",
 		Alias:       "kdk-3",
@@ -5862,7 +6441,7 @@ var variants = map[int]Variant{
 
 	534: {
 		ID:          534,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-1as",
 		Alias:       "rgh-1a",
@@ -5873,7 +6452,7 @@ var variants = map[int]Variant{
 
 	535: {
 		ID:          535,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-1a",
 		Alias:       "",
@@ -5884,7 +6463,7 @@ var variants = map[int]Variant{
 
 	536: {
 		ID:          536,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-1b",
 		Alias:       "",
@@ -5895,7 +6474,7 @@ var variants = map[int]Variant{
 
 	537: {
 		ID:          537,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-1c",
 		Alias:       "",
@@ -5906,7 +6485,7 @@ var variants = map[int]Variant{
 
 	538: {
 		ID:          538,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-2a",
 		Alias:       "",
@@ -5917,7 +6496,7 @@ var variants = map[int]Variant{
 
 	539: {
 		ID:          539,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-3a",
 		Alias:       "",
@@ -5928,7 +6507,7 @@ var variants = map[int]Variant{
 
 	540: {
 		ID:          540,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-r",
 		Alias:       "",
@@ -5939,7 +6518,7 @@ var variants = map[int]Variant{
 
 	541: {
 		ID:          541,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-10ns",
 		Alias:       "jvn-10n",
@@ -5950,7 +6529,7 @@ var variants = map[int]Variant{
 
 	542: {
 		ID:          542,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-10n",
 		Alias:       "",
@@ -5961,7 +6540,7 @@ var variants = map[int]Variant{
 
 	543: {
 		ID:          543,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-10f",
 		Alias:       "",
@@ -5972,7 +6551,7 @@ var variants = map[int]Variant{
 
 	544: {
 		ID:          544,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-10p",
 		Alias:       "",
@@ -5983,7 +6562,7 @@ var variants = map[int]Variant{
 
 	545: {
 		ID:          545,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-11a",
 		Alias:       "",
@@ -5994,7 +6573,7 @@ var variants = map[int]Variant{
 
 	546: {
 		ID:          546,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-11b",
 		Alias:       "",
@@ -6005,7 +6584,7 @@ var variants = map[int]Variant{
 
 	547: {
 		ID:          547,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-ht",
 		Alias:       "",
@@ -6016,7 +6595,7 @@ var variants = map[int]Variant{
 
 	548: {
 		ID:          548,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-k9",
 		Alias:       "",
@@ -6027,7 +6606,7 @@ var variants = map[int]Variant{
 
 	549: {
 		ID:          549,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolfhound",
 		Name:        "wlf-gr",
 		Alias:       "",
@@ -6038,7 +6617,7 @@ var variants = map[int]Variant{
 
 	550: {
 		ID:          550,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-kk",
 		Alias:       "",
@@ -6049,7 +6628,7 @@ var variants = map[int]Variant{
 
 	551: {
 		ID:          551,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-fl",
 		Alias:       "",
@@ -6060,7 +6639,7 @@ var variants = map[int]Variant{
 
 	552: {
 		ID:          552,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "enforcer",
 		Name:        "enf-gh",
 		Alias:       "",
@@ -6071,7 +6650,7 @@ var variants = map[int]Variant{
 
 	553: {
 		ID:          553,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-mj",
 		Alias:       "",
@@ -6082,7 +6661,7 @@ var variants = map[int]Variant{
 
 	554: {
 		ID:          554,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackknight",
 		Name:        "bl-p-knt",
 		Alias:       "",
@@ -6093,7 +6672,7 @@ var variants = map[int]Variant{
 
 	555: {
 		ID:          555,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-sk",
 		Alias:       "",
@@ -6104,7 +6683,7 @@ var variants = map[int]Variant{
 
 	556: {
 		ID:          556,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-ko",
 		Alias:       "",
@@ -6115,7 +6694,7 @@ var variants = map[int]Variant{
 
 	557: {
 		ID:          557,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-kj",
 		Alias:       "",
@@ -6126,7 +6705,7 @@ var variants = map[int]Variant{
 
 	558: {
 		ID:          558,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-3ss",
 		Alias:       "uzl-3s",
@@ -6137,7 +6716,7 @@ var variants = map[int]Variant{
 
 	559: {
 		ID:          559,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-3s",
 		Alias:       "",
@@ -6148,7 +6727,7 @@ var variants = map[int]Variant{
 
 	560: {
 		ID:          560,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-2s",
 		Alias:       "",
@@ -6159,7 +6738,7 @@ var variants = map[int]Variant{
 
 	561: {
 		ID:          561,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-3p",
 		Alias:       "",
@@ -6170,7 +6749,7 @@ var variants = map[int]Variant{
 
 	562: {
 		ID:          562,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-5p",
 		Alias:       "",
@@ -6181,7 +6760,7 @@ var variants = map[int]Variant{
 
 	563: {
 		ID:          563,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-6p",
 		Alias:       "",
@@ -6192,7 +6771,7 @@ var variants = map[int]Variant{
 
 	564: {
 		ID:          564,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-be",
 		Alias:       "",
@@ -6203,7 +6782,7 @@ var variants = map[int]Variant{
 
 	565: {
 		ID:          565,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-2as",
 		Alias:       "anh-2a",
@@ -6214,7 +6793,7 @@ var variants = map[int]Variant{
 
 	566: {
 		ID:          566,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-2a",
 		Alias:       "",
@@ -6225,7 +6804,7 @@ var variants = map[int]Variant{
 
 	567: {
 		ID:          567,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-1a",
 		Alias:       "",
@@ -6236,7 +6815,7 @@ var variants = map[int]Variant{
 
 	568: {
 		ID:          568,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-1e",
 		Alias:       "",
@@ -6247,7 +6826,7 @@ var variants = map[int]Variant{
 
 	569: {
 		ID:          569,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-1x",
 		Alias:       "",
@@ -6258,7 +6837,7 @@ var variants = map[int]Variant{
 
 	570: {
 		ID:          570,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-1p",
 		Alias:       "",
@@ -6269,7 +6848,7 @@ var variants = map[int]Variant{
 
 	571: {
 		ID:          571,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-mb",
 		Alias:       "",
@@ -6280,7 +6859,7 @@ var variants = map[int]Variant{
 
 	572: {
 		ID:          572,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "cougar",
 		Name:        "cou-primes",
 		Alias:       "cou-prime",
@@ -6291,7 +6870,7 @@ var variants = map[int]Variant{
 
 	573: {
 		ID:          573,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "cougar",
 		Name:        "cou-prime",
 		Alias:       "",
@@ -6302,7 +6881,7 @@ var variants = map[int]Variant{
 
 	574: {
 		ID:          574,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "cougar",
 		Name:        "cou-c",
 		Alias:       "",
@@ -6313,7 +6892,7 @@ var variants = map[int]Variant{
 
 	575: {
 		ID:          575,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "cougar",
 		Name:        "cou-d",
 		Alias:       "",
@@ -6324,7 +6903,7 @@ var variants = map[int]Variant{
 
 	576: {
 		ID:          576,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "cougar",
 		Name:        "cou-e",
 		Alias:       "",
@@ -6335,7 +6914,7 @@ var variants = map[int]Variant{
 
 	577: {
 		ID:          577,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "cougar",
 		Name:        "cou-h",
 		Alias:       "",
@@ -6346,7 +6925,7 @@ var variants = map[int]Variant{
 
 	578: {
 		ID:          578,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "cougar",
 		Name:        "cou-ba",
 		Alias:       "",
@@ -6357,7 +6936,7 @@ var variants = map[int]Variant{
 
 	579: {
 		ID:          579,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-1s",
 		Alias:       "mcii-1",
@@ -6368,7 +6947,7 @@ var variants = map[int]Variant{
 
 	580: {
 		ID:          580,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-1",
 		Alias:       "",
@@ -6379,7 +6958,7 @@ var variants = map[int]Variant{
 
 	581: {
 		ID:          581,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-2",
 		Alias:       "",
@@ -6390,7 +6969,7 @@ var variants = map[int]Variant{
 
 	582: {
 		ID:          582,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-4",
 		Alias:       "",
@@ -6401,7 +6980,7 @@ var variants = map[int]Variant{
 
 	583: {
 		ID:          583,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-a",
 		Alias:       "",
@@ -6412,7 +6991,7 @@ var variants = map[int]Variant{
 
 	584: {
 		ID:          584,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-b",
 		Alias:       "",
@@ -6423,7 +7002,7 @@ var variants = map[int]Variant{
 
 	585: {
 		ID:          585,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-ds",
 		Alias:       "",
@@ -6434,7 +7013,7 @@ var variants = map[int]Variant{
 
 	586: {
 		ID:          586,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-ed",
 		Alias:       "",
@@ -6445,7 +7024,7 @@ var variants = map[int]Variant{
 
 	587: {
 		ID:          587,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-sh",
 		Alias:       "",
@@ -6456,7 +7035,7 @@ var variants = map[int]Variant{
 
 	588: {
 		ID:          588,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-rc",
 		Alias:       "",
@@ -6467,7 +7046,7 @@ var variants = map[int]Variant{
 
 	589: {
 		ID:          589,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-mi",
 		Alias:       "",
@@ -6478,7 +7057,7 @@ var variants = map[int]Variant{
 
 	590: {
 		ID:          590,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-ba",
 		Alias:       "",
@@ -6489,7 +7068,7 @@ var variants = map[int]Variant{
 
 	591: {
 		ID:          591,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-ec",
 		Alias:       "",
@@ -6500,7 +7079,7 @@ var variants = map[int]Variant{
 
 	592: {
 		ID:          592,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-vi",
 		Alias:       "",
@@ -6511,7 +7090,7 @@ var variants = map[int]Variant{
 
 	593: {
 		ID:          593,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-kw",
 		Alias:       "",
@@ -6522,7 +7101,7 @@ var variants = map[int]Variant{
 
 	594: {
 		ID:          594,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-ch",
 		Alias:       "",
@@ -6533,7 +7112,7 @@ var variants = map[int]Variant{
 
 	595: {
 		ID:          595,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-g",
 		Alias:       "",
@@ -6544,7 +7123,7 @@ var variants = map[int]Variant{
 
 	596: {
 		ID:          596,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-e",
 		Alias:       "",
@@ -6555,7 +7134,7 @@ var variants = map[int]Variant{
 
 	597: {
 		ID:          597,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-p",
 		Alias:       "",
@@ -6566,7 +7145,7 @@ var variants = map[int]Variant{
 
 	598: {
 		ID:          598,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-h",
 		Alias:       "",
@@ -6577,7 +7156,7 @@ var variants = map[int]Variant{
 
 	599: {
 		ID:          599,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-h",
 		Alias:       "",
@@ -6588,7 +7167,7 @@ var variants = map[int]Variant{
 
 	600: {
 		ID:          600,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-d",
 		Alias:       "",
@@ -6599,7 +7178,7 @@ var variants = map[int]Variant{
 
 	601: {
 		ID:          601,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-p",
 		Alias:       "",
@@ -6610,7 +7189,7 @@ var variants = map[int]Variant{
 
 	602: {
 		ID:          602,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-e",
 		Alias:       "",
@@ -6621,7 +7200,7 @@ var variants = map[int]Variant{
 
 	603: {
 		ID:          603,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-e",
 		Alias:       "",
@@ -6632,7 +7211,7 @@ var variants = map[int]Variant{
 
 	604: {
 		ID:          604,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "jenneriic",
 		Name:        "jr7-iic-fy",
 		Alias:       "",
@@ -6643,7 +7222,7 @@ var variants = map[int]Variant{
 
 	605: {
 		ID:          605,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iic-dw",
 		Alias:       "",
@@ -6654,7 +7233,7 @@ var variants = map[int]Variant{
 
 	606: {
 		ID:          606,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iic-sk",
 		Alias:       "",
@@ -6665,7 +7244,7 @@ var variants = map[int]Variant{
 
 	607: {
 		ID:          607,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "highlanderiic",
 		Name:        "hgn-iic-kp",
 		Alias:       "",
@@ -6676,7 +7255,7 @@ var variants = map[int]Variant{
 
 	608: {
 		ID:          608,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-3ds",
 		Alias:       "osr-3d",
@@ -6687,7 +7266,7 @@ var variants = map[int]Variant{
 
 	609: {
 		ID:          609,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-3d",
 		Alias:       "",
@@ -6698,7 +7277,7 @@ var variants = map[int]Variant{
 
 	610: {
 		ID:          610,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-4d",
 		Alias:       "",
@@ -6709,7 +7288,7 @@ var variants = map[int]Variant{
 
 	611: {
 		ID:          611,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-1v",
 		Alias:       "",
@@ -6720,7 +7299,7 @@ var variants = map[int]Variant{
 
 	612: {
 		ID:          612,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-2v",
 		Alias:       "",
@@ -6731,7 +7310,7 @@ var variants = map[int]Variant{
 
 	613: {
 		ID:          613,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-1p",
 		Alias:       "",
@@ -6742,7 +7321,7 @@ var variants = map[int]Variant{
 
 	614: {
 		ID:          614,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-se",
 		Alias:       "",
@@ -6753,7 +7332,7 @@ var variants = map[int]Variant{
 
 	615: {
 		ID:          615,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-9js",
 		Alias:       "nsr-9j",
@@ -6764,7 +7343,7 @@ var variants = map[int]Variant{
 
 	616: {
 		ID:          616,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-9j",
 		Alias:       "",
@@ -6775,7 +7354,7 @@ var variants = map[int]Variant{
 
 	617: {
 		ID:          617,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-9fc",
 		Alias:       "",
@@ -6786,7 +7365,7 @@ var variants = map[int]Variant{
 
 	618: {
 		ID:          618,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-9s",
 		Alias:       "",
@@ -6797,7 +7376,7 @@ var variants = map[int]Variant{
 
 	619: {
 		ID:          619,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-9p",
 		Alias:       "",
@@ -6808,7 +7387,7 @@ var variants = map[int]Variant{
 
 	620: {
 		ID:          620,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-10p",
 		Alias:       "",
@@ -6819,7 +7398,7 @@ var variants = map[int]Variant{
 
 	621: {
 		ID:          621,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-wp",
 		Alias:       "",
@@ -6830,7 +7409,7 @@ var variants = map[int]Variant{
 
 	622: {
 		ID:          622,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticwolf",
 		Name:        "acw-primes",
 		Alias:       "acw-prime",
@@ -6841,7 +7420,7 @@ var variants = map[int]Variant{
 
 	623: {
 		ID:          623,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticwolf",
 		Name:        "acw-prime",
 		Alias:       "",
@@ -6852,7 +7431,7 @@ var variants = map[int]Variant{
 
 	624: {
 		ID:          624,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticwolf",
 		Name:        "acw-a",
 		Alias:       "",
@@ -6863,7 +7442,7 @@ var variants = map[int]Variant{
 
 	625: {
 		ID:          625,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticwolf",
 		Name:        "acw-p",
 		Alias:       "",
@@ -6874,7 +7453,7 @@ var variants = map[int]Variant{
 
 	626: {
 		ID:          626,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticwolf",
 		Name:        "acw-1",
 		Alias:       "",
@@ -6885,7 +7464,7 @@ var variants = map[int]Variant{
 
 	627: {
 		ID:          627,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticwolf",
 		Name:        "acw-2",
 		Alias:       "",
@@ -6896,7 +7475,7 @@ var variants = map[int]Variant{
 
 	628: {
 		ID:          628,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticwolf",
 		Name:        "acw-bk",
 		Alias:       "",
@@ -6907,7 +7486,7 @@ var variants = map[int]Variant{
 
 	629: {
 		ID:          629,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "novacat",
 		Name:        "nct-primes",
 		Alias:       "nct-prime",
@@ -6918,7 +7497,7 @@ var variants = map[int]Variant{
 
 	630: {
 		ID:          630,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "novacat",
 		Name:        "nct-prime",
 		Alias:       "",
@@ -6929,7 +7508,7 @@ var variants = map[int]Variant{
 
 	631: {
 		ID:          631,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "novacat",
 		Name:        "nct-a",
 		Alias:       "",
@@ -6940,7 +7519,7 @@ var variants = map[int]Variant{
 
 	632: {
 		ID:          632,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "novacat",
 		Name:        "nct-b",
 		Alias:       "",
@@ -6951,7 +7530,7 @@ var variants = map[int]Variant{
 
 	633: {
 		ID:          633,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "novacat",
 		Name:        "nct-c",
 		Alias:       "",
@@ -6962,7 +7541,7 @@ var variants = map[int]Variant{
 
 	634: {
 		ID:          634,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "novacat",
 		Name:        "nct-d",
 		Alias:       "",
@@ -6973,7 +7552,7 @@ var variants = map[int]Variant{
 
 	635: {
 		ID:          635,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "novacat",
 		Name:        "nct-cc",
 		Alias:       "",
@@ -6984,7 +7563,7 @@ var variants = map[int]Variant{
 
 	636: {
 		ID:          636,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thanatos",
 		Name:        "tns-4ss",
 		Alias:       "thanatos",
@@ -6995,7 +7574,7 @@ var variants = map[int]Variant{
 
 	637: {
 		ID:          637,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thanatos",
 		Name:        "tns-4s",
 		Alias:       "",
@@ -7006,7 +7585,7 @@ var variants = map[int]Variant{
 
 	638: {
 		ID:          638,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thanatos",
 		Name:        "tns-4p",
 		Alias:       "",
@@ -7017,7 +7596,7 @@ var variants = map[int]Variant{
 
 	639: {
 		ID:          639,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thanatos",
 		Name:        "tns-5p",
 		Alias:       "",
@@ -7028,7 +7607,7 @@ var variants = map[int]Variant{
 
 	640: {
 		ID:          640,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thanatos",
 		Name:        "tns-5s",
 		Alias:       "",
@@ -7039,7 +7618,7 @@ var variants = map[int]Variant{
 
 	641: {
 		ID:          641,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thanatos",
 		Name:        "tns-5t",
 		Alias:       "",
@@ -7050,7 +7629,7 @@ var variants = map[int]Variant{
 
 	642: {
 		ID:          642,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thanatos",
 		Name:        "tns-ha",
 		Alias:       "",
@@ -7061,7 +7640,7 @@ var variants = map[int]Variant{
 
 	643: {
 		ID:          643,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r68l",
 		Alias:       "um-r68",
@@ -7072,7 +7651,7 @@ var variants = map[int]Variant{
 
 	644: {
 		ID:          644,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-5ml",
 		Alias:       "grf-5m",
@@ -7083,7 +7662,7 @@ var variants = map[int]Variant{
 
 	645: {
 		ID:          645,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-9a1l",
 		Alias:       "vtr-9a1",
@@ -7094,7 +7673,7 @@ var variants = map[int]Variant{
 
 	646: {
 		ID:          646,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-gl",
 		Alias:       "kfx-g",
@@ -7105,7 +7684,7 @@ var variants = map[int]Variant{
 
 	647: {
 		ID:          647,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-hl",
 		Alias:       "lbk-h",
@@ -7116,7 +7695,7 @@ var variants = map[int]Variant{
 
 	648: {
 		ID:          648,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hellspawn",
 		Name:        "hsn-7ds",
 		Alias:       "hsn-7d",
@@ -7127,7 +7706,7 @@ var variants = map[int]Variant{
 
 	649: {
 		ID:          649,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hellspawn",
 		Name:        "hsn-7d",
 		Alias:       "",
@@ -7138,7 +7717,7 @@ var variants = map[int]Variant{
 
 	650: {
 		ID:          650,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hellspawn",
 		Name:        "hsn-8e",
 		Alias:       "",
@@ -7149,7 +7728,7 @@ var variants = map[int]Variant{
 
 	651: {
 		ID:          651,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hellspawn",
 		Name:        "hsn-9f",
 		Alias:       "",
@@ -7160,7 +7739,7 @@ var variants = map[int]Variant{
 
 	652: {
 		ID:          652,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hellspawn",
 		Name:        "hsn-7p",
 		Alias:       "",
@@ -7171,7 +7750,7 @@ var variants = map[int]Variant{
 
 	653: {
 		ID:          653,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hellspawn",
 		Name:        "hsn-8p",
 		Alias:       "",
@@ -7182,7 +7761,7 @@ var variants = map[int]Variant{
 
 	654: {
 		ID:          654,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hellspawn",
 		Name:        "hsn-7d2",
 		Alias:       "",
@@ -7193,7 +7772,7 @@ var variants = map[int]Variant{
 
 	655: {
 		ID:          655,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-1s",
 		Alias:       "pir-1",
@@ -7204,7 +7783,7 @@ var variants = map[int]Variant{
 
 	656: {
 		ID:          656,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-1",
 		Alias:       "",
@@ -7215,7 +7794,7 @@ var variants = map[int]Variant{
 
 	657: {
 		ID:          657,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-2",
 		Alias:       "",
@@ -7226,7 +7805,7 @@ var variants = map[int]Variant{
 
 	658: {
 		ID:          658,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-3",
 		Alias:       "",
@@ -7237,7 +7816,7 @@ var variants = map[int]Variant{
 
 	659: {
 		ID:          659,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-a",
 		Alias:       "",
@@ -7248,7 +7827,7 @@ var variants = map[int]Variant{
 
 	660: {
 		ID:          660,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-b",
 		Alias:       "",
@@ -7259,7 +7838,7 @@ var variants = map[int]Variant{
 
 	661: {
 		ID:          661,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-ci",
 		Alias:       "",
@@ -7270,7 +7849,7 @@ var variants = map[int]Variant{
 
 	662: {
 		ID:          662,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "blacklanner",
 		Name:        "bkl-primes",
 		Alias:       "bkl-prime",
@@ -7281,7 +7860,7 @@ var variants = map[int]Variant{
 
 	663: {
 		ID:          663,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "blacklanner",
 		Name:        "bkl-prime",
 		Alias:       "",
@@ -7292,7 +7871,7 @@ var variants = map[int]Variant{
 
 	664: {
 		ID:          664,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "blacklanner",
 		Name:        "bkl-a",
 		Alias:       "",
@@ -7303,7 +7882,7 @@ var variants = map[int]Variant{
 
 	665: {
 		ID:          665,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "blacklanner",
 		Name:        "bkl-c",
 		Alias:       "",
@@ -7314,7 +7893,7 @@ var variants = map[int]Variant{
 
 	666: {
 		ID:          666,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "blacklanner",
 		Name:        "bkl-d",
 		Alias:       "",
@@ -7325,7 +7904,7 @@ var variants = map[int]Variant{
 
 	667: {
 		ID:          667,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "blacklanner",
 		Name:        "bkl-e",
 		Alias:       "",
@@ -7336,7 +7915,7 @@ var variants = map[int]Variant{
 
 	668: {
 		ID:          668,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "blacklanner",
 		Name:        "bkl-bl",
 		Alias:       "",
@@ -7347,7 +7926,7 @@ var variants = map[int]Variant{
 
 	669: {
 		ID:          669,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r68",
 		Alias:       "",
@@ -7358,7 +7937,7 @@ var variants = map[int]Variant{
 
 	670: {
 		ID:          670,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-5m",
 		Alias:       "",
@@ -7369,7 +7948,7 @@ var variants = map[int]Variant{
 
 	671: {
 		ID:          671,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-9a1",
 		Alias:       "",
@@ -7380,7 +7959,7 @@ var variants = map[int]Variant{
 
 	672: {
 		ID:          672,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-g",
 		Alias:       "",
@@ -7391,7 +7970,7 @@ var variants = map[int]Variant{
 
 	673: {
 		ID:          673,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-h",
 		Alias:       "",
@@ -7402,7 +7981,7 @@ var variants = map[int]Variant{
 
 	674: {
 		ID:          674,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-primes",
 		Alias:       "sns-prime",
@@ -7413,7 +7992,7 @@ var variants = map[int]Variant{
 
 	675: {
 		ID:          675,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-prime",
 		Alias:       "",
@@ -7424,7 +8003,7 @@ var variants = map[int]Variant{
 
 	676: {
 		ID:          676,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-a",
 		Alias:       "",
@@ -7435,7 +8014,7 @@ var variants = map[int]Variant{
 
 	677: {
 		ID:          677,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-b",
 		Alias:       "",
@@ -7446,7 +8025,7 @@ var variants = map[int]Variant{
 
 	678: {
 		ID:          678,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-c",
 		Alias:       "",
@@ -7457,7 +8036,7 @@ var variants = map[int]Variant{
 
 	679: {
 		ID:          679,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-d",
 		Alias:       "",
@@ -7468,7 +8047,7 @@ var variants = map[int]Variant{
 
 	680: {
 		ID:          680,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-ml",
 		Alias:       "",
@@ -7479,7 +8058,7 @@ var variants = map[int]Variant{
 
 	681: {
 		ID:          681,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-vg",
 		Alias:       "",
@@ -7490,7 +8069,7 @@ var variants = map[int]Variant{
 
 	682: {
 		ID:          682,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-ph",
 		Alias:       "",
@@ -7501,7 +8080,7 @@ var variants = map[int]Variant{
 
 	683: {
 		ID:          683,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-5s",
 		Alias:       "fnr-5",
@@ -7512,7 +8091,7 @@ var variants = map[int]Variant{
 
 	684: {
 		ID:          684,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-5",
 		Alias:       "",
@@ -7523,7 +8102,7 @@ var variants = map[int]Variant{
 
 	685: {
 		ID:          685,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-5b",
 		Alias:       "",
@@ -7534,7 +8113,7 @@ var variants = map[int]Variant{
 
 	686: {
 		ID:          686,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-6u",
 		Alias:       "",
@@ -7545,7 +8124,7 @@ var variants = map[int]Variant{
 
 	687: {
 		ID:          687,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-5e",
 		Alias:       "",
@@ -7556,7 +8135,7 @@ var variants = map[int]Variant{
 
 	688: {
 		ID:          688,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-6r",
 		Alias:       "",
@@ -7567,7 +8146,7 @@ var variants = map[int]Variant{
 
 	689: {
 		ID:          689,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-wr",
 		Alias:       "",
@@ -7578,7 +8157,7 @@ var variants = map[int]Variant{
 
 	690: {
 		ID:          690,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-sc",
 		Alias:       "",
@@ -7589,7 +8168,7 @@ var variants = map[int]Variant{
 
 	691: {
 		ID:          691,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-fs",
 		Alias:       "",
@@ -7600,7 +8179,7 @@ var variants = map[int]Variant{
 
 	692: {
 		ID:          692,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-ar",
 		Alias:       "",
@@ -7611,7 +8190,7 @@ var variants = map[int]Variant{
 
 	693: {
 		ID:          693,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-db",
 		Alias:       "",
@@ -7622,7 +8201,7 @@ var variants = map[int]Variant{
 
 	694: {
 		ID:          694,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "banshee",
 		Name:        "bnc-sr",
 		Alias:       "",
@@ -7633,7 +8212,7 @@ var variants = map[int]Variant{
 
 	695: {
 		ID:          695,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-kr",
 		Alias:       "",
@@ -7644,7 +8223,7 @@ var variants = map[int]Variant{
 
 	696: {
 		ID:          696,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-rv",
 		Alias:       "",
@@ -7655,7 +8234,7 @@ var variants = map[int]Variant{
 
 	697: {
 		ID:          697,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-9pc",
 		Alias:       "nsr-9p",
@@ -7666,7 +8245,7 @@ var variants = map[int]Variant{
 
 	698: {
 		ID:          698,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-1ac",
 		Alias:       "rgh-1a",
@@ -7677,7 +8256,7 @@ var variants = map[int]Variant{
 
 	699: {
 		ID:          699,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-s2c",
 		Alias:       "bsw-s2",
@@ -7688,7 +8267,7 @@ var variants = map[int]Variant{
 
 	700: {
 		ID:          700,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-101c",
 		Alias:       "asn-101",
@@ -7699,7 +8278,7 @@ var variants = map[int]Variant{
 
 	701: {
 		ID:          701,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-1vc",
 		Alias:       "osr-1v",
@@ -7710,7 +8289,7 @@ var variants = map[int]Variant{
 
 	702: {
 		ID:          702,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-3pc",
 		Alias:       "uzl-3p",
@@ -7721,7 +8300,7 @@ var variants = map[int]Variant{
 
 	703: {
 		ID:          703,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-cc",
 		Alias:       "mdd-c",
@@ -7732,7 +8311,7 @@ var variants = map[int]Variant{
 
 	704: {
 		ID:          704,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-primes",
 		Alias:       "bas-prime",
@@ -7743,7 +8322,7 @@ var variants = map[int]Variant{
 
 	705: {
 		ID:          705,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-prime",
 		Alias:       "",
@@ -7754,7 +8333,7 @@ var variants = map[int]Variant{
 
 	706: {
 		ID:          706,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-a",
 		Alias:       "",
@@ -7765,7 +8344,7 @@ var variants = map[int]Variant{
 
 	707: {
 		ID:          707,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-b",
 		Alias:       "",
@@ -7776,7 +8355,7 @@ var variants = map[int]Variant{
 
 	708: {
 		ID:          708,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-c",
 		Alias:       "",
@@ -7787,7 +8366,7 @@ var variants = map[int]Variant{
 
 	709: {
 		ID:          709,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-d",
 		Alias:       "",
@@ -7798,7 +8377,7 @@ var variants = map[int]Variant{
 
 	710: {
 		ID:          710,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-ra",
 		Alias:       "",
@@ -7809,7 +8388,7 @@ var variants = map[int]Variant{
 
 	711: {
 		ID:          711,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-17s",
 		Alias:       "fle-17",
@@ -7820,7 +8399,7 @@ var variants = map[int]Variant{
 
 	712: {
 		ID:          712,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-17",
 		Alias:       "",
@@ -7831,7 +8410,7 @@ var variants = map[int]Variant{
 
 	713: {
 		ID:          713,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-15",
 		Alias:       "",
@@ -7842,7 +8421,7 @@ var variants = map[int]Variant{
 
 	714: {
 		ID:          714,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-19",
 		Alias:       "",
@@ -7853,7 +8432,7 @@ var variants = map[int]Variant{
 
 	715: {
 		ID:          715,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-20",
 		Alias:       "",
@@ -7864,7 +8443,7 @@ var variants = map[int]Variant{
 
 	716: {
 		ID:          716,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-fa",
 		Alias:       "",
@@ -7875,7 +8454,7 @@ var variants = map[int]Variant{
 
 	717: {
 		ID:          717,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-r5k",
 		Alias:       "",
@@ -7886,7 +8465,7 @@ var variants = map[int]Variant{
 
 	718: {
 		ID:          718,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellfire",
 		Name:        "hlf-1s",
 		Alias:       "hlf-1",
@@ -7897,7 +8476,7 @@ var variants = map[int]Variant{
 
 	719: {
 		ID:          719,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellfire",
 		Name:        "hlf-1",
 		Alias:       "",
@@ -7908,7 +8487,7 @@ var variants = map[int]Variant{
 
 	720: {
 		ID:          720,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellfire",
 		Name:        "hlf-2",
 		Alias:       "",
@@ -7919,7 +8498,7 @@ var variants = map[int]Variant{
 
 	721: {
 		ID:          721,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellfire",
 		Name:        "hlf-a",
 		Alias:       "",
@@ -7930,7 +8509,7 @@ var variants = map[int]Variant{
 
 	722: {
 		ID:          722,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellfire",
 		Name:        "hlf-b",
 		Alias:       "",
@@ -7941,7 +8520,7 @@ var variants = map[int]Variant{
 
 	723: {
 		ID:          723,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellfire",
 		Name:        "hlf-c",
 		Alias:       "",
@@ -7952,7 +8531,7 @@ var variants = map[int]Variant{
 
 	724: {
 		ID:          724,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellfire",
 		Name:        "hlf-vo",
 		Alias:       "",
@@ -7963,7 +8542,7 @@ var variants = map[int]Variant{
 
 	725: {
 		ID:          725,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vl-2ts",
 		Alias:       "vl-2t",
@@ -7974,7 +8553,7 @@ var variants = map[int]Variant{
 
 	726: {
 		ID:          726,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vl-2t",
 		Alias:       "",
@@ -7985,7 +8564,7 @@ var variants = map[int]Variant{
 
 	727: {
 		ID:          727,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vl-5t",
 		Alias:       "",
@@ -7996,7 +8575,7 @@ var variants = map[int]Variant{
 
 	728: {
 		ID:          728,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vt-5m",
 		Alias:       "",
@@ -8007,7 +8586,7 @@ var variants = map[int]Variant{
 
 	729: {
 		ID:          729,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vt-5s",
 		Alias:       "",
@@ -8018,7 +8597,7 @@ var variants = map[int]Variant{
 
 	730: {
 		ID:          730,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vt-6m",
 		Alias:       "",
@@ -8029,7 +8608,7 @@ var variants = map[int]Variant{
 
 	731: {
 		ID:          731,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vl-bl",
 		Alias:       "",
@@ -8040,7 +8619,7 @@ var variants = map[int]Variant{
 
 	732: {
 		ID:          732,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-1s",
 		Alias:       "inc-1",
@@ -8051,7 +8630,7 @@ var variants = map[int]Variant{
 
 	733: {
 		ID:          733,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-1",
 		Alias:       "",
@@ -8062,7 +8641,7 @@ var variants = map[int]Variant{
 
 	734: {
 		ID:          734,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-2",
 		Alias:       "",
@@ -8073,7 +8652,7 @@ var variants = map[int]Variant{
 
 	735: {
 		ID:          735,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-3",
 		Alias:       "",
@@ -8084,7 +8663,7 @@ var variants = map[int]Variant{
 
 	736: {
 		ID:          736,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-4",
 		Alias:       "",
@@ -8095,7 +8674,7 @@ var variants = map[int]Variant{
 
 	737: {
 		ID:          737,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-5",
 		Alias:       "",
@@ -8106,7 +8685,7 @@ var variants = map[int]Variant{
 
 	738: {
 		ID:          738,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-sa",
 		Alias:       "",
@@ -8117,7 +8696,7 @@ var variants = map[int]Variant{
 
 	739: {
 		ID:          739,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "champion",
 		Name:        "chp-1ns",
 		Alias:       "chp-1n",
@@ -8128,7 +8707,7 @@ var variants = map[int]Variant{
 
 	740: {
 		ID:          740,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "champion",
 		Name:        "chp-1n",
 		Alias:       "",
@@ -8139,7 +8718,7 @@ var variants = map[int]Variant{
 
 	741: {
 		ID:          741,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "champion",
 		Name:        "chp-2n",
 		Alias:       "",
@@ -8150,7 +8729,7 @@ var variants = map[int]Variant{
 
 	742: {
 		ID:          742,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "champion",
 		Name:        "chp-3n",
 		Alias:       "",
@@ -8161,7 +8740,7 @@ var variants = map[int]Variant{
 
 	743: {
 		ID:          743,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "champion",
 		Name:        "chp-1n2",
 		Alias:       "",
@@ -8172,7 +8751,7 @@ var variants = map[int]Variant{
 
 	744: {
 		ID:          744,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "champion",
 		Name:        "chp-1nb",
 		Alias:       "",
@@ -8183,7 +8762,7 @@ var variants = map[int]Variant{
 
 	745: {
 		ID:          745,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "champion",
 		Name:        "chp-inv",
 		Alias:       "",
@@ -8194,7 +8773,7 @@ var variants = map[int]Variant{
 
 	746: {
 		ID:          746,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-1s",
 		Alias:       "vgl-1",
@@ -8205,7 +8784,7 @@ var variants = map[int]Variant{
 
 	747: {
 		ID:          747,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-1",
 		Alias:       "",
@@ -8216,7 +8795,7 @@ var variants = map[int]Variant{
 
 	748: {
 		ID:          748,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-2",
 		Alias:       "",
@@ -8227,7 +8806,7 @@ var variants = map[int]Variant{
 
 	749: {
 		ID:          749,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-3",
 		Alias:       "",
@@ -8238,7 +8817,7 @@ var variants = map[int]Variant{
 
 	750: {
 		ID:          750,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-4",
 		Alias:       "",
@@ -8249,7 +8828,7 @@ var variants = map[int]Variant{
 
 	751: {
 		ID:          751,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-a",
 		Alias:       "",
@@ -8260,7 +8839,7 @@ var variants = map[int]Variant{
 
 	752: {
 		ID:          752,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-ri",
 		Alias:       "",
@@ -8271,7 +8850,7 @@ var variants = map[int]Variant{
 
 	753: {
 		ID:          753,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-11fl",
 		Alias:       "jvn-11f",
@@ -8282,7 +8861,7 @@ var variants = map[int]Variant{
 
 	754: {
 		ID:          754,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-8dl",
 		Alias:       "rfl-8d",
@@ -8293,7 +8872,7 @@ var variants = map[int]Variant{
 
 	755: {
 		ID:          755,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-4ll",
 		Alias:       "whm-4l",
@@ -8304,7 +8883,7 @@ var variants = map[int]Variant{
 
 	756: {
 		ID:          756,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-hl",
 		Alias:       "ntg-h",
@@ -8315,7 +8894,7 @@ var variants = map[int]Variant{
 
 	757: {
 		ID:          757,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic2l",
 		Alias:       "mad-iic2",
@@ -8326,7 +8905,7 @@ var variants = map[int]Variant{
 
 	758: {
 		ID:          758,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "charger",
 		Name:        "cgr-1a1s",
 		Alias:       "cgr-1a1",
@@ -8337,7 +8916,7 @@ var variants = map[int]Variant{
 
 	759: {
 		ID:          759,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "charger",
 		Name:        "cgr-1a1",
 		Alias:       "",
@@ -8348,7 +8927,7 @@ var variants = map[int]Variant{
 
 	760: {
 		ID:          760,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "charger",
 		Name:        "cgr-1a5",
 		Alias:       "",
@@ -8359,7 +8938,7 @@ var variants = map[int]Variant{
 
 	761: {
 		ID:          761,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "charger",
 		Name:        "cgr-3k",
 		Alias:       "",
@@ -8370,7 +8949,7 @@ var variants = map[int]Variant{
 
 	762: {
 		ID:          762,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "charger",
 		Name:        "cgr-n7",
 		Alias:       "",
@@ -8381,7 +8960,7 @@ var variants = map[int]Variant{
 
 	763: {
 		ID:          763,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatamotochi",
 		Name:        "htm-27ts",
 		Alias:       "htm-27t",
@@ -8392,7 +8971,7 @@ var variants = map[int]Variant{
 
 	764: {
 		ID:          764,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatamotochi",
 		Name:        "htm-27t",
 		Alias:       "",
@@ -8403,7 +8982,7 @@ var variants = map[int]Variant{
 
 	765: {
 		ID:          765,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatamotochi",
 		Name:        "htm-27w",
 		Alias:       "",
@@ -8414,7 +8993,7 @@ var variants = map[int]Variant{
 
 	766: {
 		ID:          766,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatamotochi",
 		Name:        "htm-28tr",
 		Alias:       "",
@@ -8425,7 +9004,7 @@ var variants = map[int]Variant{
 
 	767: {
 		ID:          767,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatamotochi",
 		Name:        "htm-sg",
 		Alias:       "",
@@ -8436,7 +9015,7 @@ var variants = map[int]Variant{
 
 	768: {
 		ID:          768,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iics",
 		Alias:       "whm-iic",
@@ -8447,7 +9026,7 @@ var variants = map[int]Variant{
 
 	769: {
 		ID:          769,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic",
 		Alias:       "",
@@ -8458,7 +9037,7 @@ var variants = map[int]Variant{
 
 	770: {
 		ID:          770,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic-2",
 		Alias:       "",
@@ -8469,7 +9048,7 @@ var variants = map[int]Variant{
 
 	771: {
 		ID:          771,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic-3",
 		Alias:       "",
@@ -8480,7 +9059,7 @@ var variants = map[int]Variant{
 
 	772: {
 		ID:          772,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic-4",
 		Alias:       "",
@@ -8491,7 +9070,7 @@ var variants = map[int]Variant{
 
 	773: {
 		ID:          773,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic-10",
 		Alias:       "",
@@ -8502,7 +9081,7 @@ var variants = map[int]Variant{
 
 	774: {
 		ID:          774,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic-ml",
 		Alias:       "",
@@ -8513,7 +9092,7 @@ var variants = map[int]Variant{
 
 	775: {
 		ID:          775,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic-bl",
 		Alias:       "",
@@ -8524,7 +9103,7 @@ var variants = map[int]Variant{
 
 	776: {
 		ID:          776,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-11f",
 		Alias:       "",
@@ -8535,7 +9114,7 @@ var variants = map[int]Variant{
 
 	777: {
 		ID:          777,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-8d",
 		Alias:       "",
@@ -8546,7 +9125,7 @@ var variants = map[int]Variant{
 
 	778: {
 		ID:          778,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-4l",
 		Alias:       "",
@@ -8557,7 +9136,7 @@ var variants = map[int]Variant{
 
 	779: {
 		ID:          779,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-h",
 		Alias:       "",
@@ -8568,7 +9147,7 @@ var variants = map[int]Variant{
 
 	780: {
 		ID:          780,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic2",
 		Alias:       "",
@@ -8579,7 +9158,7 @@ var variants = map[int]Variant{
 
 	781: {
 		ID:          781,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic-a",
 		Alias:       "",
@@ -8590,7 +9169,7 @@ var variants = map[int]Variant{
 
 	782: {
 		ID:          782,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-5rs",
 		Alias:       "cor-5r",
@@ -8601,7 +9180,7 @@ var variants = map[int]Variant{
 
 	783: {
 		ID:          783,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-5r",
 		Alias:       "",
@@ -8612,7 +9191,7 @@ var variants = map[int]Variant{
 
 	784: {
 		ID:          784,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-6r",
 		Alias:       "",
@@ -8623,7 +9202,7 @@ var variants = map[int]Variant{
 
 	785: {
 		ID:          785,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-7a",
 		Alias:       "",
@@ -8634,7 +9213,7 @@ var variants = map[int]Variant{
 
 	786: {
 		ID:          786,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-5t",
 		Alias:       "",
@@ -8645,7 +9224,7 @@ var variants = map[int]Variant{
 
 	787: {
 		ID:          787,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-7r",
 		Alias:       "",
@@ -8656,7 +9235,7 @@ var variants = map[int]Variant{
 
 	788: {
 		ID:          788,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-ra",
 		Alias:       "",
@@ -8667,7 +9246,7 @@ var variants = map[int]Variant{
 
 	789: {
 		ID:          789,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-br",
 		Alias:       "",
@@ -8678,7 +9257,7 @@ var variants = map[int]Variant{
 
 	790: {
 		ID:          790,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauderii",
 		Name:        "mad-4as",
 		Alias:       "mad-4a",
@@ -8689,7 +9268,7 @@ var variants = map[int]Variant{
 
 	791: {
 		ID:          791,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauderii",
 		Name:        "mad-4a",
 		Alias:       "",
@@ -8700,7 +9279,7 @@ var variants = map[int]Variant{
 
 	792: {
 		ID:          792,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauderii",
 		Name:        "mad-4hp",
 		Alias:       "",
@@ -8711,7 +9290,7 @@ var variants = map[int]Variant{
 
 	793: {
 		ID:          793,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauderii",
 		Name:        "mad-5a",
 		Alias:       "",
@@ -8722,7 +9301,7 @@ var variants = map[int]Variant{
 
 	794: {
 		ID:          794,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauderii",
 		Name:        "mad-4l",
 		Alias:       "",
@@ -8733,7 +9312,7 @@ var variants = map[int]Variant{
 
 	795: {
 		ID:          795,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauderii",
 		Name:        "mad-6s",
 		Alias:       "",
@@ -8744,7 +9323,7 @@ var variants = map[int]Variant{
 
 	796: {
 		ID:          796,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauderii",
 		Name:        "mad-al",
 		Alias:       "",
@@ -8755,7 +9334,7 @@ var variants = map[int]Variant{
 
 	797: {
 		ID:          797,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iics",
 		Alias:       "rfl-iic",
@@ -8766,7 +9345,7 @@ var variants = map[int]Variant{
 
 	798: {
 		ID:          798,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iic",
 		Alias:       "",
@@ -8777,7 +9356,7 @@ var variants = map[int]Variant{
 
 	799: {
 		ID:          799,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iic-2",
 		Alias:       "",
@@ -8788,7 +9367,7 @@ var variants = map[int]Variant{
 
 	800: {
 		ID:          800,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iic-3",
 		Alias:       "",
@@ -8799,7 +9378,7 @@ var variants = map[int]Variant{
 
 	801: {
 		ID:          801,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iic-4",
 		Alias:       "",
@@ -8810,7 +9389,7 @@ var variants = map[int]Variant{
 
 	802: {
 		ID:          802,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iic-a",
 		Alias:       "",
@@ -8821,7 +9400,7 @@ var variants = map[int]Variant{
 
 	803: {
 		ID:          803,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iic-ch",
 		Alias:       "",
@@ -8832,7 +9411,7 @@ var variants = map[int]Variant{
 
 	804: {
 		ID:          804,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-c2s",
 		Alias:       "cplt-c2",
@@ -8843,7 +9422,7 @@ var variants = map[int]Variant{
 
 	805: {
 		ID:          805,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-9ds",
 		Alias:       "whm-9d",
@@ -8854,7 +9433,7 @@ var variants = map[int]Variant{
 
 	806: {
 		ID:          806,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-9ms",
 		Alias:       "mad-9m",
@@ -8865,7 +9444,7 @@ var variants = map[int]Variant{
 
 	807: {
 		ID:          807,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-001s",
 		Alias:       "kgc-001",
@@ -8876,7 +9455,7 @@ var variants = map[int]Variant{
 
 	808: {
 		ID:          808,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-6ms",
 		Alias:       "dv-6m",
@@ -8887,7 +9466,7 @@ var variants = map[int]Variant{
 
 	809: {
 		ID:          809,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-6m",
 		Alias:       "",
@@ -8898,7 +9477,7 @@ var variants = map[int]Variant{
 
 	810: {
 		ID:          810,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-7d",
 		Alias:       "",
@@ -8909,7 +9488,7 @@ var variants = map[int]Variant{
 
 	811: {
 		ID:          811,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-8d",
 		Alias:       "",
@@ -8920,7 +9499,7 @@ var variants = map[int]Variant{
 
 	812: {
 		ID:          812,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-6mr",
 		Alias:       "",
@@ -8931,7 +9510,7 @@ var variants = map[int]Variant{
 
 	813: {
 		ID:          813,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-7p",
 		Alias:       "",
@@ -8942,7 +9521,7 @@ var variants = map[int]Variant{
 
 	814: {
 		ID:          814,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-fr",
 		Alias:       "",
@@ -8953,7 +9532,7 @@ var variants = map[int]Variant{
 
 	815: {
 		ID:          815,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-c2",
 		Alias:       "",
@@ -8964,7 +9543,7 @@ var variants = map[int]Variant{
 
 	816: {
 		ID:          816,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-9d",
 		Alias:       "",
@@ -8975,7 +9554,7 @@ var variants = map[int]Variant{
 
 	817: {
 		ID:          817,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-9m",
 		Alias:       "",
@@ -8986,7 +9565,7 @@ var variants = map[int]Variant{
 
 	818: {
 		ID:          818,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-001",
 		Alias:       "",
@@ -8997,7 +9576,7 @@ var variants = map[int]Variant{
 
 	819: {
 		ID:          819,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-1vs",
 		Alias:       "lct-1v",
@@ -9008,7 +9587,7 @@ var variants = map[int]Variant{
 
 	820: {
 		ID:          820,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-2hs",
 		Alias:       "shd-2h",
@@ -9019,7 +9598,7 @@ var variants = map[int]Variant{
 
 	821: {
 		ID:          821,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-5sspec",
 		Alias:       "tdr-5s",
@@ -9030,7 +9609,7 @@ var variants = map[int]Variant{
 
 	822: {
 		ID:          822,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-1gs",
 		Alias:       "blr-1g",
@@ -9041,7 +9620,7 @@ var variants = map[int]Variant{
 
 	823: {
 		ID:          823,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-1ns",
 		Alias:       "grf-1n",
@@ -9052,7 +9631,7 @@ var variants = map[int]Variant{
 
 	824: {
 		ID:          824,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-6rs",
 		Alias:       "wvr-6r",
@@ -9063,7 +9642,7 @@ var variants = map[int]Variant{
 
 	825: {
 		ID:          825,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r60ls",
 		Alias:       "um-r60l",
@@ -9074,7 +9653,7 @@ var variants = map[int]Variant{
 
 	826: {
 		ID:          826,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-1ks",
 		Alias:       "pxh-1k",
@@ -9085,7 +9664,7 @@ var variants = map[int]Variant{
 
 	827: {
 		ID:          827,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-10ses",
 		Alias:       "tdr-10se",
@@ -9096,7 +9675,7 @@ var variants = map[int]Variant{
 
 	828: {
 		ID:          828,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-1gs",
 		Alias:       "drg-1g",
@@ -9107,7 +9686,7 @@ var variants = map[int]Variant{
 
 	829: {
 		ID:          829,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-10se",
 		Alias:       "",
@@ -9118,7 +9697,7 @@ var variants = map[int]Variant{
 
 	830: {
 		ID:          830,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-1g",
 		Alias:       "",
@@ -9129,7 +9708,7 @@ var variants = map[int]Variant{
 
 	831: {
 		ID:          831,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-bhs",
 		Alias:       "tbr-bh",
@@ -9140,7 +9719,7 @@ var variants = map[int]Variant{
 
 	832: {
 		ID:          832,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-cs",
 		Alias:       "dwf-c",
@@ -9151,7 +9730,7 @@ var variants = map[int]Variant{
 
 	833: {
 		ID:          833,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-bh",
 		Alias:       "",
@@ -9162,7 +9741,7 @@ var variants = map[int]Variant{
 
 	834: {
 		ID:          834,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-c",
 		Alias:       "",
@@ -9173,7 +9752,7 @@ var variants = map[int]Variant{
 
 	835: {
 		ID:          835,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-7s",
 		Alias:       "",
@@ -9184,7 +9763,7 @@ var variants = map[int]Variant{
 
 	836: {
 		ID:          836,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-7ss",
 		Alias:       "pxh-7s",
@@ -9195,7 +9774,7 @@ var variants = map[int]Variant{
 
 	837: {
 		ID:          837,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-7d",
 		Alias:       "",
@@ -9206,7 +9785,7 @@ var variants = map[int]Variant{
 
 	838: {
 		ID:          838,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-7ds",
 		Alias:       "stk-7d",
@@ -9217,7 +9796,7 @@ var variants = map[int]Variant{
 
 	839: {
 		ID:          839,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r80",
 		Alias:       "",
@@ -9228,7 +9807,7 @@ var variants = map[int]Variant{
 
 	840: {
 		ID:          840,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r80l",
 		Alias:       "um-r80",
@@ -9239,7 +9818,7 @@ var variants = map[int]Variant{
 
 	841: {
 		ID:          841,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-f",
 		Alias:       "",
@@ -9250,7 +9829,7 @@ var variants = map[int]Variant{
 
 	842: {
 		ID:          842,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-fl",
 		Alias:       "vpr-f",
@@ -9261,7 +9840,7 @@ var variants = map[int]Variant{
 
 	843: {
 		ID:          843,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-k3",
 		Alias:       "",
@@ -9272,7 +9851,7 @@ var variants = map[int]Variant{
 
 	844: {
 		ID:          844,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-k3l",
 		Alias:       "as7-k3",
@@ -9283,7 +9862,7 @@ var variants = map[int]Variant{
 
 	845: {
 		ID:          845,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-dcs",
 		Alias:       "ntg-d",
@@ -9294,7 +9873,7 @@ var variants = map[int]Variant{
 
 	846: {
 		ID:          846,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-blt",
 		Alias:       "",
@@ -9305,7 +9884,7 @@ var variants = map[int]Variant{
 
 	847: {
 		ID:          847,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-amb",
 		Alias:       "",
@@ -9316,7 +9895,7 @@ var variants = map[int]Variant{
 
 	848: {
 		ID:          848,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-2ps",
 		Alias:       "mal-2p",
@@ -9327,7 +9906,7 @@ var variants = map[int]Variant{
 
 	849: {
 		ID:          849,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-as",
 		Alias:       "mad-iic-a",
@@ -9338,7 +9917,7 @@ var variants = map[int]Variant{
 
 	850: {
 		ID:          850,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-e",
 		Alias:       "",
@@ -9349,7 +9928,7 @@ var variants = map[int]Variant{
 
 	851: {
 		ID:          851,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-es",
 		Alias:       "bas-e",
@@ -9360,7 +9939,7 @@ var variants = map[int]Variant{
 
 	852: {
 		ID:          852,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-d",
 		Alias:       "",
@@ -9371,7 +9950,7 @@ var variants = map[int]Variant{
 
 	853: {
 		ID:          853,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-ds",
 		Alias:       "shc-d",
@@ -9382,7 +9961,7 @@ var variants = map[int]Variant{
 
 	854: {
 		ID:          854,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-5c",
 		Alias:       "inc-5",
@@ -9393,7 +9972,7 @@ var variants = map[int]Variant{
 
 	855: {
 		ID:          855,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-dc",
 		Alias:       "kfx-d",
@@ -9404,7 +9983,7 @@ var variants = map[int]Variant{
 
 	856: {
 		ID:          856,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-17c",
 		Alias:       "fle-17",
@@ -9415,7 +9994,7 @@ var variants = map[int]Variant{
 
 	857: {
 		ID:          857,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-11ac",
 		Alias:       "jvn-11a",
@@ -9426,7 +10005,7 @@ var variants = map[int]Variant{
 
 	858: {
 		ID:          858,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-primec",
 		Alias:       "hmn-prime",
@@ -9437,7 +10016,7 @@ var variants = map[int]Variant{
 
 	859: {
 		ID:          859,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-2c",
 		Alias:       "vgl-2",
@@ -9448,7 +10027,7 @@ var variants = map[int]Variant{
 
 	860: {
 		ID:          860,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-7dc",
 		Alias:       "dv-7d",
@@ -9459,7 +10038,7 @@ var variants = map[int]Variant{
 
 	861: {
 		ID:          861,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vl-5tc",
 		Alias:       "vl-5t",
@@ -9470,7 +10049,7 @@ var variants = map[int]Variant{
 
 	862: {
 		ID:          862,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-hc",
 		Alias:       "lbk-h",
@@ -9481,7 +10060,7 @@ var variants = map[int]Variant{
 
 	863: {
 		ID:          863,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-dc",
 		Alias:       "smn-d",
@@ -9492,7 +10071,7 @@ var variants = map[int]Variant{
 
 	864: {
 		ID:          864,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "archer",
 		Name:        "arc-2rc",
 		Alias:       "arc-2r",
@@ -9503,7 +10082,7 @@ var variants = map[int]Variant{
 
 	865: {
 		ID:          865,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-9mc",
 		Alias:       "mad-9m",
@@ -9514,7 +10093,7 @@ var variants = map[int]Variant{
 
 	866: {
 		ID:          866,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-ac",
 		Alias:       "bas-a",
@@ -9525,7 +10104,7 @@ var variants = map[int]Variant{
 
 	867: {
 		ID:          867,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iicc",
 		Alias:       "mad-iic",
@@ -9536,7 +10115,7 @@ var variants = map[int]Variant{
 
 	868: {
 		ID:          868,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-1ac",
 		Alias:       "anh-1a",
@@ -9547,7 +10126,7 @@ var variants = map[int]Variant{
 
 	869: {
 		ID:          869,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-10-qc",
 		Alias:       "cp-10-q",
@@ -9558,7 +10137,7 @@ var variants = map[int]Variant{
 
 	870: {
 		ID:          870,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-d-dcp",
 		Alias:       "as7-d-dc",
@@ -9569,7 +10148,7 @@ var variants = map[int]Variant{
 
 	871: {
 		ID:          871,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-k2p",
 		Alias:       "cplt-k2",
@@ -9580,7 +10159,7 @@ var variants = map[int]Variant{
 
 	872: {
 		ID:          872,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4pp",
 		Alias:       "hbk-4p",
@@ -9591,7 +10170,7 @@ var variants = map[int]Variant{
 
 	873: {
 		ID:          873,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-fp",
 		Alias:       "",
@@ -9602,7 +10181,7 @@ var variants = map[int]Variant{
 
 	874: {
 		ID:          874,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "jenneriic",
 		Name:        "jr7-iic-ap",
 		Alias:       "jr7-iic-a",
@@ -9613,7 +10192,7 @@ var variants = map[int]Variant{
 
 	875: {
 		ID:          875,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iic-bp",
 		Alias:       "hbk-iic-b",
@@ -9624,7 +10203,7 @@ var variants = map[int]Variant{
 
 	876: {
 		ID:          876,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iic-ap",
 		Alias:       "on1-iic-a",
@@ -9635,7 +10214,7 @@ var variants = map[int]Variant{
 
 	877: {
 		ID:          877,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "highlanderiic",
 		Name:        "hgn-iic-bp",
 		Alias:       "hgn-iic-b",
@@ -9646,7 +10225,7 @@ var variants = map[int]Variant{
 
 	878: {
 		ID:          878,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-p",
 		Alias:       "",
@@ -9657,7 +10236,7 @@ var variants = map[int]Variant{
 
 	879: {
 		ID:          879,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-ps",
 		Alias:       "kfx-p",
@@ -9668,7 +10247,7 @@ var variants = map[int]Variant{
 
 	880: {
 		ID:          880,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-g",
 		Alias:       "",
@@ -9679,7 +10258,7 @@ var variants = map[int]Variant{
 
 	881: {
 		ID:          881,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-gs",
 		Alias:       "smn-g",
@@ -9690,7 +10269,7 @@ var variants = map[int]Variant{
 
 	885: {
 		ID:          885,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolfhound",
 		Name:        "wlf-1ap",
 		Alias:       "wlf-1a",
@@ -9701,7 +10280,7 @@ var variants = map[int]Variant{
 
 	886: {
 		ID:          886,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crab",
 		Name:        "crb-27slp",
 		Alias:       "crb-27sl",
@@ -9712,7 +10291,7 @@ var variants = map[int]Variant{
 
 	887: {
 		ID:          887,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackknight",
 		Name:        "bl-6b-kntp",
 		Alias:       "bl-6b-knt",
@@ -9723,7 +10302,7 @@ var variants = map[int]Variant{
 
 	888: {
 		ID:          888,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "mauler",
 		Name:        "mal-mx90p",
 		Alias:       "mal-mx90",
@@ -9734,7 +10313,7 @@ var variants = map[int]Variant{
 
 	889: {
 		ID:          889,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "cougar",
 		Name:        "cou-hp",
 		Alias:       "cou-h",
@@ -9745,7 +10324,7 @@ var variants = map[int]Variant{
 
 	890: {
 		ID:          890,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticwolf",
 		Name:        "acw-ap",
 		Alias:       "acw-a",
@@ -9756,7 +10335,7 @@ var variants = map[int]Variant{
 
 	891: {
 		ID:          891,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "novacat",
 		Name:        "nct-bp",
 		Alias:       "nct-b",
@@ -9767,7 +10346,7 @@ var variants = map[int]Variant{
 
 	892: {
 		ID:          892,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-bp",
 		Alias:       "mcii-b",
@@ -9778,7 +10357,7 @@ var variants = map[int]Variant{
 
 	893: {
 		ID:          893,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crusader",
 		Name:        "crd-3rs",
 		Alias:       "crd-3r",
@@ -9789,7 +10368,7 @@ var variants = map[int]Variant{
 
 	894: {
 		ID:          894,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crusader",
 		Name:        "crd-3r",
 		Alias:       "",
@@ -9800,7 +10379,7 @@ var variants = map[int]Variant{
 
 	895: {
 		ID:          895,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crusader",
 		Name:        "crd-5k",
 		Alias:       "",
@@ -9811,7 +10390,7 @@ var variants = map[int]Variant{
 
 	896: {
 		ID:          896,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crusader",
 		Name:        "crd-5m",
 		Alias:       "",
@@ -9822,7 +10401,7 @@ var variants = map[int]Variant{
 
 	897: {
 		ID:          897,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crusader",
 		Name:        "crd-6t",
 		Alias:       "",
@@ -9833,7 +10412,7 @@ var variants = map[int]Variant{
 
 	898: {
 		ID:          898,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crusader",
 		Name:        "crd-7l",
 		Alias:       "",
@@ -9844,7 +10423,7 @@ var variants = map[int]Variant{
 
 	899: {
 		ID:          899,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crusader",
 		Name:        "crd-cr",
 		Alias:       "",
@@ -9855,7 +10434,7 @@ var variants = map[int]Variant{
 
 	900: {
 		ID:          900,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "spider",
 		Name:        "sdr-5dp",
 		Alias:       "sdr-5d",
@@ -9866,7 +10445,7 @@ var variants = map[int]Variant{
 
 	901: {
 		ID:          901,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cicada",
 		Name:        "cda-3mp",
 		Alias:       "cda-3m",
@@ -9877,7 +10456,7 @@ var variants = map[int]Variant{
 
 	902: {
 		ID:          902,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jagermech",
 		Name:        "jm6-ddp",
 		Alias:       "jm6-dd",
@@ -9888,7 +10467,7 @@ var variants = map[int]Variant{
 
 	903: {
 		ID:          903,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kingcrab",
 		Name:        "kgc-000p",
 		Alias:       "kgc-000",
@@ -9899,7 +10478,7 @@ var variants = map[int]Variant{
 
 	904: {
 		ID:          904,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-4p",
 		Alias:       "inc-4",
@@ -9910,7 +10489,7 @@ var variants = map[int]Variant{
 
 	905: {
 		ID:          905,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-3p",
 		Alias:       "vgl-3",
@@ -9921,7 +10500,7 @@ var variants = map[int]Variant{
 
 	906: {
 		ID:          906,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellfire",
 		Name:        "hlf-ap",
 		Alias:       "hlf-a",
@@ -9932,7 +10511,7 @@ var variants = map[int]Variant{
 
 	907: {
 		ID:          907,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kodiak",
 		Name:        "kdk-3p",
 		Alias:       "kdk-3",
@@ -9943,7 +10522,7 @@ var variants = map[int]Variant{
 
 	908: {
 		ID:          908,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "panther",
 		Name:        "pnt-9rp",
 		Alias:       "pnt-9r",
@@ -9954,7 +10533,7 @@ var variants = map[int]Variant{
 
 	909: {
 		ID:          909,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-x2p",
 		Alias:       "bsw-x2",
@@ -9965,7 +10544,7 @@ var variants = map[int]Variant{
 
 	910: {
 		ID:          910,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "grasshopper",
 		Name:        "ghr-5pp",
 		Alias:       "ghr-5p",
@@ -9976,7 +10555,7 @@ var variants = map[int]Variant{
 
 	911: {
 		ID:          911,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-1xp",
 		Alias:       "anh-1x",
@@ -9987,7 +10566,7 @@ var variants = map[int]Variant{
 
 	912: {
 		ID:          912,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-gp",
 		Alias:       "mlx-g",
@@ -9998,7 +10577,7 @@ var variants = map[int]Variant{
 
 	913: {
 		ID:          913,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stormcrow",
 		Name:        "scr-bp",
 		Alias:       "scr-b",
@@ -10009,7 +10588,7 @@ var variants = map[int]Variant{
 
 	914: {
 		ID:          914,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hellbringer",
 		Name:        "hbr-bp",
 		Alias:       "hbr-b",
@@ -10020,7 +10599,7 @@ var variants = map[int]Variant{
 
 	915: {
 		ID:          915,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "gargoyle",
 		Name:        "gar-ep",
 		Alias:       "gar-e",
@@ -10031,7 +10610,7 @@ var variants = map[int]Variant{
 
 	916: {
 		ID:          916,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "commando",
 		Name:        "com-1bp",
 		Alias:       "com-1b",
@@ -10042,7 +10621,7 @@ var variants = map[int]Variant{
 
 	917: {
 		ID:          917,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-dp",
 		Alias:       "cn9-d",
@@ -10053,7 +10632,7 @@ var variants = map[int]Variant{
 
 	918: {
 		ID:          918,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "orion",
 		Name:        "on1-kp",
 		Alias:       "on1-k",
@@ -10064,7 +10643,7 @@ var variants = map[int]Variant{
 
 	919: {
 		ID:          919,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauderii",
 		Name:        "mad-6sp",
 		Alias:       "mad-6s",
@@ -10075,7 +10654,7 @@ var variants = map[int]Variant{
 
 	920: {
 		ID:          920,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-ap",
 		Alias:       "adr-a",
@@ -10086,7 +10665,7 @@ var variants = map[int]Variant{
 
 	921: {
 		ID:          921,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "shadowcat",
 		Name:        "shc-bp",
 		Alias:       "shc-b",
@@ -10097,7 +10676,7 @@ var variants = map[int]Variant{
 
 	922: {
 		ID:          922,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-sp",
 		Alias:       "tbr-s",
@@ -10108,7 +10687,7 @@ var variants = map[int]Variant{
 
 	923: {
 		ID:          923,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-bp",
 		Alias:       "snv-b",
@@ -10119,7 +10698,7 @@ var variants = map[int]Variant{
 
 	924: {
 		ID:          924,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-7sp",
 		Alias:       "whm-7s",
@@ -10130,7 +10709,7 @@ var variants = map[int]Variant{
 
 	925: {
 		ID:          925,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-5mp",
 		Alias:       "mad-5m",
@@ -10141,7 +10720,7 @@ var variants = map[int]Variant{
 
 	926: {
 		ID:          926,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "rifleman",
 		Name:        "rfl-5dp",
 		Alias:       "rfl-5d",
@@ -10152,7 +10731,7 @@ var variants = map[int]Variant{
 
 	927: {
 		ID:          927,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "archer",
 		Name:        "arc-5wp",
 		Alias:       "arc-5w",
@@ -10163,7 +10742,7 @@ var variants = map[int]Variant{
 
 	928: {
 		ID:          928,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhammeriic",
 		Name:        "whm-iic-ap",
 		Alias:       "whm-iic-a",
@@ -10174,7 +10753,7 @@ var variants = map[int]Variant{
 
 	929: {
 		ID:          929,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-dp",
 		Alias:       "mad-iic-d",
@@ -10185,7 +10764,7 @@ var variants = map[int]Variant{
 
 	930: {
 		ID:          930,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iic-2p",
 		Alias:       "rfl-iic-2",
@@ -10196,7 +10775,7 @@ var variants = map[int]Variant{
 
 	931: {
 		ID:          931,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "maddog",
 		Name:        "mdd-cp",
 		Alias:       "mdd-c",
@@ -10207,7 +10786,7 @@ var variants = map[int]Variant{
 
 	932: {
 		ID:          932,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "raven",
 		Name:        "rvn-2xp",
 		Alias:       "rvn-2x",
@@ -10218,7 +10797,7 @@ var variants = map[int]Variant{
 
 	933: {
 		ID:          933,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "blackjack",
 		Name:        "bj-3p",
 		Alias:       "bj-3",
@@ -10229,7 +10808,7 @@ var variants = map[int]Variant{
 
 	934: {
 		ID:          934,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thanatos",
 		Name:        "tns-5sp",
 		Alias:       "tns-5s",
@@ -10240,7 +10819,7 @@ var variants = map[int]Variant{
 
 	935: {
 		ID:          935,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-5bp",
 		Alias:       "fnr-5b",
@@ -10251,7 +10830,7 @@ var variants = map[int]Variant{
 
 	936: {
 		ID:          936,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-2p",
 		Alias:       "pir-2",
@@ -10262,7 +10841,7 @@ var variants = map[int]Variant{
 
 	937: {
 		ID:          937,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-pp",
 		Alias:       "ifr-p",
@@ -10273,7 +10852,7 @@ var variants = map[int]Variant{
 
 	938: {
 		ID:          938,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "ebonjaguar",
 		Name:        "ebj-ap",
 		Alias:       "ebj-a",
@@ -10284,7 +10863,7 @@ var variants = map[int]Variant{
 
 	939: {
 		ID:          939,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "bloodasp",
 		Name:        "bas-bp",
 		Alias:       "bas-b",
@@ -10295,7 +10874,7 @@ var variants = map[int]Variant{
 
 	940: {
 		ID:          940,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "trebuchet",
 		Name:        "tbt-7kp",
 		Alias:       "tbt-7k",
@@ -10306,7 +10885,7 @@ var variants = map[int]Variant{
 
 	941: {
 		ID:          941,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "assassin",
 		Name:        "asn-27p",
 		Alias:       "asn-27",
@@ -10317,7 +10896,7 @@ var variants = map[int]Variant{
 
 	942: {
 		ID:          942,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hellspawn",
 		Name:        "hsn-8pp",
 		Alias:       "hsn-8p",
@@ -10328,7 +10907,7 @@ var variants = map[int]Variant{
 
 	943: {
 		ID:          943,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-5mp",
 		Alias:       "stk-5m",
@@ -10339,7 +10918,7 @@ var variants = map[int]Variant{
 
 	944: {
 		ID:          944,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "arcticcheetah",
 		Name:        "ach-ep",
 		Alias:       "ach-e",
@@ -10350,7 +10929,7 @@ var variants = map[int]Variant{
 
 	945: {
 		ID:          945,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "blacklanner",
 		Name:        "bkl-dp",
 		Alias:       "bkl-d",
@@ -10361,7 +10940,7 @@ var variants = map[int]Variant{
 
 	946: {
 		ID:          946,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-cp",
 		Alias:       "ntg-c",
@@ -10372,7 +10951,7 @@ var variants = map[int]Variant{
 
 	947: {
 		ID:          947,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "warhawk",
 		Name:        "whk-bp",
 		Alias:       "whk-b",
@@ -10383,7 +10962,7 @@ var variants = map[int]Variant{
 
 	948: {
 		ID:          948,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-r60p",
 		Alias:       "um-r60",
@@ -10394,7 +10973,7 @@ var variants = map[int]Variant{
 
 	949: {
 		ID:          949,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "enforcer",
 		Name:        "enf-4pp",
 		Alias:       "enf-4p",
@@ -10405,7 +10984,7 @@ var variants = map[int]Variant{
 
 	950: {
 		ID:          950,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dragon",
 		Name:        "drg-1cp",
 		Alias:       "drg-1c",
@@ -10416,7 +10995,7 @@ var variants = map[int]Variant{
 
 	951: {
 		ID:          951,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-11-pp",
 		Alias:       "cp-11-p",
@@ -10427,7 +11006,7 @@ var variants = map[int]Variant{
 
 	952: {
 		ID:          952,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "phoenixhawk",
 		Name:        "pxh-1bp",
 		Alias:       "pxh-1b",
@@ -10438,7 +11017,7 @@ var variants = map[int]Variant{
 
 	953: {
 		ID:          953,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "crusader",
 		Name:        "crd-6tp",
 		Alias:       "crd-6t",
@@ -10449,7 +11028,7 @@ var variants = map[int]Variant{
 
 	954: {
 		ID:          954,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "roughneck",
 		Name:        "rgh-3ap",
 		Alias:       "rgh-3a",
@@ -10460,7 +11039,7 @@ var variants = map[int]Variant{
 
 	955: {
 		ID:          955,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "corsair",
 		Name:        "cor-7ap",
 		Alias:       "cor-7a",
@@ -10471,7 +11050,7 @@ var variants = map[int]Variant{
 
 	956: {
 		ID:          956,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "kitfox",
 		Name:        "kfx-dp",
 		Alias:       "kfx-d",
@@ -10482,7 +11061,7 @@ var variants = map[int]Variant{
 
 	957: {
 		ID:          957,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-bp",
 		Alias:       "vpr-b",
@@ -10493,7 +11072,7 @@ var variants = map[int]Variant{
 
 	958: {
 		ID:          958,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "linebacker",
 		Name:        "lbk-dp",
 		Alias:       "lbk-d",
@@ -10504,7 +11083,7 @@ var variants = map[int]Variant{
 
 	959: {
 		ID:          959,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-ap",
 		Alias:       "exe-a",
@@ -10515,7 +11094,7 @@ var variants = map[int]Variant{
 
 	960: {
 		ID:          960,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-pp",
 		Alias:       "hmn-p",
@@ -10526,7 +11105,7 @@ var variants = map[int]Variant{
 
 	961: {
 		ID:          961,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "sunspider",
 		Name:        "sns-dp",
 		Alias:       "sns-d",
@@ -10537,7 +11116,7 @@ var variants = map[int]Variant{
 
 	968: {
 		ID:          968,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "locust",
 		Name:        "lct-3sp",
 		Alias:       "lct-3s",
@@ -10548,7 +11127,7 @@ var variants = map[int]Variant{
 
 	969: {
 		ID:          969,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-2kp",
 		Alias:       "shd-2k",
@@ -10559,7 +11138,7 @@ var variants = map[int]Variant{
 
 	970: {
 		ID:          970,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-9sp",
 		Alias:       "tdr-9s",
@@ -10570,7 +11149,7 @@ var variants = map[int]Variant{
 
 	971: {
 		ID:          971,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "battlemaster",
 		Name:        "blr-3mp",
 		Alias:       "blr-3m",
@@ -10581,7 +11160,7 @@ var variants = map[int]Variant{
 
 	972: {
 		ID:          972,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-7kp",
 		Alias:       "wvr-7k",
@@ -10592,7 +11171,7 @@ var variants = map[int]Variant{
 
 	973: {
 		ID:          973,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "griffin",
 		Name:        "grf-2np",
 		Alias:       "grf-2n",
@@ -10603,7 +11182,7 @@ var variants = map[int]Variant{
 
 	974: {
 		ID:          974,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nova",
 		Name:        "nva-ap",
 		Alias:       "nva-a",
@@ -10614,7 +11193,7 @@ var variants = map[int]Variant{
 
 	975: {
 		ID:          975,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "summoner",
 		Name:        "smn-bp",
 		Alias:       "smn-b",
@@ -10625,7 +11204,7 @@ var variants = map[int]Variant{
 
 	976: {
 		ID:          976,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-ap",
 		Alias:       "dwf-a",
@@ -10636,7 +11215,7 @@ var variants = map[int]Variant{
 
 	977: {
 		ID:          977,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-5scs",
 		Alias:       "stk-5s",
@@ -10647,7 +11226,7 @@ var variants = map[int]Variant{
 
 	978: {
 		ID:          978,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "orioniic",
 		Name:        "on1-iic-cs",
 		Alias:       "on1-iic-c",
@@ -10658,7 +11237,7 @@ var variants = map[int]Variant{
 
 	979: {
 		ID:          979,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "banshee",
 		Name:        "bnc-3es",
 		Alias:       "bnc-3e",
@@ -10669,7 +11248,7 @@ var variants = map[int]Variant{
 
 	962: {
 		ID:          962,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatchetman",
 		Name:        "hct-3f",
 		Alias:       "",
@@ -10680,7 +11259,7 @@ var variants = map[int]Variant{
 
 	963: {
 		ID:          963,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatchetman",
 		Name:        "hct-5s",
 		Alias:       "",
@@ -10691,7 +11270,7 @@ var variants = map[int]Variant{
 
 	964: {
 		ID:          964,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatchetman",
 		Name:        "hct-6d",
 		Alias:       "",
@@ -10702,7 +11281,7 @@ var variants = map[int]Variant{
 
 	965: {
 		ID:          965,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatchetman",
 		Name:        "hct-5k",
 		Alias:       "",
@@ -10713,7 +11292,7 @@ var variants = map[int]Variant{
 
 	966: {
 		ID:          966,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatchetman",
 		Name:        "hct-7r",
 		Alias:       "",
@@ -10724,7 +11303,7 @@ var variants = map[int]Variant{
 
 	967: {
 		ID:          967,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatchetman",
 		Name:        "hct-tm",
 		Alias:       "",
@@ -10735,7 +11314,7 @@ var variants = map[int]Variant{
 
 	980: {
 		ID:          980,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-jlgd",
 		Alias:       "fnr-j",
@@ -10746,7 +11325,7 @@ var variants = map[int]Variant{
 
 	981: {
 		ID:          981,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-ap",
 		Alias:       "fs9-a",
@@ -10757,7 +11336,7 @@ var variants = map[int]Variant{
 
 	982: {
 		ID:          982,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-10pp",
 		Alias:       "jvn-10p",
@@ -10768,7 +11347,7 @@ var variants = map[int]Variant{
 
 	983: {
 		ID:          983,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vulcan",
 		Name:        "vt-5sp",
 		Alias:       "vt-5s",
@@ -10779,7 +11358,7 @@ var variants = map[int]Variant{
 
 	984: {
 		ID:          984,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "dervish",
 		Name:        "dv-6mrp",
 		Alias:       "dv-6mr",
@@ -10790,7 +11369,7 @@ var variants = map[int]Variant{
 
 	985: {
 		ID:          985,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "kintaro",
 		Name:        "kto-19p",
 		Alias:       "kto-19",
@@ -10801,7 +11380,7 @@ var variants = map[int]Variant{
 
 	986: {
 		ID:          986,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "champion",
 		Name:        "chp-3np",
 		Alias:       "chp-3n",
@@ -10812,7 +11391,7 @@ var variants = map[int]Variant{
 
 	987: {
 		ID:          987,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "awesome",
 		Name:        "aws-8qp",
 		Alias:       "aws-8q",
@@ -10823,7 +11402,7 @@ var variants = map[int]Variant{
 
 	988: {
 		ID:          988,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "highlander",
 		Name:        "hgn-732bp",
 		Alias:       "hgn-732b",
@@ -10834,7 +11413,7 @@ var variants = map[int]Variant{
 
 	989: {
 		ID:          989,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-9bp",
 		Alias:       "vtr-9b",
@@ -10845,7 +11424,7 @@ var variants = map[int]Variant{
 
 	991: {
 		ID:          991,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "banshee",
 		Name:        "bnc-3sp",
 		Alias:       "bnc-3s",
@@ -10856,7 +11435,7 @@ var variants = map[int]Variant{
 
 	992: {
 		ID:          992,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatchetman",
 		Name:        "hct-7rp",
 		Alias:       "hct-7r",
@@ -10867,7 +11446,7 @@ var variants = map[int]Variant{
 
 	993: {
 		ID:          993,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "osiris",
 		Name:        "osr-4dp",
 		Alias:       "osr-4d",
@@ -10878,7 +11457,7 @@ var variants = map[int]Variant{
 
 	994: {
 		ID:          994,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "flea",
 		Name:        "fle-20p",
 		Alias:       "fle-20",
@@ -10889,7 +11468,7 @@ var variants = map[int]Variant{
 
 	995: {
 		ID:          995,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "vindicator",
 		Name:        "vnd-1xp",
 		Alias:       "vnd-1x",
@@ -10900,7 +11479,7 @@ var variants = map[int]Variant{
 
 	882: {
 		ID:          882,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "uziel",
 		Name:        "uzl-6pp",
 		Alias:       "uzl-6p",
@@ -10911,7 +11490,7 @@ var variants = map[int]Variant{
 
 	883: {
 		ID:          883,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cataphract",
 		Name:        "ctf-4xp",
 		Alias:       "ctf-4x",
@@ -10922,7 +11501,7 @@ var variants = map[int]Variant{
 
 	884: {
 		ID:          884,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "quickdraw",
 		Name:        "qkd-5kp",
 		Alias:       "qkd-5k",
@@ -10933,7 +11512,7 @@ var variants = map[int]Variant{
 
 	3601: {
 		ID:          3601,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "zeus",
 		Name:        "zeu-9sp",
 		Alias:       "zeu-9s",
@@ -10944,7 +11523,7 @@ var variants = map[int]Variant{
 
 	3602: {
 		ID:          3602,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "nightstar",
 		Name:        "nsr-10pp",
 		Alias:       "nsr-10p",
@@ -10955,7 +11534,7 @@ var variants = map[int]Variant{
 
 	3603: {
 		ID:          3603,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "charger",
 		Name:        "cgr-3kp",
 		Alias:       "cgr-3k",
@@ -10966,7 +11545,7 @@ var variants = map[int]Variant{
 
 	3604: {
 		ID:          3604,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hatamotochi",
 		Name:        "htm-27wp",
 		Alias:       "htm-27w",
@@ -10977,7 +11556,7 @@ var variants = map[int]Variant{
 
 	990: {
 		ID:          990,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-d-dc-escort",
 		Alias:       "",
@@ -10988,7 +11567,7 @@ var variants = map[int]Variant{
 
 	996: {
 		ID:          996,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-d-founder",
 		Alias:       "jr7-d",
@@ -10999,7 +11578,7 @@ var variants = map[int]Variant{
 
 	997: {
 		ID:          997,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "catapult",
 		Name:        "cplt-c1-founder",
 		Alias:       "cplt-c1",
@@ -11010,7 +11589,7 @@ var variants = map[int]Variant{
 
 	998: {
 		ID:          998,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "hunchback",
 		Name:        "hbk-4g-founder",
 		Alias:       "hbk-4g",
@@ -11021,7 +11600,7 @@ var variants = map[int]Variant{
 
 	999: {
 		ID:          999,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-d-founder",
 		Alias:       "as7-d",
@@ -11032,7 +11611,7 @@ var variants = map[int]Variant{
 
 	3605: {
 		ID:          3605,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-mwklgd",
 		Alias:       "mcii-mwk",
@@ -11043,7 +11622,7 @@ var variants = map[int]Variant{
 
 	3606: {
 		ID:          3606,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-dnlgd",
 		Alias:       "mad-iic-dn",
@@ -11054,7 +11633,7 @@ var variants = map[int]Variant{
 
 	3607: {
 		ID:          3607,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-slgd",
 		Alias:       "shd-s",
@@ -11065,7 +11644,7 @@ var variants = map[int]Variant{
 
 	3608: {
 		ID:          3608,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-arlgd",
 		Alias:       "cp-ar",
@@ -11076,7 +11655,7 @@ var variants = map[int]Variant{
 
 	3609: {
 		ID:          3609,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-srlgd",
 		Alias:       "snv-sr",
@@ -11087,7 +11666,7 @@ var variants = map[int]Variant{
 
 	3610: {
 		ID:          3610,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "quickdraw",
 		Name:        "qkd-dlgd",
 		Alias:       "qkd-d",
@@ -11098,7 +11677,7 @@ var variants = map[int]Variant{
 
 	3611: {
 		ID:          3611,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-hlgd",
 		Alias:       "",
@@ -11109,7 +11688,7 @@ var variants = map[int]Variant{
 
 	3612: {
 		ID:          3612,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "clanannihilator",
 		Name:        "anh-gzlgd",
 		Alias:       "",
@@ -11120,7 +11699,7 @@ var variants = map[int]Variant{
 
 	3613: {
 		ID:          3613,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-sclgd",
 		Alias:       "",
@@ -11131,7 +11710,7 @@ var variants = map[int]Variant{
 
 	3614: {
 		ID:          3614,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-1",
 		Alias:       "",
@@ -11142,7 +11721,7 @@ var variants = map[int]Variant{
 
 	3615: {
 		ID:          3615,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-2",
 		Alias:       "",
@@ -11153,7 +11732,7 @@ var variants = map[int]Variant{
 
 	3616: {
 		ID:          3616,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-3",
 		Alias:       "",
@@ -11164,7 +11743,7 @@ var variants = map[int]Variant{
 
 	3617: {
 		ID:          3617,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-4",
 		Alias:       "",
@@ -11175,7 +11754,7 @@ var variants = map[int]Variant{
 
 	3618: {
 		ID:          3618,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-6",
 		Alias:       "",
@@ -11186,7 +11765,7 @@ var variants = map[int]Variant{
 
 	3619: {
 		ID:          3619,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-7",
 		Alias:       "",
@@ -11197,7 +11776,7 @@ var variants = map[int]Variant{
 
 	3620: {
 		ID:          3620,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-k",
 		Alias:       "",
@@ -11208,7 +11787,7 @@ var variants = map[int]Variant{
 
 	3621: {
 		ID:          3621,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-6s",
 		Alias:       "sr-6",
@@ -11219,7 +11798,7 @@ var variants = map[int]Variant{
 
 	3622: {
 		ID:          3622,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "viper",
 		Name:        "vpr-dilgd",
 		Alias:       "vpr-di",
@@ -11230,7 +11809,7 @@ var variants = map[int]Variant{
 
 	3623: {
 		ID:          3623,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-scs",
 		Alias:       "tbr-sc",
@@ -11241,7 +11820,7 @@ var variants = map[int]Variant{
 
 	3624: {
 		ID:          3624,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-mtsp",
 		Alias:       "exe-m",
@@ -11252,7 +11831,7 @@ var variants = map[int]Variant{
 
 	3625: {
 		ID:          3625,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-wulgd",
 		Alias:       "stk-wu",
@@ -11263,7 +11842,7 @@ var variants = map[int]Variant{
 
 	3626: {
 		ID:          3626,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "atlas",
 		Name:        "as7-wlgd",
 		Alias:       "as7-w",
@@ -11274,7 +11853,7 @@ var variants = map[int]Variant{
 
 	3627: {
 		ID:          3627,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "urbanmechiic",
 		Name:        "um-iiclgd",
 		Alias:       "um-iic",
@@ -11285,7 +11864,7 @@ var variants = map[int]Variant{
 
 	3628: {
 		ID:          3628,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "urbanmechiic",
 		Name:        "um-iic-2lgd",
 		Alias:       "um-iic-2",
@@ -11296,7 +11875,7 @@ var variants = map[int]Variant{
 
 	3655: {
 		ID:          3655,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "vaporeagle",
 		Name:        "vgl-gwlgd",
 		Alias:       "vgl-gw",
@@ -11307,7 +11886,7 @@ var variants = map[int]Variant{
 
 	3656: {
 		ID:          3656,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "marauder",
 		Name:        "mad-blgd",
 		Alias:       "mad-b",
@@ -11318,7 +11897,7 @@ var variants = map[int]Variant{
 
 	3665: {
 		ID:          3665,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "centurion",
 		Name:        "cn9-onlgd",
 		Alias:       "cn9-on",
@@ -11329,7 +11908,7 @@ var variants = map[int]Variant{
 
 	3670: {
 		ID:          3670,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-aklgd",
 		Alias:       "sr-ak",
@@ -11340,7 +11919,7 @@ var variants = map[int]Variant{
 
 	3671: {
 		ID:          3671,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "commando",
 		Name:        "com-d03h",
 		Alias:       "",
@@ -11351,7 +11930,7 @@ var variants = map[int]Variant{
 
 	3672: {
 		ID:          3672,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-ohlgd",
 		Alias:       "lgb-oh",
@@ -11362,7 +11941,7 @@ var variants = map[int]Variant{
 
 	3673: {
 		ID:          3673,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-6rh",
 		Alias:       "whm-6r",
@@ -11373,7 +11952,7 @@ var variants = map[int]Variant{
 
 	3676: {
 		ID:          3676,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "victor",
 		Name:        "vtr-9b-lilgd",
 		Alias:       "vtr-9b-li",
@@ -11384,7 +11963,7 @@ var variants = map[int]Variant{
 
 	3677: {
 		ID:          3677,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-b-clgd",
 		Alias:       "exe-b-c",
@@ -11395,7 +11974,7 @@ var variants = map[int]Variant{
 
 	3629: {
 		ID:          3629,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "firestarter",
 		Name:        "fs9-at",
 		Alias:       "fs9-a",
@@ -11406,7 +11985,7 @@ var variants = map[int]Variant{
 
 	3630: {
 		ID:          3630,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "javelin",
 		Name:        "jvn-10pt",
 		Alias:       "jvn-10p",
@@ -11417,7 +11996,7 @@ var variants = map[int]Variant{
 
 	3631: {
 		ID:          3631,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "incubus",
 		Name:        "inc-1t",
 		Alias:       "inc-1",
@@ -11428,7 +12007,7 @@ var variants = map[int]Variant{
 
 	3632: {
 		ID:          3632,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "mistlynx",
 		Name:        "mlx-gt",
 		Alias:       "mlx-g",
@@ -11439,7 +12018,7 @@ var variants = map[int]Variant{
 
 	3633: {
 		ID:          3633,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "bushwacker",
 		Name:        "bsw-p2t",
 		Alias:       "bsw-p2",
@@ -11450,7 +12029,7 @@ var variants = map[int]Variant{
 
 	3634: {
 		ID:          3634,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "wolverine",
 		Name:        "wvr-7dt",
 		Alias:       "wvr-7d",
@@ -11461,7 +12040,7 @@ var variants = map[int]Variant{
 
 	3635: {
 		ID:          3635,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "huntsman",
 		Name:        "hmn-bt",
 		Alias:       "hmn-b",
@@ -11472,7 +12051,7 @@ var variants = map[int]Variant{
 
 	3636: {
 		ID:          3636,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "hunchbackiic",
 		Name:        "hbk-iic-at",
 		Alias:       "hbk-iic-a",
@@ -11483,7 +12062,7 @@ var variants = map[int]Variant{
 
 	3637: {
 		ID:          3637,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "warhammer",
 		Name:        "whm-7st",
 		Alias:       "whm-7s",
@@ -11494,7 +12073,7 @@ var variants = map[int]Variant{
 
 	3638: {
 		ID:          3638,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "thunderbolt",
 		Name:        "tdr-9st",
 		Alias:       "tdr-9s",
@@ -11505,7 +12084,7 @@ var variants = map[int]Variant{
 
 	3639: {
 		ID:          3639,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "riflemaniic",
 		Name:        "rfl-iic-2t",
 		Alias:       "rfl-iic-2",
@@ -11516,7 +12095,7 @@ var variants = map[int]Variant{
 
 	3640: {
 		ID:          3640,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "nightgyr",
 		Name:        "ntg-ht",
 		Alias:       "ntg-h",
@@ -11527,7 +12106,7 @@ var variants = map[int]Variant{
 
 	3641: {
 		ID:          3641,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "stalker",
 		Name:        "stk-4nt",
 		Alias:       "stk-4n",
@@ -11538,7 +12117,7 @@ var variants = map[int]Variant{
 
 	3642: {
 		ID:          3642,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-5t",
 		Alias:       "fnr-5",
@@ -11549,7 +12128,7 @@ var variants = map[int]Variant{
 
 	3643: {
 		ID:          3643,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-2t",
 		Alias:       "mcii-2",
@@ -11560,7 +12139,7 @@ var variants = map[int]Variant{
 
 	3644: {
 		ID:          3644,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "direwolf",
 		Name:        "dwf-bt",
 		Alias:       "dwf-b",
@@ -11571,7 +12150,7 @@ var variants = map[int]Variant{
 
 	3645: {
 		ID:          3645,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "fafnir",
 		Name:        "fnr-j",
 		Alias:       "",
@@ -11582,7 +12161,7 @@ var variants = map[int]Variant{
 
 	3646: {
 		ID:          3646,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "madcatmkii",
 		Name:        "mcii-mwk",
 		Alias:       "",
@@ -11593,7 +12172,7 @@ var variants = map[int]Variant{
 
 	3657: {
 		ID:          3657,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "shadowhawk",
 		Name:        "shd-s",
 		Alias:       "",
@@ -11604,7 +12183,7 @@ var variants = map[int]Variant{
 
 	3658: {
 		ID:          3658,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "marauderiic",
 		Name:        "mad-iic-dn",
 		Alias:       "",
@@ -11615,7 +12194,7 @@ var variants = map[int]Variant{
 
 	3668: {
 		ID:          3668,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "cyclops",
 		Name:        "cp-ar",
 		Alias:       "",
@@ -11626,7 +12205,7 @@ var variants = map[int]Variant{
 
 	3669: {
 		ID:          3669,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "supernova",
 		Name:        "snv-sr",
 		Alias:       "",
@@ -11637,7 +12216,7 @@ var variants = map[int]Variant{
 
 	3674: {
 		ID:          3674,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "quickdraw",
 		Name:        "qkd-d",
 		Alias:       "",
@@ -11648,7 +12227,7 @@ var variants = map[int]Variant{
 
 	3675: {
 		ID:          3675,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "timberwolf",
 		Name:        "tbr-h",
 		Alias:       "",
@@ -11659,7 +12238,7 @@ var variants = map[int]Variant{
 
 	3678: {
 		ID:          3678,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "clanannihilator",
 		Name:        "anh-gz",
 		Alias:       "",
@@ -11670,7 +12249,7 @@ var variants = map[int]Variant{
 
 	3679: {
 		ID:          3679,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "annihilator",
 		Name:        "anh-sc",
 		Alias:       "",
@@ -11681,7 +12260,7 @@ var variants = map[int]Variant{
 
 	3680: {
 		ID:          3680,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "executioner",
 		Name:        "exe-m",
 		Alias:       "",
@@ -11692,7 +12271,7 @@ var variants = map[int]Variant{
 
 	3659: {
 		ID:          3659,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "adder",
 		Name:        "adr-wl",
 		Alias:       "adr-w",
@@ -11703,7 +12282,7 @@ var variants = map[int]Variant{
 
 	3660: {
 		ID:          3660,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "iceferret",
 		Name:        "ifr-jl",
 		Alias:       "ifr-j",
@@ -11714,7 +12293,7 @@ var variants = map[int]Variant{
 
 	3661: {
 		ID:          3661,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "urbanmech",
 		Name:        "um-rl",
 		Alias:       "um-r",
@@ -11725,7 +12304,7 @@ var variants = map[int]Variant{
 
 	3662: {
 		ID:          3662,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jenner",
 		Name:        "jr7-al",
 		Alias:       "jr7-a",
@@ -11736,7 +12315,7 @@ var variants = map[int]Variant{
 
 	3663: {
 		ID:          3663,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "jagermech",
 		Name:        "jm6-del",
 		Alias:       "jm6-de",
@@ -11747,7 +12326,7 @@ var variants = map[int]Variant{
 
 	3664: {
 		ID:          3664,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "clanwolfhound",
 		Name:        "wlf-cl",
 		Alias:       "wlf-c",
@@ -11758,7 +12337,7 @@ var variants = map[int]Variant{
 
 	3666: {
 		ID:          3666,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "stonerhino",
 		Name:        "sr-1p",
 		Alias:       "sr-1",
@@ -11769,7 +12348,7 @@ var variants = map[int]Variant{
 
 	3667: {
 		ID:          3667,
-		Faction:     "Clan",
+		TechBase:    "Clan",
 		Chassis:     "piranha",
 		Name:        "pir-dl",
 		Alias:       "pir-d",
@@ -11780,7 +12359,7 @@ var variants = map[int]Variant{
 
 	3647: {
 		ID:          3647,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-10c",
 		Alias:       "",
@@ -11791,7 +12370,7 @@ var variants = map[int]Variant{
 
 	3648: {
 		ID:          3648,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-12rs",
 		Alias:       "lgb-12r",
@@ -11802,7 +12381,7 @@ var variants = map[int]Variant{
 
 	3649: {
 		ID:          3649,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-10k",
 		Alias:       "",
@@ -11813,7 +12392,7 @@ var variants = map[int]Variant{
 
 	3650: {
 		ID:          3650,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-12c",
 		Alias:       "",
@@ -11824,7 +12403,7 @@ var variants = map[int]Variant{
 
 	3651: {
 		ID:          3651,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-12r",
 		Alias:       "",
@@ -11835,7 +12414,7 @@ var variants = map[int]Variant{
 
 	3652: {
 		ID:          3652,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-7v",
 		Alias:       "",
@@ -11846,7 +12425,7 @@ var variants = map[int]Variant{
 
 	3653: {
 		ID:          3653,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-13nais",
 		Alias:       "",
@@ -11857,7 +12436,7 @@ var variants = map[int]Variant{
 
 	3654: {
 		ID:          3654,
-		Faction:     "InnerSphere",
+		TechBase:    "InnerSphere",
 		Chassis:     "longbow",
 		Name:        "lgb-oc",
 		Alias:       "",
