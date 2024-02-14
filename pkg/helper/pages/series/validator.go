@@ -1,3 +1,6 @@
 package series
 
-type Validator func(match MatchDetails, previous ...MatchDetails) map[string]error
+type Validator interface {
+	Name() string
+	Validate(match MatchDetails, previous ...MatchDetails) map[string]error
+}

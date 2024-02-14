@@ -66,10 +66,10 @@ func (s *Scoreboard) Layout(gtx layout.Context, theme *material.Theme) layout.Di
 			return s.overview.Layout(gtx, theme, s.results.MatchDetails)
 		}),
 		layout.Flexed(2, func(gtx layout.Context) layout.Dimensions {
-			return s.team1.Layout(gtx, theme, s.results.MatchDetails.Team1Score, s.results.MatchDetails.WinningTeam == "1", team1)
+			return s.team1.Layout(gtx, theme, s.results.MatchDetails.Team1Score, s.results.MatchDetails.WinningTeam == "1", true, team1)
 		}),
 		layout.Flexed(2, func(gtx layout.Context) layout.Dimensions {
-			return s.team2.Layout(gtx, theme, s.results.MatchDetails.Team2Score, s.results.MatchDetails.WinningTeam == "2", team2)
+			return s.team2.Layout(gtx, theme, s.results.MatchDetails.Team2Score, s.results.MatchDetails.WinningTeam == "2", true, team2)
 		}),
 	)
 }

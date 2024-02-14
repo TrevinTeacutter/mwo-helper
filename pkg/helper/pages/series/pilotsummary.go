@@ -62,6 +62,11 @@ func (p *PilotSummary) Layout(gtx layout.Context, theme *material.Theme) layout.
 	// }.Layout(gtx, children...)
 }
 
+type pilotSorters struct {
+	Username string
+	Team     string
+}
+
 func (p *PilotSummary) Table(theme *material.Theme) layout.FlexChild {
 	// Configure a label styled to be a heading.
 	headingLabel := material.Body2(theme, "")
@@ -173,19 +178,24 @@ func (p *PilotSummary) BuildRow(name string) []string {
 	}
 
 	matches := float64(wins + losses)
+	wlr := float64(wins) / float64(losses)
+
+	if losses <= 0 {
+		wlr = float64(wins)
+	}
 
 	return []string{
 		team,
 		name,
-		strconv.FormatFloat(float64(wins)/float64(losses), 'G', -1, 64),
-		strconv.FormatFloat(float64(matchScore)/matches, 'G', -1, 64),
-		strconv.FormatFloat(float64(damage)/matches, 'G', -1, 64),
-		strconv.FormatFloat(float64(kills)/matches, 'G', -1, 64),
-		strconv.FormatFloat(float64(assists)/matches, 'G', -1, 64),
-		strconv.FormatFloat(float64(deaths)/matches, 'G', -1, 64),
-		strconv.FormatFloat(float64(kmdds)/matches, 'G', -1, 64),
-		strconv.FormatFloat(float64(components)/matches, 'G', -1, 64),
-		strconv.FormatFloat(float64(teamDamage)/matches, 'G', -1, 64),
+		strconv.FormatFloat(wlr, 'G', 3, 64),
+		strconv.FormatFloat(float64(matchScore)/matches, 'G', 3, 64),
+		strconv.FormatFloat(float64(damage)/matches, 'G', 3, 64),
+		strconv.FormatFloat(float64(kills)/matches, 'G', 3, 64),
+		strconv.FormatFloat(float64(assists)/matches, 'G', 3, 64),
+		strconv.FormatFloat(float64(deaths)/matches, 'G', 3, 64),
+		strconv.FormatFloat(float64(kmdds)/matches, 'G', 3, 64),
+		strconv.FormatFloat(float64(components)/matches, 'G', 3, 64),
+		strconv.FormatFloat(float64(teamDamage)/matches, 'G', 3, 64),
 	}
 }
 
